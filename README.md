@@ -1,2 +1,2 @@
 # JiuTube
-A Streaming Video Site for Jiujitsu
+A Live Streaming Video Player and Community for Jiujitsu 
