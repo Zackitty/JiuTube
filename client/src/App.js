@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route, NavLink } from 'react-router-dom';
-
+import VideoPlayer from "./components/VideoPlayer"
 import UserList from './components/UsersList';
 
 
@@ -19,9 +19,9 @@ function App() {
                 <UserList />
             </Route>
 
-            <Route path="/">
-                <h1>My Home Page</h1>
-            </Route>
+            <Route path="/"
+                component={VideoPlayer} 
+            />
         </Switch>
     </BrowserRouter>
   );
