@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route, NavLink } from 'react-router-dom';
-import VideoPlayer from "./components/VideoPlayer"
 import UserList from './components/UsersList';
 import JiuTubePlayer from "./components/JiuTubePlayer"
 
