@@ -1,0 +1,9 @@
+{
+  "video": {
+    "JiuTubeAdmin": {
+      "service": "video",
+      "serviceType": "livestream",
+      "providerPlugin": "awscloudformation"
+    }
+  }
+}
