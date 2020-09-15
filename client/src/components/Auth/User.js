@@ -8,16 +8,20 @@ import { signUp } from '../store/auth'
 
 
 const Signup = (props) => {
-  const [firstName, setFirstName] = useState('')
-  const [lastName, setLastName] = useState('')
+  const [username, setUserName] = useState('')
+  const [fullname, setFullName] = useState('')
   const [email, setEmail] = useState('');
+  const [beltcolor setBeltColor] = useState('');
+  const [affiliation, setAffiliation] = useState('');
+  const [mediaurl, setMediaUrl] = useState('');
   const [password, setPassword] = useState('');
   const { authErrors } = useSelector(state => state.currentUser)
   const dispatch = useDispatch();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch(signUp(firstName, lastName, email, password))
+    dispatch(signUp(username, fullname, email, beltcolor,
+  affiliation, password, mediaurl))
   }
   const { toggleLast } = props
   return (
@@ -31,17 +35,17 @@ const Signup = (props) => {
       <Form
         onSubmit={handleSubmit}>
         <FormField
-          name="first_name"
-          label="First Name"
+          name="user_name"
+          label="User Name"
           type="text"
-          value={firstName}
-          onChange={e => setFirstName(e.target.value)} />
+          value={username}
+          onChange={e => setUserName(e.target.value)} />
         <FormField
-          name="last_name"
-          label="Last Name"
+          name="full_name"
+          label="Full Name"
           type="text"
-          value={lastName}
-          onChange={e => setLastName(e.target.value)} />
+          value={fullname}
+          onChange={e => setFullName(e.target.value)} />
         <FormField
           name="email"
           label="Email"
@@ -54,6 +58,24 @@ const Signup = (props) => {
           type="password"
           value={password}
           onChange={e => setPassword(e.target.value)} />
+        <FormField
+          name="belt_color"
+          label="Belt Color"
+          type="dropdown"
+          value={beltcolor}
+          onChange={e => setBeltColor(e.target.value)} />
+        <FormField
+          name="affiliation"
+          label="Affiliation"
+          type="text"
+          value={affiliation}
+          onChange={e => setAffiliation(e.target.value)} />
+        <FormField
+          name="media_url"
+          label="Avatar"
+          type="upload"
+          value={mediaurl}
+          onChange={e => setMediaUrl(e.target.value)} />
         <Button
           type="submit"
           plain={false}
