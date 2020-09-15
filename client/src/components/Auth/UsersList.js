@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { apiUrl } from '../config';
+import { apiUrl } from '../../config';
 import User from './User';
 
 function UsersList (props) {

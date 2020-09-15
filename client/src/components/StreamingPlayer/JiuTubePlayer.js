@@ -1,6 +1,6 @@
 import React from 'react'
 import videojs from 'video.js'
-import awsvideoconfig from '../aws-video-exports'
+import awsvideoconfig from '../../aws-video-exports'
 import '../index.css'
 import 'video.js/dist/video-js.css'
 
