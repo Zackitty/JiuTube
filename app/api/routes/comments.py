@@ -13,12 +13,22 @@ def get_chat():
                            for comment in chatbox}
     return chat
 
-@bp.route('/', methods=['POST'])
+@bp.route('/<int:user_id>', methods=['POST'])
 def make_comment():
+    content = request.form.get('content')
 
+    newComment = Comment(user_id = user_id, content = content )
+    db.session.add(newComment)
+    db.session.commit()
+    return newComment.to_dict()
 
 @bp.route('/<int:id>')
 def get_comment():
+    response = Comment.query.filter(Comment.id == id).one()
+    return response.to_dict()
 
 @bp.route('/<int:id>', methods=['DELETE'])
 def delete_comment():
+  response = Comment.query.filter(Comment.id == id).one()
+  response.delete
+  db.session.commit()

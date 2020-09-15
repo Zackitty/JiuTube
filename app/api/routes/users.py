@@ -55,6 +55,25 @@ def signup():
       access_token = create_access_token(identity=temp_user['id'])
       return {
             'access_token':access_token, 
-            'id': temp_user['id'],
-            'signed_petitions': temp_user['signed_petitions']
+            'id': temp_user['id']
             }, 200
+
+@bp.route('/signin', methods=['POST'])
+def signin():
+    #gather user submitted data
+    username = request.json.get('username')
+    password = request.json.get('password')
+
+    #Error Handling Validations
+    errors = validations_signin(email, password)
+    if len(errors) > 0:
+        return {'errors': errors}, 400
+
+    #Pass validations, find user, create jwt, return user data
+    user = User.query.filter_by(username=e=username).first()
+    temp_user = user.to_dict()
+    access_token = create_access_token(identity=temp_user['id'])
+    return {
+        'access_token':access_token, 
+        'id': temp_user['id']
+        }, 200
