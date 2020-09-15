@@ -4,7 +4,7 @@ from flask_cors import CORS
 from flask_wtf.csrf import CSRFProtect, generate_csrf
 from flask_migrate import Migrate
 from flask_jwt_extended import JWTManager
-
+from flask_socketio import SocketIO, send
 from app.models import db, User, Post, Comment, Thread
 from app.api.api import user_routes, forum_routes, comment_routes
 from app.config import Config
@@ -41,3 +41,12 @@ def inject_csrf_token(response):
 @app.route('/<path>')
 def react_root(path):
     return app.send_static_file('index.html')
+
+@socketIO.on("message")
+def handleMessage(msg):
+    print(msg)
+    send(msg, broadcast=True)
+    return None
+
+if __name__ == '__main__':
+    socketIo.run(app)
