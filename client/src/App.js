@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route, NavLink } from 'react-router-dom';
-import UserList from './components/UsersList';
-import JiuTubePlayer from "./components/JiuTubePlayer"
-
-
+import UserList from './components/Auth/UsersList';
+import JiuTubePlayer from "./components/StreamingPlayer/JiuTubePlayer"
+import SignUp from './components/Auth/SignUp'
+import Navbar from "./components/Global/Navbar"
 function App() {
 
   return (
@@ -20,7 +20,10 @@ function App() {
             </Route>
 
             <Route path="/"
-                component={JiuTubePlayer} 
+                component = {Navbar} />
+            />
+            <Route path="/signup"
+                component = {SignUp}
             />
         </Switch>
     </BrowserRouter>

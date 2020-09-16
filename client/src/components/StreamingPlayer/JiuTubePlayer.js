@@ -1,7 +1,6 @@
 import React from 'react'
 import videojs from 'video.js'
 import awsvideoconfig from '../../aws-video-exports'
-import '../index.css'
 import 'video.js/dist/video-js.css'
 
 class VideoPlayer extends React.Component {

@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Box, Form, Button, FormField } from 'grommet';
+import { Select, Box, Form, Button, FormField } from 'grommet';
 
 import SignInButton from './SignInButton'
-import ErrorBox from '../Grommet/ErrorBox'
-import { signUp } from '../store/auth'
+import ErrorBox from '../../Grommet/ErrorBox'
+import { signUp } from '../../store/auth'
 
 
-const Signup = (props) => {
+const SignUp = (props) => {
   const [username, setUserName] = useState('')
   const [fullname, setFullName] = useState('')
   const [email, setEmail] = useState('');
-  const [beltcolor setBeltColor] = useState('');
+  const [beltcolor, setBeltColor] = useState('');
   const [affiliation, setAffiliation] = useState('');
   const [mediaurl, setMediaUrl] = useState('');
   const [password, setPassword] = useState('');
@@ -58,12 +58,12 @@ const Signup = (props) => {
           type="password"
           value={password}
           onChange={e => setPassword(e.target.value)} />
-        <FormField
+        <Select
           name="belt_color"
           label="Belt Color"
-          type="dropdown"
+          options={['White/Branca', 'Blue/Azul', 'Purple/Roxa', "Brown/Marrom", "Black/Preto"]}
           value={beltcolor}
-          onChange={e => setBeltColor(e.target.value)} />
+          onChange={({ option }) => setBeltColor(option)} />
         <FormField
           name="affiliation"
           label="Affiliation"
@@ -73,7 +73,7 @@ const Signup = (props) => {
         <FormField
           name="media_url"
           label="Avatar"
-          type="upload"
+          type="file"
           value={mediaurl}
           onChange={e => setMediaUrl(e.target.value)} />
         <Button
@@ -87,4 +87,4 @@ const Signup = (props) => {
   );
 }
 
-export default Signup
+export default SignUp
