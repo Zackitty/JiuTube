@@ -13,20 +13,20 @@ def index():
 
 @bp.route('/signup', methods=['POST'])
 def signup():
-      if len(request.files) == 0 and request.form.get('mediaurl') == '':
+      if len(request.files) == 0:
         username = request.form.get('username')
-        full_name = request.form.get('full_name')
+        fullname = request.form.get('full_name')
         email = request.form.get('email')
-        belt_color = request.form.get('belt_color')
+        beltcolor = request.form.get('belt_color')
         affiliation = request.form.get('affiliation')
         password = request.form.get('password')
         mediaurl = 'https://jiutube.s3.us-east-2.amazonaws.com/image-judo_1024x1024.png'
 
       elif len(request.files) > 0:
         username = request.form.get('username')
-        full_name = request.form.get('full_name')
+        fullname = request.form.get('full_name')
         email = request.form.get('email')
-        belt_color = request.form.get('belt_color')
+        beltcolor = request.form.get('belt_color')
         affiliation = request.form.get('affiliation')
         password = request.form.get('password')
         img = request.files['file']
@@ -34,7 +34,8 @@ def signup():
         bucket.put_object(Key=key, Body=img, ContentType=img.content_type)
         mediaurl = f'https://change-clone.s3-us-west-1.amazonaws.com/{key}'
 
-      errors = validations_signup(email, full_name, password, belt_color)
+      errors = validations_signup(username, fullname, email, beltcolor,
+   affiliation, password, mediaurl)
       if len(errors) > 0:
         return {'errors': errors}, 401
 
@@ -77,3 +78,64 @@ def signin():
         'access_token':access_token, 
         'id': temp_user['id']
         }, 200
+
+def validations_signup(username, fullname, email, beltcolor,
+   affiliation, password, mediaurl):
+    regex ='[^@]+@[^@]+\.[^@]+'
+    errors = []
+    #Check Email is Unique
+    email_found = User.query.filter(User.email == email).first()
+    username_found = User.query.filter(User.username == username).first()
+    if(email_found):
+        errors.append('Account already exists with this email address')
+    if(username_found):
+        errors.append('Account already exists with this User Name')
+    if not username:
+      errors.append('User Name is missing')
+    if not email:
+        errors.append('Email is missing')
+    if not full_name:
+        errors.append('Name is missing')
+    if not beltcolor:
+        errors.append('Name is missing')
+    if not password:
+        errors.append('password is missing')
+    if not re.search(regex, email):
+        errors.append('email is not valid')
+    if len(full_name) > 40:
+        errors.append('Name is too long')
+    if len(username) > 40:
+        errors.append('User Name is too long')
+    if len(email) > 255:
+        errors.append('email length is too long')
+    return errors
+
+def validations_signin(username, password):
+    errors = []
+    user = User.query.filter_by(username=username).first()
+    if not user:
+        errors.append('User was not found')
+        return errors
+    if user: 
+        password_match = bcrypt.checkpw(password.encode('utf-8'), user.encrypted_password)
+        if not username:
+            errors.append('Username is missing')
+        if not password:
+            errors.append('Password is missing')
+        if not password_match: 
+            errors.append('Password is incorrect')
+        if len(username) > 255:
+            errors.append('Username length is too long')
+    return errors
+
+def validations_details(full_name):
+    errors = []
+    if not full_name:
+        errors.append('Name is missing')
+    if len(errors) > 0:
+        return errors
+    if len(full_name) > 40:
+        errors.append('Name length is too long')
+    if len(full_name) < 1:
+        errors.append('Name was not provided')
+    return errors
