@@ -8,8 +8,8 @@ bp = Blueprint('comments', __name__, '')
 
 @bp.route('/')
 def get_chat():
-  chatbox = Comment.query.all()
-  chat = {str(comment.id): comment.to_dict()
+    chatbox = Comment.query.all()
+    chat = {str(comment.id): comment.to_dict()
                            for comment in chatbox}
     return chat
 

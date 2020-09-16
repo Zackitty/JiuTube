@@ -70,7 +70,7 @@ def signin():
         return {'errors': errors}, 400
 
     #Pass validations, find user, create jwt, return user data
-    user = User.query.filter_by(username=e=username).first()
+    user = User.query.filter_by(username=username).first()
     temp_user = user.to_dict()
     access_token = create_access_token(identity=temp_user['id'])
     return {

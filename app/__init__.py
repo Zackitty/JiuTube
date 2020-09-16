@@ -6,13 +6,13 @@ from flask_migrate import Migrate
 from flask_jwt_extended import JWTManager
 from flask_socketio import SocketIO, send
 from app.models import db, User, Post, Comment, Thread
-from app.api.api import user_routes, forum_routes, comment_routes
+from app.api.api import user_routes, comment_routes
 from app.config import Config
 
 app = Flask(__name__, static_url_path='')
 
 app.config.from_object(Config)
-app.register_blueprint(forum_routes, url_prefix='/api/forums')
+# app.register_blueprint(forum_routes, url_prefix='/api/forums')
 app.register_blueprint(user_routes, url_prefix='/api/users')
 app.register_blueprint(user_routes, url_prefix='/api/comments')
 db.init_app(app)
@@ -25,6 +25,9 @@ app.config['FLASKS3_BUCKET_NAME'] = ''
 # Application Security
 CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
+socketio = SocketIO(app)
+if __name__ == '__main__':
+    socketIo.run(app)
 
 @app.after_request
 def inject_csrf_token(response):
@@ -42,11 +45,9 @@ def inject_csrf_token(response):
 def react_root(path):
     return app.send_static_file('index.html')
 
-@socketIO.on("message")
+@socketio.on("message")
 def handleMessage(msg):
     print(msg)
     send(msg, broadcast=True)
     return None
 
-if __name__ == '__main__':
-    socketIo.run(app)
