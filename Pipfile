@@ -30,6 +30,8 @@ psycopg2-binary = "*"
 boto3 = "*"
 flask-s3 = "*"
 flask-socketio = "*"
+sanic = "*"
+sanic-cors = "*"
 
 [requires]
 python_version = "3.8"

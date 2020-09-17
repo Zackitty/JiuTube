@@ -43,7 +43,7 @@ def signup():
       hashed_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt(14))
 
     #create user in database
-      addUser = User(email=email, full_name=full_name, mediaurl=mediaurl, belt_color=belt_color, 
+      addUser = User(username=username, email=email, full_name=fullname, avatar=mediaurl, belt_color=beltcolor, 
                    affiliation=affiliation, encrypted_password=hashed_password)
       db.session.add(addUser)
       db.session.commit()
@@ -66,7 +66,7 @@ def signin():
     password = request.json.get('password')
 
     #Error Handling Validations
-    errors = validations_signin(email, password)
+    errors = validations_signin(username, password)
     if len(errors) > 0:
         return {'errors': errors}, 400
 
@@ -78,6 +78,54 @@ def signin():
         'access_token':access_token, 
         'id': temp_user['id']
         }, 200
+
+@bp.route('/<int:id>', methods=['GET','PATCH'])
+@jwt_required
+def user_page(id):
+    if request.method == 'GET':
+        found_user = User.query.filter(User.id == id).first()
+        if found_user:
+            return found_user.to_dict()
+        else:
+            return {'error': "User not found"}, 400
+    else:
+        #gather user submitted data
+        json = request.get_json()
+        username = json.get('username')
+
+        #validate user submitted data
+        errors = validations_user_details(last_name, first_name)
+        if len(errors) > 0:
+            return {'errors': errors}
+
+        #get id from json web token
+        current_user_id = get_jwt_identity()
+
+        #if user is found in database then update user details. If not, send error to client
+        found_user = User.query.filter(User.id == current_user_id).first()
+        if(found_user):
+            found_user.username = username
+            db.session.commit()
+            return {'message':'Success'}, 200
+        else:
+            return {'error': 'User was not found'}, 400
+
+@bp.route('/delete_account', methods=['DELETE'])
+@jwt_required
+def delete_account():
+    #get id from json web token
+    current_user_id = get_jwt_identity()
+
+    #retrieve user from data to be deleted if exists
+    temp_user = User.query.filter(User.id == current_user_id).first()
+    if temp_user is None:
+        return {'error': 'User with given id does not exist'}, 400
+
+    #delete user from database
+    db.session.delete(temp_user)
+    db.session.commit()
+    return {'status': 200}
+
 
 def validations_signup(username, fullname, email, beltcolor,
    affiliation, password, mediaurl):
@@ -94,7 +142,7 @@ def validations_signup(username, fullname, email, beltcolor,
       errors.append('User Name is missing')
     if not email:
         errors.append('Email is missing')
-    if not full_name:
+    if not fullname:
         errors.append('Name is missing')
     if not beltcolor:
         errors.append('Name is missing')
@@ -102,7 +150,7 @@ def validations_signup(username, fullname, email, beltcolor,
         errors.append('password is missing')
     if not re.search(regex, email):
         errors.append('email is not valid')
-    if len(full_name) > 40:
+    if len(fullname) > 40:
         errors.append('Name is too long')
     if len(username) > 40:
         errors.append('User Name is too long')
@@ -128,14 +176,14 @@ def validations_signin(username, password):
             errors.append('Username length is too long')
     return errors
 
-def validations_details(full_name):
+def validations_details(fullname):
     errors = []
-    if not full_name:
+    if not fullname:
         errors.append('Name is missing')
     if len(errors) > 0:
         return errors
-    if len(full_name) > 40:
+    if len(fullname) > 40:
         errors.append('Name length is too long')
-    if len(full_name) < 1:
+    if len(fullname) < 1:
         errors.append('Name was not provided')
     return errors

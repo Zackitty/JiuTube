@@ -5,7 +5,7 @@ from flask_wtf.csrf import CSRFProtect, generate_csrf
 from flask_migrate import Migrate
 from flask_jwt_extended import JWTManager
 from flask_socketio import SocketIO, send
-from app.models import db, User, Post, Comment, Thread
+from app.models import db, User, Comment
 from app.api.api import user_routes, comment_routes
 from app.config import Config
 
@@ -25,7 +25,7 @@ app.config['FLASKS3_BUCKET_NAME'] = ''
 # Application Security
 CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
-socketio = SocketIO(app)
+socketio = SocketIO(app, cors_allowed_origins="*")
 if __name__ == '__main__':
     socketIo.run(app)
 

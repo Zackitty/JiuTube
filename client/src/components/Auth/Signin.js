@@ -9,14 +9,14 @@ import ErrorBox from '../../Grommet/ErrorBox'
 
 const Signin = (props) => {
   const { toggleLast } = props
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const { authErrors } = useSelector(state => state.currentUser)
   const dispatch = useDispatch();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch(signIn(email, password))
+    dispatch(signIn(username, password))
   }
 
   const handleGuestSubmit = async (e) => {
@@ -43,11 +43,11 @@ const Signin = (props) => {
       <Form
         onSubmit={handleSubmit}>
         <FormField
-          name="email"
-          label="Email"
+          name="username"
+          label="User Name"
           type="text"
-          value={email}
-          onChange={e => setEmail(e.target.value)} />
+          value={username}
+          onChange={e => setUsername(e.target.value)} />
         <FormField
           name="password"
           label="Password"

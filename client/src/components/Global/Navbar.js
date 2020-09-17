@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Chat from '../Chat/Chat/Chat'
 import JiuTubePlayer from '../StreamingPlayer/JiuTubePlayer'
-import SignUp from '../Auth/SignUp'
+import Signin from '../Auth/SignUp'
 const NavBar = ({ token }) => {
   return (  
   <div>
@@ -12,7 +12,7 @@ const NavBar = ({ token }) => {
     <div>
     {/* <JiuTubePlayer />  */}
     {/* <Chat /> */}
-    <SignUp />
+    <Signin />
       </div>
   </div>
   
