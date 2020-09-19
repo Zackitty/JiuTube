@@ -6,7 +6,7 @@ import TextContainer from '../TextContainer/TextContainer';
 import Messages from '../Messages/Messages';
 import InfoBar from '../InfoBar/InfoBar';
 import Input from '../Input/Input';
-import { apiUrl } from "../../../config"
+import { apiUrl, imageUrl } from "../../../config"
 import './Chat.css';
 
 let socket;
@@ -25,21 +25,22 @@ const Chat = ({ location }) => {
     fetch(`${apiUrl}/users/${USER_ID}`)
       .then( res=> res.json())
       .then(data => setName(data.username))
+    
 
+    
     socket = io(ENDPOINT);
 
-    setRoom(room);
-    setName(name)
-
-    socket.emit('join',  (error) => {
+    socket.emit('join', { name }, (error) => {
       if(error) {
         alert(error);
       }
     });
   }, [ENDPOINT]);
+    
+
   
   useEffect(() => {
-    socket.on('message', message => {
+    socket.on('message_sent', message => {
       setMessages(messages => [ ...messages, message ]);
     });
     
@@ -52,7 +53,7 @@ const Chat = ({ location }) => {
     event.preventDefault();
 
     if(message) {
-      socket.emit('sendMessage', message, () => setMessage(''));
+      socket.emit('send_message', message, () => setMessage(''));
     }
   }
 

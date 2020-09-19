@@ -4,7 +4,7 @@ from flask_cors import CORS
 from flask_wtf.csrf import CSRFProtect, generate_csrf
 from flask_migrate import Migrate
 from flask_jwt_extended import JWTManager
-from flask_socketio import SocketIO, send
+from flask_socketio import SocketIO, send, emit
 from app.models import db, User, Comment
 from app.api.api import user_routes, comment_routes
 from app.config import Config
@@ -27,7 +27,7 @@ CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 socketio = SocketIO(app, cors_allowed_origins="*")
 if __name__ == '__main__':
-    socketIo.run(app)
+    socketio.run(app)
 
 @app.after_request
 def inject_csrf_token(response):
@@ -45,9 +45,14 @@ def inject_csrf_token(response):
 def react_root(path):
     return app.send_static_file('index.html')
 
+
 @socketio.on("message")
 def handleMessage(msg):
     print(msg)
     send(msg, broadcast=True)
     return None
 
+
+@socketio.on('send_message')
+def on_chat_sent(data):
+    emit('message_sent', data)

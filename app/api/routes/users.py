@@ -80,7 +80,6 @@ def signin():
         }, 200
 
 @bp.route('/<int:id>', methods=['GET','PATCH'])
-@jwt_required
 def user_page(id):
     if request.method == 'GET':
         found_user = User.query.filter(User.id == id).first()
