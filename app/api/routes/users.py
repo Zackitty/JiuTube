@@ -64,7 +64,7 @@ def signin():
     #gather user submitted data
     username = request.json.get('username')
     password = request.json.get('password')
-
+    
     #Error Handling Validations
     errors = validations_signin(username, password)
     if len(errors) > 0:

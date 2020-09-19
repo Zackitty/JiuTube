@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, request, session
+from flask import Flask, render_template, request, session, jsonify
 from flask_cors import CORS
 from flask_wtf.csrf import CSRFProtect, generate_csrf
 from flask_migrate import Migrate
@@ -46,13 +46,19 @@ def react_root(path):
     return app.send_static_file('index.html')
 
 
-@socketio.on("message")
-def handleMessage(msg):
-    print(msg)
-    send(msg, broadcast=True)
-    return None
 
+@socket.on('join_room')
+def on_join(data):
+    room = data['room']
+    join_room(room)
+    emit('open_room', {'room': room}, broadcast=True)
 
 @socketio.on('send_message')
 def on_chat_sent(data):
-    emit('message_sent', data)
+    print(data)
+    name = data['user']
+    message = data['text']
+   
+
+    # emit('message_sent', message)
+    emit('message', {'user': name, 'text': message} )

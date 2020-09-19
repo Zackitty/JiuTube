@@ -12,7 +12,7 @@ const NavBar = ({ token }) => {
     <div>
     {/* <JiuTubePlayer />  */}
     <Chat />
-    {/* <Signin /> */}
+    <Signin />
       </div>
   </div>
   

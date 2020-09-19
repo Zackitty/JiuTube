@@ -13,7 +13,7 @@ let socket;
 
 const Chat = ({ location }) => {
   const [name, setName] = useState('');
-  const [room, setRoom] = useState('');
+  const room = 'room'
   const [users, setUsers] = useState('');
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
@@ -40,20 +40,23 @@ const Chat = ({ location }) => {
 
   
   useEffect(() => {
-    socket.on('message_sent', message => {
+    socket.on('message', message => {
       setMessages(messages => [ ...messages, message ]);
     });
     
     socket.on("roomData", ({ users }) => {
       setUsers(users);
     });
-}, []);
 
+   
+}, []);
+console.log(messages)
   const sendMessage = (event) => {
     event.preventDefault();
 
     if(message) {
-      socket.emit('send_message', message, () => setMessage(''));
+      const data = {text: message, user: name}
+      socket.emit('send_message', data, () => setMessage(''));
     }
   }
 
