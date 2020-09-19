@@ -13,7 +13,7 @@ let socket;
 
 const Chat = ({ location }) => {
   const [name, setName] = useState('');
-  const room = 'room'
+  const [room, setRoom] = useState('room')
   const [users, setUsers] = useState('');
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
@@ -30,11 +30,7 @@ const Chat = ({ location }) => {
     
     socket = io(ENDPOINT);
 
-    socket.emit('join', { name }, (error) => {
-      if(error) {
-        alert(error);
-      }
-    });
+    socket.emit('join_room', { username: name, room: room })
   }, [ENDPOINT]);
     
 
@@ -55,7 +51,7 @@ console.log(messages)
     event.preventDefault();
 
     if(message) {
-      const data = {text: message, user: name}
+      const data = {text: message, user: name, room: room}
       socket.emit('send_message', data, () => setMessage(''));
     }
   }
