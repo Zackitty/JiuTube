@@ -1,9 +1,16 @@
 #VideoPlayer__Div {
 height: 500;
-  width: 500px
+  width: 500px;
+  box-shadow: 40px 40px;
+  margin: 40px;
+  border: 20px;
 }
 
 #VideoPlayer{
   height: 500px;
-  width: 800px
+  width: 800px;
+  box-shadow: 40px 40px;
+  margin: 40px;
+  border: 20px;
 }
+

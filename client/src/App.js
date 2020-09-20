@@ -16,7 +16,7 @@ function App() {
 
             <Route path="/"
                 component = {Navbar} />
-            />
+            
             <Route path="/signin" 
                 component = {Signin} />
             <Route path="/signup"
