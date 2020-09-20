@@ -2,7 +2,7 @@ import React from 'react'
 import videojs from 'video.js'
 import awsvideoconfig from '../../aws-video-exports'
 import 'video.js/dist/video-js.css'
-
+import './JiuTubePlayer.css';
 class VideoPlayer extends React.Component {
   componentDidMount() {
     this.player = videojs(this.videoNode, this.props)
@@ -17,10 +17,8 @@ class VideoPlayer extends React.Component {
   render() {
     return (
       <>
-        <div data-vjs-player style={{
-            width: 960, height: 540
-          }}>
-          <video  ref={(node) => { this.videoNode = node; }} className="video-js" />
+        <div data-vjs-player id="VideoPlayer__Div" >
+          <video  ref={(node) => { this.videoNode = node; }} id="VideoPlayer" className="video-js" />
         </div>
       </>
     );
@@ -38,10 +36,7 @@ const videoJsOptions = {
 function JiuTubePlayer() {
   return (
     <div>
-      <nav style={nav}>
-        <p style={navHeading}>Live Streaming with React & AWS</p>
-      </nav>
-      <div style={container}>
+      <div>
         <VideoPlayer { ...videoJsOptions } />
       </div>
     </div>

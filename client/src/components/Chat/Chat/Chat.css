@@ -2,7 +2,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 500px;
+  width: 400px;
   background-color: #1A1A1D;
 }
 
@@ -12,8 +13,8 @@
   justify-content: space-between;
   background: #FFFFFF;
   border-radius: 8px;
-  height: 60%;
-  width: 35%;
+  height: 100%;
+  width: 400px
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
@@ -29,6 +30,6 @@
 
 @media (min-width: 480px) and (max-width: 1200px) {
   .container {
-    width: 60%;
+    width: 100%;
   }
 }
