@@ -1,5 +1,4 @@
 build:
   docker:
     web: Dockerfile
-    worker:
-       dockerfile: Dockerfile
+    web: gunicorn server:flask_app
