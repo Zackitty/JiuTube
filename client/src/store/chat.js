@@ -1,24 +1,24 @@
 import { apiUrl } from '../config';
 
 //VARIABLE DECLARATIONS
-const GET_USERS = 'JiuTube/users/GET_USERS';
+const GET_CHAT = 'JIUTUBE/comments/GET_Chat';
 
 //PRIMARY FUNCTIONS
 
 //GET USERS
-export const fetchUsers = () => async dispatch => {
-  const response = await fetch(`${apiUrl}/users`)
+export const fetchComments = () => async dispatch => {
+  const response = await fetch(`${apiUrl}/comments/`)
   if (!response.ok) {
     throw response;
   }
 
   const data = await response.json()
-  dispatch(getUsers(data))
+  dispatch(getComments(data))
 }
 
 //ACTION CREATORS
-export const getUsers = (data) => ({
-  type: GET_USERS,
+export const getComments = (data) => ({
+  type: GET_CHAT,
   data
 })
 
@@ -27,7 +27,7 @@ export default function reducer(state = {}, action) {
   Object.freeze(state)
   const newState = Object.assign({}, state);
   switch (action.type) {
-    case GET_USERS: {
+    case GET_CHAT: {
       return action.data
     }
     default: return newState

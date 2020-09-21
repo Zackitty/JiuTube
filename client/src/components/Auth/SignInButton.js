@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Box, Button, Layer } from 'grommet';
-
+import './auth.css';
 import Signin from './Signin';
 import SignUp from './SignUp';
 
@@ -38,12 +38,15 @@ const SignInButton = (props) => {
 
   return (
     <Box>
+      <div className={"signin__container"}>
       <Button
 
         plain
         hoverIndicator={{ color: "#ffffff" }}
         label={label}
+        className={'signin_button'}
         onClick={() => { onClickProp ? onClickProp() : toggleLast() }} />
+        </div>
       {(showIn || showUp) && (
         <Layer
           onEsc={() => close()}

@@ -1,0 +1,31 @@
+.signin_button {
+  display: flex;
+  justify-content: flex-end;
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+  font-size: 13px;
+  font-weight: 500;
+border: 2px solid #333E48;
+  width: 70px;
+}
+
+.signin__container {
+  width: 20px;
+
+  color: #333E48;
+  padding: 10px 16px;
+border-radius: 2px;
+line-height: 2px;
+text-decoration: none;
+font-family: National2,"Helvetica Neue",Helvetica,Arial,sans-serif;
+font-size: 13px;
+font-weight: 500;
+background-color: transparent;
+justify-content: center;
+border-width: 2px;
+border-style: solid;
+border: 2px solid #333E48;
+cursor: pointer;
+background-color: white;
+}

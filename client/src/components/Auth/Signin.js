@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Box, Form, Button, FormField } from 'grommet';
-
+import { useParams, useHistory} from 'react-router-dom'
 import SignInButton from './SignInButton'
 import { signIn } from '../../store/auth'
 import ErrorBox from '../../Grommet/ErrorBox'
@@ -13,15 +13,17 @@ const Signin = (props) => {
   const [password, setPassword] = useState('');
   const { authErrors } = useSelector(state => state.currentUser)
   const dispatch = useDispatch();
-
+  let history = useHistory();
   const handleSubmit = async (e) => {
     e.preventDefault();
     dispatch(signIn(username, password))
+    return history.push(`/`);
   }
 
   const handleGuestSubmit = async (e) => {
     e.preventDefault()
-    dispatch(signIn("default@user.com", "password"))
+    dispatch(signIn("Demo", "password"))
+    return history.push(`/`);
   }
   return (
     <Box align="center" pad="large">

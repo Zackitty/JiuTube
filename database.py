@@ -1,25 +1,16 @@
 from dotenv import load_dotenv
+import bcrypt
+from app import app, db
+from app.models import User
 load_dotenv()
-
-from starter_app import app, db
-from starter_app.models import User
-
 with app.app_context():
   db.drop_all()
   db.create_all()
 
-  ian = User(username = 'Ian', email = 'ian@aa.io')
-  javier = User(username = 'Javier', email = 'javier@aa.io')
-  dean = User(username = 'Dean', email = 'dean@aa.io')
-  angela = User(username = 'Angela', email = 'angela@aa.io')
-  soonmi = User(username = 'Soon-Mi', email = 'soonmi@aa.io')
-  alissa = User(username = 'Alissa', email = 'alissa@aa.io')
+  demo_user = User(username = 'Demo', full_name = 'demo land', email = 'demo@demo.com',
+   belt_color = 'white', affiliation ='none', avatar = '', encrypted_password=bcrypt.hashpw(
+            "password".encode('utf-8'), bcrypt.gensalt(14)))
 
-  db.session.add(ian)
-  db.session.add(javier)
-  db.session.add(dean)
-  db.session.add(angela)
-  db.session.add(soonmi)
-  db.session.add(alissa)
 
+  db.session.add(demo_user)
   db.session.commit()

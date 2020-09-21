@@ -18,7 +18,7 @@ RUN ["npm", "run", "build", "--prefix", "client"]
 RUN ["cp", "-r", "client/build/", "app/static"]
 
 # Setup Flask environment
-ENV FLASK_APP=starter_app
+ENV FLASK_APP=app
 ENV FLASK_ENV=production
 ENV SQLALCHEMY_ECHO=True
 ENV SECRET_KEY=lkasjdf09ajsdkfljalsiorj12n3490re9485309irefvn,u90818734902139489230
