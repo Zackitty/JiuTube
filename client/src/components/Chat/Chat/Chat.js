@@ -18,6 +18,7 @@ const Chat = ({ location }) => {
   const [users, setUsers] = useState('');
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
+  const [preLoadedMessages, setPreLoadedMessages] = useState([])
   const ENDPOINT = imageUrl;
 
 
