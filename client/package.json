@@ -13,6 +13,7 @@
     "grommet-controls": "^3.0.1",
     "grommet-icons": "^4.4.0",
     "or": "^0.2.0",
+    "postcss-discard-comments": "^4.0.2",
     "query-string": "^6.13.2",
     "react": "^16.13.1",
     "react-bootstrap": "^1.3.0",
