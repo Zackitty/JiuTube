@@ -33,7 +33,7 @@ const Chat = ({ location }) => {
 
 
     
-    socket = io(ENDPOINT, {transports: ['websocket']});
+    socket = io(ENDPOINT);
 
     socket.emit('join_room', { username: name, room: room })
   }, [ENDPOINT]);
