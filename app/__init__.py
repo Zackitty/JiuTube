@@ -27,7 +27,7 @@ CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 socketio = SocketIO(app, cors_allowed_origins="*" )
 if __name__ == '__main__':
-    port=int(os.environ.get('PORT', '5000'))
+     socketio.run(app, debug=True)
 
 @app.after_request
 def inject_csrf_token(response):

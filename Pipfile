@@ -32,6 +32,8 @@ flask-s3 = "*"
 flask-socketio = "*"
 sanic = "*"
 sanic-cors = "*"
+gevent-websocket = "*"
+eventlet = "*"
 
 [requires]
 python_version = "3.8"
