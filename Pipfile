@@ -34,6 +34,7 @@ sanic = "*"
 sanic-cors = "*"
 gevent-websocket = "*"
 eventlet = "*"
+flask-sockets = "*"
 
 [requires]
 python_version = "3.8"
