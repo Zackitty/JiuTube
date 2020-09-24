@@ -26,4 +26,4 @@ ENV SECRET_KEY=lkasjdf09ajsdkfljalsiorj12n3490re9485309irefvn,u90818734902139489
 EXPOSE 8000
 
 # Run flask environment
-CMD gunicorn -k flask_sockets.worker app:app
+CMD gunicorn app:app
