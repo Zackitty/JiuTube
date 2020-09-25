@@ -35,6 +35,7 @@ sanic-cors = "*"
 gevent-websocket = "*"
 eventlet = "*"
 flask-sockets = "*"
+redis = "*"
 
 [requires]
 python_version = "3.8"
