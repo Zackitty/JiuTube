@@ -23,8 +23,4 @@ psycopg2-binary==2.8.5
 boto3==1.14.56
 flask-s3==0.3.3
 flask-socketio==4.3.1
-sanic==20.6.3
-sanic-cors==0.10.0.post3
-eventlet==0.28.0
 flask-sockets==0.2.1
-redis==3.5.3
