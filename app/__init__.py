@@ -9,6 +9,8 @@ from app.models import db, User, Comment
 from app.api.api import user_routes, comment_routes
 from app.config import Config
 import redis
+import eventlet
+eventlet.monkey_patch()
 
 app = Flask(__name__, static_url_path='')
 
@@ -28,7 +30,7 @@ redis = redis.from_url(REDIS_URL)
 # Application Security
 CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
-socketio = SocketIO(app, cors_allowed_origins="*" )
+socketio = SocketIO(app, cors_allowed_origins="https://thejiutube.herokuapp.com" )
 if __name__ == '__main__':
      socketio.run(app, debug=True)
 
