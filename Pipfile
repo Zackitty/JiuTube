@@ -37,6 +37,7 @@ eventlet = "*"
 flask-sockets = "*"
 redis = "*"
 flask-talisman = "*"
+pyopenssl = "*"
 
 [requires]
 python_version = "3.8"
