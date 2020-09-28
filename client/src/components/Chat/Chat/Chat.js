@@ -28,11 +28,11 @@ const Chat = ({ location }) => {
 
   useEffect(() => {
     const USER_ID = localStorage.getItem('USER_ID')
-    
+    if(USER_ID !== null){
     fetch(`${apiUrl}/users/${USER_ID}`)
       .then( res=> res.json())
       .then(data => setName(data.username))
-    
+    }
 
 
     
