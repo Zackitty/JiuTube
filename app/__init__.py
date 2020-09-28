@@ -39,7 +39,7 @@ def inject_csrf_token(response):
                         secure=True if os.environ.get('FLASK_ENV') else False,
                         samesite='Strict' if os.environ.get(
                             'FLASK_ENV') else None,
-                        )
+                        httponly=False)
     return response
 
 
