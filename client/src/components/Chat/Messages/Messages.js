@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import ScrollToBottom from 'react-scroll-to-bottom';
-import axios from 'axios';
+
 import Message from './Message/Message';
 import { apiUrl, imageUrl } from "../../../config"
 import './Messages.css';
@@ -14,8 +14,9 @@ const Messages = ({ messages, name }) => {
 
   useEffect(() => {
     
-    axios.get(`${apiUrl}/comments`)
-      .then(data => setInitialMessages(data.data))
+    fetch(`${apiUrl}/comments`)
+      .then(response => response.json())
+      .then(data => setInitialMessages(data))
 
   }, [ENDPOINT]);
   const initialArray = []

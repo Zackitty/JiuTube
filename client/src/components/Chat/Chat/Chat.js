@@ -13,7 +13,7 @@ import { fetchComments } from '../../../store/chat'
 let socket;
 
 const Chat = ({ location }) => {
-  const initMessages = axios.get(`${apiUrl}/comments`)
+
   
   const [name, setName] = useState('');
   const [room, setRoom] = useState('The JiuTube')
@@ -72,11 +72,17 @@ const Chat = ({ location }) => {
     formData.append("message", message);
     formData.append("id", USER_ID)
     formData.append('username', name)
-    axios.post(`${apiUrl}/comments/`, formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        }
+    fetch(`${apiUrl}/comments/`, {
+      method: 'post',
+      body: formData,
     })
+    .then(response => response.json())
+.then(result => {
+  console.log('Success:', result);
+})
+.catch(error => {
+  console.error('Error:', error);
+});
   }
 }
 

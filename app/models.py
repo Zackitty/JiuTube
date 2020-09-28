@@ -51,11 +51,10 @@ class Comment(db.Model):
   user = db.relationship("User",  back_populates="comments")
   def to_dict(self):
 
-    user = [user.id for user in self.user ]
     return {
       "id": self.id,
       "username": self.username,
-      "user": self.user,
+      "user": self.user_id,
       "content": self.content,
     }
 
