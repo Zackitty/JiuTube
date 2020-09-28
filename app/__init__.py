@@ -8,7 +8,7 @@ from flask_socketio import SocketIO, send, emit, join_room
 from app.models import db, User, Comment
 from app.api.api import user_routes, comment_routes
 from app.config import Config
-from flask_talisman import Talisman
+
 
 
 
@@ -25,7 +25,7 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 app.config['FLASKS3_BUCKET_NAME'] = ''
 
 # Application Security
-Talisman(app)
+
 CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 socketio = SocketIO(app, cors_allowed_origins="*" )
@@ -39,7 +39,7 @@ def inject_csrf_token(response):
                         secure=True if os.environ.get('FLASK_ENV') else False,
                         samesite='Strict' if os.environ.get(
                             'FLASK_ENV') else None,
-                        httponly=True)
+                        )
     return response
 
 
