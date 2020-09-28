@@ -30,7 +30,6 @@ CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 socketio = SocketIO(app, cors_allowed_origins="*" )
 if __name__ == '__main__':
-     app.run(ssl_context=('cert.pem', 'key.pem'))
      socketio.run(app, debug=True)
 
 @app.after_request
