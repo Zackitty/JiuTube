@@ -8,6 +8,8 @@ from flask_socketio import SocketIO, send, emit, join_room
 from app.models import db, User, Comment
 from app.api.api import user_routes, comment_routes
 from app.config import Config
+from flask_talisman import Talisman
+
 
 
 app = Flask(__name__, static_url_path='')
