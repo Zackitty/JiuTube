@@ -36,6 +36,7 @@ gevent-websocket = "*"
 eventlet = "*"
 flask-sockets = "*"
 redis = "*"
+flask-talisman = "*"
 
 [requires]
 python_version = "3.8"

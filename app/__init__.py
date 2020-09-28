@@ -23,6 +23,7 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 app.config['FLASKS3_BUCKET_NAME'] = ''
 
 # Application Security
+Talisman(app)
 CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 socketio = SocketIO(app, cors_allowed_origins="*" )
