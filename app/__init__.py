@@ -25,7 +25,7 @@ app.config['FLASKS3_BUCKET_NAME'] = ''
 # Application Security
 CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
-socketio = SocketIO(app, cors_allowed_origins="https://thejiutube.herokuapp.com" )
+socketio = SocketIO(app, cors_allowed_origins="*" )
 if __name__ == '__main__':
      socketio.run(app, debug=True)
 

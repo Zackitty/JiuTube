@@ -1,16 +1,34 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
 
 import ScrollToBottom from 'react-scroll-to-bottom';
-
+import axios from 'axios';
 import Message from './Message/Message';
-
+import { apiUrl, imageUrl } from "../../../config"
 import './Messages.css';
 
-const Messages = ({ messages, name }) => (
+const Messages = ({ messages, name }) => {
+  
+  const [initialMessages, setInitialMessages] = useState([]);
+
+  const ENDPOINT = imageUrl;
+
+  useEffect(() => {
+    
+    axios.get(`${apiUrl}/comments`)
+      .then(data => setInitialMessages(data.data))
+
+  }, [ENDPOINT]);
+  const initialArray = []
+  for ( var key in initialMessages) {
+    initialArray.push(initialMessages[key])
+  }
+  console.log(initialArray)
+
+  return (
   <ScrollToBottom className="messages">
-    {console.log(messages)}
+    {initialArray.map((message, i) => <div key={i}><Message message={message} name={name}/></div>)}
     {messages.map((message, i) => <div key={i}><Message message={message} name={name}/></div>)}
   </ScrollToBottom>
-);
+);}
 
 export default Messages;

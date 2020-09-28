@@ -6,12 +6,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import Messages from '../Messages/Messages';
 import InfoBar from '../InfoBar/InfoBar';
 import Input from '../Input/Input';
+
 import { apiUrl, imageUrl } from "../../../config"
 import './Chat.css';
 import { fetchComments } from '../../../store/chat'
 let socket;
 
 const Chat = ({ location }) => {
+  const initMessages = axios.get(`${apiUrl}/comments`)
   
   const [name, setName] = useState('');
   const [room, setRoom] = useState('The JiuTube')
@@ -26,6 +28,7 @@ const Chat = ({ location }) => {
 
   useEffect(() => {
     const USER_ID = localStorage.getItem('USER_ID')
+    
     fetch(`${apiUrl}/users/${USER_ID}`)
       .then( res=> res.json())
       .then(data => setName(data.username))
@@ -43,6 +46,7 @@ const Chat = ({ location }) => {
   useEffect(() => {
     socket.on('message', message => {
       setMessages(messages => [ ...messages, message ]);
+      console.log(messages)
     });
     
     socket.on("roomData", ({ users }) => {
@@ -60,12 +64,14 @@ const Chat = ({ location }) => {
       .then(data => setName(data.username))
       
     if(message) {
+   
     const data = {text: message, user: name, room: room}
     socket.emit('send_message', data, () => setMessage(''));
     const userId = localStorage.getItem('USER_ID')
     const formData = new FormData();
     formData.append("message", message);
     formData.append("id", USER_ID)
+    formData.append('username', name)
     axios.post(`${apiUrl}/comments/`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'

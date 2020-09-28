@@ -2,6 +2,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 #
+
 class User(db.Model):
   __tablename__ = 'users'
 
@@ -44,13 +45,17 @@ class Comment(db.Model):
 
   id = db.Column(db.Integer, primary_key = True)
   content = db.Column(db.String(255), nullable = False)
+  username = db.Column(db.String(255), nullable = False)
   user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
 
-  user = db.relationship("User", back_populates="comments")
+  user = db.relationship("User",  back_populates="comments")
   def to_dict(self):
+
+    user = [user.id for user in self.user ]
     return {
       "id": self.id,
-      "user": self.user_id,
+      "username": self.username,
+      "user": self.user,
       "content": self.content,
     }
 
