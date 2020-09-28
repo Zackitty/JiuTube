@@ -72,7 +72,7 @@ const Chat = ({ location }) => {
     formData.append("message", message);
     formData.append("id", USER_ID)
     formData.append('username', name)
-    fetch(`${apiUrl}/comments/`, {
+    fetch(`${apiUrl}/comments`, {
       method: 'post',
       body: formData,
     })
