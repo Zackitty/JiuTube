@@ -4,7 +4,7 @@ from flask_jwt_extended import create_access_token, get_jwt_identity, jwt_requir
 import bcrypt
 import re
 
-bp = Blueprint('comments', __name__, '')
+bp = Blueprint('comments', __name__)
 
 @bp.route('')
 def get_chat():
