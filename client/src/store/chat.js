@@ -7,7 +7,7 @@ const GET_CHAT = 'JIUTUBE/comments/GET_Chat';
 
 //GET USERS
 export const fetchComments = () => async dispatch => {
-  const response = await fetch(`${apiUrl}/comments/`)
+  const response = await fetch(`${apiUrl}/comments`)
   if (!response.ok) {
     throw response;
   }
