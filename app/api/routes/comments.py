@@ -6,7 +6,7 @@ import re
 
 bp = Blueprint('comments', __name__, '')
 
-@bp.route('/')
+@bp.route('')
 def get_chat():
     response = db.session.query(
         Comment
@@ -15,7 +15,7 @@ def get_chat():
     return  {result.id: { "user": result.username, "text": result.content } for result in response}
     
 
-@bp.route('/', methods=['POST'])
+@bp.route('', methods=['POST'])
 def make_comment():
     content = request.form.get('message')
     user_id = request.form.get('id')
