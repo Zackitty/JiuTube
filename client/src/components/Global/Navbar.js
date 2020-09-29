@@ -1,13 +1,21 @@
-import React, { useState, useSelector } from 'react';
+import React, { useState, useEffect, useSelector } from 'react';
 import Chat from '../Chat/Chat/Chat'
+import { useParams, useHistory} from 'react-router-dom'
 import JiuTubePlayer from '../StreamingPlayer/JiuTubePlayer'
 import SignInButton from '../Auth/SignInButton'
+import SignOut from '../Auth/SignOut'
 import './Global.css';
-const NavBar = ({ token }) => {
-  
+const NavBar = (props) => {
+  let history = useHistory();
   const USER_ID = localStorage.getItem('USER_ID')
+  
 
 
+  useEffect(() => {
+  
+    return history.push(`/`);
+  }, [USER_ID])
+  
   return (  
   <div>
   <div className='splash-nav__container'>
@@ -16,11 +24,11 @@ const NavBar = ({ token }) => {
     <div className='logo'>The Jiu-Tube</div>
     </div>
     <div className='pixr_logout_container'/>
-  <div className="signin__holder">
+  <div className="signin__holder" >
     {!USER_ID ?
-          <SignInButton label="Sign in" />
+          <SignInButton label="Sign In"   />
           :
-          null
+          <SignOut label="Sign Out" />
         }
      </div>
 </div>

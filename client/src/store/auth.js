@@ -7,6 +7,7 @@ const REMOVE_USER = 'change/auth/REMOVE_USER';
 const AUTH_ERROR = 'change/auth/AUTH_ERROR'
 const SESSION_TOKEN = 'SESSION_TOKEN';
 const USER_ID = 'USER_ID';
+const UPDATE_NAV = 'UPDATE_NAV'
 
 //SIGN IN 
 export const signIn = (username, password) => async dispatch => {
@@ -83,6 +84,7 @@ export const fetchUserDetails = (access_token, id) => async dispatch => {
 export const signOut = () => async (dispatch) => {
   localStorage.removeItem(SESSION_TOKEN);
   localStorage.removeItem(USER_ID);
+  localStorage.removeItem(UPDATE_NAV)
   dispatch(removeUser())
 }
 
