@@ -6,7 +6,7 @@ import re
 
 bp = Blueprint('users', __name__, '')
 
-@bp.route('/')
+@bp.route('')
 def index():
   response = User.query.all()
   return {user.id: user.to_dict() for user in response}
