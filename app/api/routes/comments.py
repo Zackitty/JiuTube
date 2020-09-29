@@ -10,7 +10,7 @@ bp = Blueprint('comments', __name__)
 def get_chat():
     response = db.session.query(
         Comment
-    ).limit(10)
+    ).order_by(Comment.id.desc()).limit(10)
     print(response)
     return  {result.id: { "user": result.username, "text": result.content } for result in response}
     
