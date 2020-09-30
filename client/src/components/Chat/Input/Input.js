@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
 
 import './Input.css';
 
-const Input = ({ setMessage, sendMessage, message }) => (
+const Input = ({ setMessage, sendMessage, message }) => {
+  const [color, setColor] = useState('White');
+  // const userColor = localStorage.getItem('BELT_COLOR')
+  // setColor(userColor)
+
+return (
   <form className="form">
     <input
       className="input"
@@ -12,8 +17,8 @@ const Input = ({ setMessage, sendMessage, message }) => (
       onChange={({ target: { value } }) => setMessage(value)}
       onKeyPress={event => event.key === 'Enter' ? sendMessage(event) : null}
     />
-    <button className="sendButton" onClick={e => sendMessage(e)}>Send</button>
+    <button className={`button${color}`} onClick={e => sendMessage(e)}>Send</button>
   </form>
-)
+)}
 
 export default Input;

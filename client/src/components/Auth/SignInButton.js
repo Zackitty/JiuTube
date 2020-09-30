@@ -19,7 +19,7 @@ const SignInButton = (props) => {
       close()
     }
     return history.push(`/`);
-  }, [needSignIn, UPDATE_NAV])
+  }, [needSignIn])
 
   const close = () => {
     setShowIn(false)
@@ -64,7 +64,7 @@ const SignInButton = (props) => {
         >
           {showIn ?
             (
-              <Signin toggleLast={toggleLast} handleSignInOut={handleSignInOut}/>
+              <Signin toggleLast={toggleLast} />
             ) : (
               <SignUp toggleLast={toggleLast} />
             )

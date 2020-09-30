@@ -24,6 +24,7 @@
   justify-content: flex-end;
   padding: 0 5%;
   margin-top: 3px;
+  margin-bottom: 3px;
 }
 
 .sentText {
@@ -50,16 +51,40 @@
   justify-content: flex-end;
 }
 
-.colorWhite {
-  color: white;
+#colorWhite {
+  color: black;
 }
 
-.colorDark {
-  color: #353535;
+
+
+#colorBlack, #colorBlue, #colorPurple, #colorBrown {
+  color: white
 }
 
-.backgroundBlue {
+#messageWhite {
+  background: white;
+  box-shadow: .5px .5px 1px .5px black;
+
+}
+
+#messageBlue{
   background: #2979FF;
+  box-shadow: 1px 1px 1px 1px black;
+}
+
+#messagePurple{
+  background: purple;
+  box-shadow: 1px 1px 1px 1px black;
+}
+
+#messageBrown{
+  background: brown;
+  box-shadow: 1px 1px 1px 1px black;
+}
+
+#messageBlack{
+  background: black;
+  box-shadow: 1px 1px 1px 1px black;
 }
 
 .backgroundLight {

@@ -7,10 +7,14 @@ height: 500;
 }
 
 #VideoPlayer{
-  height: 500px;
-  width: 800px;
-  box-shadow: 40px 40px;
-  margin: 40px;
-  border: 20px;
+  height: 65vh;
+  width: 60vw;
+  border: 2mm ridge grey; 
+  border-radius: 15px;
+  box-shadow: 2px 2px 4px 1px black;
+  background-color: black
 }
 
+.VideoPlayer__Container {
+ 
+}

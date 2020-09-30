@@ -17,12 +17,26 @@ const NavBar = (props) => {
   }, [USER_ID])
   
   return (  
-  <div>
   <div className='splash-nav__container'>
     <div className='nav__container'>
-      <div  className="logo__Container">
+    <div  className="logo__Container">
+      <div className='JiuJitsu__Container'>
+      
+      <img id='JiuJitsuPic1'
+      src="https://64.media.tumblr.com/12edb5ec9d3f12800fdb991343ced81a/4ca9555b24f30f8a-05/s1280x1920/d6549b2d912f8cb4a75d0f08dfe0e692fe3995b9.jpg">
+      </img>
+      
+      
     <div className='logo'>The Jiu-Tube</div>
+    
+   
+    <img id='JiuJitsuPic2'
+      src="https://64.media.tumblr.com/24a4a8141d4486449f8cad18e8be7145/4ca9555b24f30f8a-14/s1280x1920/7bf32fcc0710c2e82c382dc88b53080770d99db5.jpg">
+      </img>
     </div>
+      </div>
+      
+  
     <div className='pixr_logout_container'/>
   <div className="signin__holder" >
     {!USER_ID ?
@@ -31,7 +45,7 @@ const NavBar = (props) => {
           <SignOut label="Sign Out" />
         }
      </div>
-</div>
+
     </div>
     <div className='VC__Container'>
       <div id="VC__Container" className='VC__Container'>

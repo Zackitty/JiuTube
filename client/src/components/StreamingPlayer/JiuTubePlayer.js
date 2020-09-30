@@ -16,11 +16,11 @@ class VideoPlayer extends React.Component {
 
   render() {
     return (
-      <>
+      <div>
         <div data-vjs-player id="VideoPlayer__Div" >
           <video  ref={(node) => { this.videoNode = node; }} id="VideoPlayer" className="video-js" />
         </div>
-      </>
+      </div>
     );
   }
 }
@@ -35,7 +35,7 @@ const videoJsOptions = {
 
 function JiuTubePlayer() {
   return (
-    <div>
+    <div className="VideoPlayer__Container">
       <div>
         <VideoPlayer { ...videoJsOptions } />
       </div>

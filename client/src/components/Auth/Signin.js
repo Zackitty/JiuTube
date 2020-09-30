@@ -25,29 +25,23 @@ const Signin = (props) => {
     e.preventDefault()
     dispatch(signIn("Demo", "password"))
     localStorage.setItem("UPDATE_NAV", "UPDATE")
-    
-
+  
   }
- const handleClick = async (e) => {
-   e.preventDefault()
-   localStorage.setItem("UPDATE_NAV", "UPDATE")
- 
- }
+
   return (
     <Box align="center" pad="large">
       <div>
-        don't have an account? <SignInButton label="sign up here!"  />
+        don't have an account? <SignInButton label="sign up here!" onClickProp={toggleLast}  />
       </div>
       {/* if authErrors, show Error Box */}
       {authErrors && <ErrorBox />}
       <Box margin="small">
-        <Form onSubmit={handleGuestSubmit} onClickProp={handleSignInOut}>
+        <Form onSubmit={handleGuestSubmit}>
           <Button
             type="submit"
             plain={false}
             primary
             color="#ED2D23"
-            onClickProp={handleSignInOut}
            >
             sign in as guest</Button>
         </Form>
@@ -71,7 +65,7 @@ const Signin = (props) => {
           plain={false}
           primary
           color="#ED2D23"
-          handleClick={handleClick}
+          
           >
           sign in</Button>
       </Form>

@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
 
 import onlineIcon from '../../../icons/onlineIcon.png';
 import closeIcon from '../../../icons/closeIcon.png';
 
 import './InfoBar.css';
 
-const InfoBar = ({ room }) => (
-  <div className="infoBar">
+const InfoBar = ({ room }) =>{
+
+  const [color, setColor] = useState('White');
+  // const userColor = localStorage.getItem('BELT_COLOR')
+  // setColor(userColor)
+
+
+return (
+  <div className={`info${color}`}>
     <div className="leftInnerContainer">
       <img className="onlineIcon" src={onlineIcon} alt="online icon" />
       <h3>{room}</h3>
@@ -15,6 +22,6 @@ const InfoBar = ({ room }) => (
       <a href="/"><img src={closeIcon} alt="close icon" /></a>
     </div>
   </div>
-);
+)}
 
 export default InfoBar;

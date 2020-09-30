@@ -22,6 +22,8 @@ const SignUp = (props) => {
     e.preventDefault();
     dispatch(signUp(username, fullname, email, beltcolor,
   affiliation, password, mediaurl))
+  localStorage.setItem("UPDATE_NAV", "UPDATE")
+ 
   }
   const { toggleLast } = props
   return (

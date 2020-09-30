@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: space-around;
   height: 100vh;
-
+  background-color: black;
 }
 
 #splash-nav__container{
@@ -19,9 +19,8 @@ height: 100%;
 
 .logo__Container {
 display: flex;
-  width: 50%;
-  justify-content: flex-end
-
+width: 90%;
+justify-content: center;
 }
 .signin__container{
   display: flex;
@@ -30,11 +29,49 @@ width: 50%;
 }
 .nav__container {
   display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
 
 }
 
 .signin__holder {
   display: flex;
   justify-content: flex-end;
-  width: 50%;
+
+}
+
+
+
+#JiuJitsuPic1{
+  display: flex;
+  width: 100px;
+  margin: .5em;
+  border: 1.5mm black;
+  border-radius: 15px;
+  box-shadow: 2px 2px 4px 1px black;
+}
+
+
+#JiuJitsuPic2{
+  display: flex;
+  width: 100px;
+  margin: .5em;
+  border:  black;
+  border-radius: 15px;
+  box-shadow: 2px 2px 4px 1px black;
+}
+
+.JiuJitsu__Container{
+  display:flex;
+ justify-content: space-between;
+ width: 50%
+ 
+
+}
+
+.logo{
+  font-weight: 500;
+  font-variant: small-caps slashed-zero;
+  line-height: 5;
 }

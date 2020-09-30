@@ -1,4 +1,5 @@
 /* TODO Add site wide styles */
-#root {
-  height: 100%
+
+body {
+  background-color: black;
 }

@@ -1,4 +1,4 @@
-.infoBar {
+.infoWhite, .infoBlue, .infoPurple, .infoBrown, .infoBlack{
   display: flex;
   align-items: center;
   justify-content: space-between;
