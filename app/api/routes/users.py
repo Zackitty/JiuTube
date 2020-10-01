@@ -32,7 +32,7 @@ def signup():
         img = request.files['file']
         key=f'{datetime.now()}{img.filename}'
         bucket.put_object(Key=key, Body=img, ContentType=img.content_type)
-        mediaurl = f'https://change-clone.s3-us-west-1.amazonaws.com/{key}'
+        mediaurl = f'https://jiutube.s3.us-east-2.amazonaws.com/{key}'
 
       errors = validations_signup(username, fullname, email, beltcolor,
    affiliation, password, mediaurl)
