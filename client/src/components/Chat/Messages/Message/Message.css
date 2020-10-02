@@ -104,10 +104,10 @@
 
 .differentUserAvatar {
   display: flex;
-  height: 8vh;
+  height: 8vh
   width: 6vw;
   border-radius: 30px;
-  margin-right: 10px;
+  margin-left: 10px;
   margin-top: 10px;
   margin-bottom: 3px;
   border: solid 1.5px;
