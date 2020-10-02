@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Box, Form, Button, FormField } from 'grommet';
 import { useParams, useHistory, Redirect} from 'react-router-dom'
@@ -14,40 +14,53 @@ const Signin = (props) => {
   const { authErrors } = useSelector(state => state.currentUser)
   const dispatch = useDispatch();
   let history = useHistory()
-  const handleSubmit = async (e) => {
+  const USER_ID = localStorage.getItem('USER_ID')
+  const userColor = localStorage.getItem('BELT_COLOR')
+  const UPDATE_NAV = localStorage.getItem('UPDATE_NAV')
+  useEffect(() => {
+  
+    return history.push(`/`);
+  }, [USER_ID, userColor, UPDATE_NAV])
+  const handleOnClickUser = async (e) => {
     e.preventDefault();
     dispatch(signIn(username, password))
      localStorage.setItem("UPDATE_NAV", "UPDATE")
-    
+     return history.push('/');
   }
  
-  const handleGuestSubmit = async (e) => {
+  // const handleGuestSubmit = async (e) => {
+  //   e.preventDefault()
+  //   dispatch(signIn("Demo", "password"))
+  //   localStorage.setItem("UPDATE_NAV", "UPDATE")
+
+  // }
+  const handleOnClickGuest = async (e) => {
     e.preventDefault()
     dispatch(signIn("Demo", "password"))
     localStorage.setItem("UPDATE_NAV", "UPDATE")
-  
+    return history.push(`/`);
   }
 
   return (
     <Box align="center" pad="large">
       <div>
-        don't have an account? <SignInButton label="sign up here!" onClickProp={toggleLast}  />
+        don't have an account? <SignInButton label="sign up!" onClickProp={toggleLast}  />
       </div>
       {/* if authErrors, show Error Box */}
       {authErrors && <ErrorBox />}
       <Box margin="small">
-        <Form onSubmit={handleGuestSubmit}>
+        <Form >
           <Button
             type="submit"
             plain={false}
             primary
             color="#ED2D23"
+            onClick={handleOnClickGuest}
            >
             sign in as guest</Button>
         </Form>
       </Box>
-      <Form
-        onSubmit={handleSubmit}>
+      <Form>
         <FormField
           name="username"
           label="User Name"
@@ -65,7 +78,7 @@ const Signin = (props) => {
           plain={false}
           primary
           color="#ED2D23"
-          
+          onClick={handleOnClickUser}
           >
           sign in</Button>
       </Form>

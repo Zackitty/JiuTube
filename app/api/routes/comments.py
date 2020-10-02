@@ -12,7 +12,7 @@ def get_chat():
         Comment
     ).order_by(Comment.id.desc()).limit(10)
     print(response)
-    return  {result.id: { "user": result.username, "text": result.content } for result in response}
+    return  {result.id: { "user": result.username, "text": result.content, "avatar": result.avatar, "belt_color": result.belt_color } for result in response}
     
 
 @bp.route('', methods=['POST'])
@@ -20,8 +20,10 @@ def make_comment():
     content = request.form.get('message')
     user_id = request.form.get('id')
     username = request.form.get('username')
+    avatar = request.form.get('avatar')
+    belt_color = request.form.get('belt_color')
 
-    newComment = Comment(user_id = user_id, content = content, username = username )
+    newComment = Comment(user_id = user_id, content = content, username = username, avatar = avatar, belt_color = belt_color )
     db.session.add(newComment)
     db.session.commit()
     return newComment.to_dict()

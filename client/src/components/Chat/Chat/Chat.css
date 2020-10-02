@@ -1,10 +1,12 @@
 .outerContainer {
   display: flex;
   justify-content: center;
+  border-radius: 100px;
   align-items: center;
   height: 65vh;
   width: 30%;
   background-color: #1A1A1D;
+  box-shadow:2px 2px 2px 2px grey;  
 }
 
 .container {
@@ -12,9 +14,11 @@
   flex-direction: column;
   justify-content: space-between;
   background: #FFFFFF;
-  border-radius: 8px;
+  border-radius: 10px;
   height: 100%;
   width: 100vw;
+  box-shadow:2px 2px 2px 10px grey;  
+ 
 
 }
 

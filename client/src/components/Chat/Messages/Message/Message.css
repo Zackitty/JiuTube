@@ -90,3 +90,25 @@
 .backgroundLight {
   background: #F3F3F3;
 }
+
+.userAvatar {
+  display: flex;
+  height: 8vh;
+  width: 6vw;
+  border-radius: 30px;
+  margin-right: 10px;
+  margin-top: 10px;
+  margin-bottom: 3px;
+  border: solid 1.5px;
+}
+
+.differentUserAvatar {
+  display: flex;
+  height: 8vh;
+  width: 6vw;
+  border-radius: 30px;
+  margin-right: 10px;
+  margin-top: 10px;
+  margin-bottom: 3px;
+  border: solid 1.5px;
+}

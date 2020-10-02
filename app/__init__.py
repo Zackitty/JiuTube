@@ -22,7 +22,7 @@ db.init_app(app)
 jwt = JWTManager(app)
 Migrate(app, db, compare_type=True)
 app.config['CORS_HEADERS'] = 'Content-Type'
-app.config['FLASKS3_BUCKET_NAME'] = ''
+app.config['FLASKS3_BUCKET_NAME'] = 'jiutube'
 
 # Application Security
 
@@ -39,7 +39,7 @@ def inject_csrf_token(response):
                         secure=True if os.environ.get('FLASK_ENV') else False,
                         samesite='Strict' if os.environ.get(
                             'FLASK_ENV') else None,
-                        httponly=False)
+                        httponly=True)
     return response
 
 
@@ -63,6 +63,8 @@ def on_chat_sent(data):
     name = data['user']
     message = data['text']
     room = data['room']
+    avatar = data['avatar']
+    belt_color = data['belt_color']
 
     # emit('message_sent', message)
-    emit('message', {'user': name, 'text': message}, room=room )
+    emit('message', {'user': name, 'text': message, 'avatar': avatar, 'belt_color': belt_color}, room=room )

@@ -1,20 +1,65 @@
-.infoWhite, .infoBlue, .infoPurple, .infoBrown, .infoBlack{
+.infonull, .infoWhite, .infoBlue, .infoPurple, .infoBrown, .infoBlack{
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #2979FF;
-  border-radius: 4px 4px 0 0;
-  height: 60px;
+  height: 30%;
   width: 100%;
+  font-size: 25px;
+  border-radius: 10px 10px 0px 0px
 }
 
-.leftInnerContainer {
+
+.infonull{
+  background-color: white;
+  box-shadow: .25px .25px 1px 1px black;
+  color: black;
+}
+.infoWhite{
+  background-color: white;
+  border-bottom:black ;
+  box-shadow: .25px .25px 1px 1px black;
+  color: black;
+}
+.infoBlue{
+  background: #2979FF;
+}
+.infoPurple{
+  background: purple;
+}
+.infoBrown{
+
+  background: brown;
+}
+.infoBlack{
+background-color: black
+}
+
+.leftInnerContainernull, .leftInnerContainerWhite, .leftInnerContainerBlue,
+.leftInnerContainerPurple, .leftInnerContainerBrown, .leftInnerContainerBlack {
   flex: 0.5;
   display: flex;
   align-items: center;
   margin-left: 5%;
-  color: white;
 }
+
+.leftInnerContainernull{
+  color: black;
+} 
+.leftInnerContainerWhite{
+  color: black
+}
+ .leftInnerContainerBlue{
+   color: white;
+ }
+.leftInnerContainerPurple{
+  color: white
+}
+ .leftInnerContainerBrown{
+   color: white;
+ }
+  .leftInnerContainerBlack{
+    color: white;
+  }
 
 .rightInnerContainer {
   display: flex;

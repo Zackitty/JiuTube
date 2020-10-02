@@ -46,6 +46,8 @@ class Comment(db.Model):
   id = db.Column(db.Integer, primary_key = True)
   content = db.Column(db.String(255), nullable = False)
   username = db.Column(db.String(255), nullable = False)
+  avatar = db.Column(db.String(255), nullable= True)
+  belt_color = db.Column(db.String(255), nullable =True)
   user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
 
   user = db.relationship("User",  back_populates="comments")
@@ -53,9 +55,12 @@ class Comment(db.Model):
 
     return {
       "id": self.id,
-      "username": self.username,
-      "user": self.user_id,
       "content": self.content,
+      "username": self.username,
+      "avatar": self.avatar,
+      "belt_color": self.belt_color,
+      "user": self.user_id
+      
     }
 
 # class Thread(db.Model):

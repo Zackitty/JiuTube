@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useSelector } from 'react';
 import Chat from '../Chat/Chat/Chat'
-import { useParams, useHistory} from 'react-router-dom'
+import { useParams, useHistory, Redirect} from 'react-router-dom'
 import JiuTubePlayer from '../StreamingPlayer/JiuTubePlayer'
 import SignInButton from '../Auth/SignInButton'
 import SignOut from '../Auth/SignOut'
@@ -8,17 +8,17 @@ import './Global.css';
 const NavBar = (props) => {
   let history = useHistory();
   const USER_ID = localStorage.getItem('USER_ID')
-  
-
+  const userColor = localStorage.getItem('BELT_COLOR')
+  const UPDATE_NAV = localStorage.getItem('UPDATE_NAV')
 
   useEffect(() => {
   
     return history.push(`/`);
-  }, [USER_ID])
+  }, [USER_ID, userColor, UPDATE_NAV])
   
   return (  
   <div className='splash-nav__container'>
-    <div className='nav__container'>
+    <div id={`nav${userColor}`} className='nav__container'>
     <div  className="logo__Container">
       <div className='JiuJitsu__Container'>
       
@@ -34,10 +34,10 @@ const NavBar = (props) => {
       src="https://64.media.tumblr.com/24a4a8141d4486449f8cad18e8be7145/4ca9555b24f30f8a-14/s1280x1920/7bf32fcc0710c2e82c382dc88b53080770d99db5.jpg">
       </img>
     </div>
-      </div>
+      
       
   
-    <div className='pixr_logout_container'/>
+   <div className="signin__container">
   <div className="signin__holder" >
     {!USER_ID ?
           <SignInButton label="Sign In"   />
@@ -45,7 +45,8 @@ const NavBar = (props) => {
           <SignOut label="Sign Out" />
         }
      </div>
-
+     </div>
+     </div>
     </div>
     <div className='VC__Container'>
       <div id="VC__Container" className='VC__Container'>

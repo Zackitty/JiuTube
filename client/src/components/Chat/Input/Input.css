@@ -1,13 +1,17 @@
 .form {
   display: flex;
   border-top: 2px solid #D3D3D3;
+  
+
 }
 
 .input {
   border: none;
-  border-radius: 0;
+  border-radius: 10px;
   padding: 5%;
   width: 80%;
+  
+
   font-size: 1.2em;
 }
 
@@ -15,19 +19,37 @@ input:focus, textarea:focus, select:focus{
   outline: none;
 }
 
-.buttonWhite, .buttonBlue, .buttonPurple, .buttonBrown, .buttonBlack {
+.buttonnull, .buttonWhite, .buttonBlue, .buttonPurple, .buttonBrown, .buttonBlack {
+ display: flex;
   text-transform: uppercase;
-  text-decoration: none;
   padding: 20px;
-  display: inline-block;
+  justify-content: center;
   border: none;
   width: 20%;
   overflow: auto;
+  border-radius: 0px 0px 10px 0px;
   box-shadow: 1px 1px 1px 1px black;
 }
-.buttonBlue, .buttonPurple, .buttonBrown, .buttonBlack {
-  color: #fff !important;
+
+
+.buttonnull{
+  background: white;
+  color: black;
+}
+.buttonWhite{
+  background:white; 
+  color: black
 }
 .buttonBlue{ 
   background: #2979FF;
+}
+
+.buttonPurple{ 
+  background: purple;
+}
+.buttonBrown{ 
+  background: brown;
+}
+.buttonBlack{ 
+  background: black;
 }

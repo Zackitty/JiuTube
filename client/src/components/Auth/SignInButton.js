@@ -25,10 +25,7 @@ const SignInButton = (props) => {
     setShowIn(false)
     setShowUp(false)
   }
-  const handleSignInOut = async (e) => {
-    e.preventDefault() 
-    return history.push(`/`);
-  }
+
   
   const toggleLast = () => {
     if (!showIn && !showUp) {
@@ -48,15 +45,12 @@ const SignInButton = (props) => {
 
   return (
     <Box>
-      <div className={"signin__container"}>
-      <Button
-
-        plain
-        hoverIndicator={{ color: "#ffffff" }}
-        label={label}
-        className={'signin_button'}
-        onClick={() => { onClickProp ? onClickProp() : toggleLast() }} />
-        </div>
+     
+      <button
+        label={'Sign In'}
+        className={'signInButton'}
+        onClick={() => { onClickProp ? onClickProp() : toggleLast() }} >Sign In!</button>
+        
       {(showIn || showUp) && (
         <Layer
           onEsc={() => close()}

@@ -8,6 +8,7 @@ const AUTH_ERROR = 'change/auth/AUTH_ERROR'
 const SESSION_TOKEN = 'SESSION_TOKEN';
 const USER_ID = 'USER_ID';
 const UPDATE_NAV = 'UPDATE_NAV'
+const BELT_COLOR = 'BELT_COLOR'
 
 //SIGN IN 
 export const signIn = (username, password) => async dispatch => {
@@ -23,10 +24,16 @@ export const signIn = (username, password) => async dispatch => {
       throw response;
     }
     //Place token in Local Storage, update Redux State
-    const { access_token, id } = await response.json();
+    const { access_token, id} = await response.json();
+  
     localStorage.setItem(SESSION_TOKEN, access_token);
     localStorage.setItem(USER_ID, id);
+  
+    fetch(`${apiUrl}/users/${id}`)
+    .then( res=> res.json())
+    .then(data => localStorage.setItem('BELT_COLOR', data.belt_color))
     dispatch(setUser(access_token, id));
+    localStorage.removeItem(UPDATE_NAV)
   }
   catch (err) {
     const errJSON = await err.json()
@@ -35,14 +42,14 @@ export const signIn = (username, password) => async dispatch => {
 }
 
 //SIGN UP 
-export const signUp = (username, fullname, email, beltcolor,
+export const signUp = (username, fullname, email, belt_color,
   affiliation, password, mediaurl) => async dispatch => {
   try {
     const formData = new FormData();
     formData.append("username", username)
     formData.append("full_name", fullname)
     formData.append("email", email)
-    formData.append("belt_color", beltcolor)
+    formData.append("belt_color", belt_color)
     formData.append("affiliation", affiliation)
     formData.append("password", password)
     formData.append("mediaurl", mediaurl)
@@ -85,6 +92,7 @@ export const signOut = () => async (dispatch) => {
   localStorage.removeItem(SESSION_TOKEN);
   localStorage.removeItem(USER_ID);
   localStorage.removeItem(UPDATE_NAV)
+  localStorage.removeItem(BELT_COLOR);
   dispatch(removeUser())
 }
 

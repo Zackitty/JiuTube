@@ -18,6 +18,8 @@ const Chat = ({ location }) => {
   const [name, setName] = useState('');
   const [room, setRoom] = useState('The JiuTube')
   const [users, setUsers] = useState('');
+  const [belt_color, setBelt_Color] = useState('')
+  const [avatar, setAvatar] = useState('')
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
   const [preLoadedMessages, setPreLoadedMessages] = useState([])
@@ -32,9 +34,16 @@ const Chat = ({ location }) => {
     fetch(`${apiUrl}/users/${USER_ID}`)
       .then( res=> res.json())
       .then(data => setName(data.username))
-    }
-
-
+    fetch(`${apiUrl}/users/${USER_ID}`)
+    .then( res=> res.json())
+    .then(data => setName(data.username))
+  fetch(`${apiUrl}/users/${USER_ID}`)
+    .then( res=> res.json())
+    .then(data => setBelt_Color(data.belt_color))
+    fetch(`${apiUrl}/users/${USER_ID}`)
+    .then( res=> res.json())
+    .then(data => setAvatar(data.avatar))
+  }
     
     socket = io(ENDPOINT);
 
@@ -46,7 +55,7 @@ const Chat = ({ location }) => {
   useEffect(() => {
     socket.on('message', message => {
       setMessages(messages => [ ...messages, message ]);
-      console.log(messages)
+      console.log(message)
     });
     
     socket.on("roomData", ({ users }) => {
@@ -59,19 +68,16 @@ const Chat = ({ location }) => {
   const sendMessage = async (event) => {
     event.preventDefault();
     const USER_ID = localStorage.getItem('USER_ID')
-    fetch(`${apiUrl}/users/${USER_ID}`)
-      .then( res=> res.json())
-      .then(data => setName(data.username))
-      
     if(message) {
    
-    const data = {text: message, user: name, room: room}
+    const data = {text: message, user: name, room: room, belt_color: belt_color, avatar: avatar}
     socket.emit('send_message', data, () => setMessage(''));
-    const userId = localStorage.getItem('USER_ID')
     const formData = new FormData();
     formData.append("message", message);
     formData.append("id", USER_ID)
     formData.append('username', name)
+    formData.append('belt_color', belt_color)
+    formData.append('avatar', avatar)
     fetch(`${apiUrl}/comments`, {
       method: 'post',
       body: formData,
