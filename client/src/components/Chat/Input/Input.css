@@ -52,4 +52,5 @@ input:focus, textarea:focus, select:focus{
 }
 .buttonBlack{ 
   background: black;
+  color: white;
 }

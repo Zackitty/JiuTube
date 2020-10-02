@@ -9,12 +9,12 @@ const NavBar = (props) => {
   let history = useHistory();
   const USER_ID = localStorage.getItem('USER_ID')
   const userColor = localStorage.getItem('BELT_COLOR')
-  const UPDATE_NAV = localStorage.getItem('UPDATE_NAV')
+
 
   useEffect(() => {
   
     return history.push(`/`);
-  }, [USER_ID, userColor, UPDATE_NAV])
+  }, [USER_ID])
   
   return (  
   <div className='splash-nav__container'>

@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 30%;
+  height: 14vh;
   width: 100%;
   font-size: 25px;
   border-radius: 10px 10px 0px 0px
@@ -11,13 +11,12 @@
 
 .infonull{
   background-color: white;
-  box-shadow: .25px .25px 1px 1px black;
+  box-shadow: 0px 0px 1px 1px black;
   color: black;
 }
 .infoWhite{
   background-color: white;
-  border-bottom:black ;
-  box-shadow: .25px .25px 1px 1px black;
+  box-shadow: 5px 5px 5px 5px black;
   color: black;
 }
 .infoBlue{
