@@ -25,8 +25,8 @@ const SignUp = (props) => {
     const config = {
         bucketName: 'jiutube',
         region: 'us-east-2',
-        accessKeyId: 'AKIAJSZTWBJZOIB2LPSA',
-        secretAccessKey: '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',
+        accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+        secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
     }
     const file = e.target.files[0]
   

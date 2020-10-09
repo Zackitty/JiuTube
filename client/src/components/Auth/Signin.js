@@ -38,6 +38,7 @@ const Signin = (props) => {
     e.preventDefault()
     dispatch(signIn("Demo", "password"))
     localStorage.setItem("UPDATE_NAV", "UPDATE")
+    console.log(process.env.AWS_ACCESS_KEY_ID)
     return history.push(`/`);
   }
 

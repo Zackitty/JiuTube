@@ -36,17 +36,21 @@ width: 50%;
   align-items: center;
   width: 100%;
   color: white;
+  box-shadow:  10px 10px 10px  #888888;
 
 }
 
 #navnull {
   background-color: white;
   color: black;
+  box-shadow: 5px 5px 5px 5px gray
+
 }
 
 #navWhite {
   background-color: white;
   color: black;
+  box-shadow:  25px inset #888888;
 }
 
 #navBlue {
@@ -122,4 +126,5 @@ color: white;
   font-weight: 500;
   font-variant: small-caps slashed-zero;
   line-height: 5;
+  
 }
