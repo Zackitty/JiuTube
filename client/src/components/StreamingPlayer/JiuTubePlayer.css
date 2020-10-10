@@ -6,7 +6,7 @@ height: 500;
   border: 20px;
 }
 
-#VideoPlayer{
+.VideoPlayer{
   height: 65vh;
   width: 60vw;
   border: 2mm ridge grey; 
