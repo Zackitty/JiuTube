@@ -49,7 +49,7 @@ const SignInButton = (props) => {
       <button
         label={'Sign In'}
         className={'signInButton'}
-        onClick={() => { onClickProp ? onClickProp() : toggleLast() }} >Sign Up!</button>
+        onClick={() => { onClickProp ? onClickProp() : toggleLast() }} >Sign In!</button>
         
       {(showIn || showUp) && (
         <Layer

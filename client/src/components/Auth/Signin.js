@@ -8,7 +8,7 @@ import ErrorBox from '../../Grommet/ErrorBox'
 
 
 const Signin = (props) => {
-  const { toggleLast, handleSignInOut } = props
+  const { toggleLast } = props
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const { authErrors } = useSelector(state => state.currentUser)
@@ -19,13 +19,12 @@ const Signin = (props) => {
   const UPDATE_NAV = localStorage.getItem('UPDATE_NAV')
   useEffect(() => {
   
-    return history.push(`/`);
+    return history.push("/signin" )
   }, [USER_ID, userColor, UPDATE_NAV])
   const handleOnClickUser = async (e) => {
-    e.preventDefault();
     dispatch(signIn(username, password))
      localStorage.setItem("UPDATE_NAV", "UPDATE")
-     return history.push('/');
+     return history.push("/" )
   }
  
   // const handleGuestSubmit = async (e) => {
