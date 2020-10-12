@@ -24,7 +24,7 @@ const Signin = (props) => {
   const handleOnClickUser = async (e) => {
     dispatch(signIn(username, password))
      localStorage.setItem("UPDATE_NAV", "UPDATE")
-     return history.push("/" )
+     return <SignInButton />
   }
  
   // const handleGuestSubmit = async (e) => {
@@ -38,7 +38,7 @@ const Signin = (props) => {
     dispatch(signIn("Demo", "password"))
     localStorage.setItem("UPDATE_NAV", "UPDATE")
     console.log(process.env.AWS_ACCESS_KEY_ID)
-    return history.push(`/`);
+    return <SignInButton />
   }
 
   return (

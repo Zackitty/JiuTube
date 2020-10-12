@@ -1,19 +1,58 @@
 import React, { useState, useEffect } from "react";
 import { withAlert } from 'react-alert'
+import { useSelector } from 'react-redux';
 import './Input.css';
+import { Box, Layer } from 'grommet';
 import { useHistory} from 'react-router-dom'
 import { Button, Alert } from 'react-bootstrap';
 import AlertDismissible from '../../Auth/AlertDismissible'
-import SignUp from '../../Auth/SignUp'
+import SignInButton from '../../Auth/SignInButton'
 import Popup from 'reactjs-popup';
+import Signin from '../../Auth/Signin';
+import SignUp from '../../Auth/SignUp';
 import 'reactjs-popup/dist/index.css';
 const Input = ({ setMessage, sendMessage, message }) => {
   let history = useHistory()
   const alert = withAlert()
   const userColor = localStorage.getItem('BELT_COLOR')
   const USER_ID = localStorage.getItem('USER_ID')
+
+  const [showIn, setShowIn] = useState(false)
+  const [showUp, setShowUp] = useState(false)
+  const { needSignIn } = useSelector(state => state.currentUser)
+
+  useEffect(() => {
+    if (!needSignIn) {
+      close()
+    }
+   
+  }, [needSignIn])
+
+  const close = () => {
+    
+    setShowIn(false)
+    setShowUp(false)
+  }
+
+  
+  const toggleLast = () => {
+    if (!showIn && !showUp) {
+      setShowUp(false)
+      setShowIn(true)
+  
+    } else if (!showIn && showUp) {
+      setShowUp(false)
+      setShowIn(true)
+  
+    } else if (showIn && !showUp) {
+      setShowIn(false)
+      setShowUp(true)
+  
+    }
+  }
 const noUserHandler = async (e) => {
   e.preventDefault()
+ 
 }
 
 return (
@@ -30,10 +69,36 @@ return (
     <button className={`button${userColor}`} onClick={e =>
     sendMessage(e)}>
       Send</button>
-      :   <Popup trigger={<button className={`button${userColor}`} onClick={noUserHandler}>
-          Send</button>} position="center">
-      <div>Please Sign Up</div>
-    </Popup>}
+      :
+      
+      <Box>
+     <div  onClick={noUserHandler}>
+      <button
+        label={'Sign In'}
+        className={`button${userColor}`} 
+        onClick={() => {toggleLast() }} >Send</button>
+        </div>
+        
+      {(showIn || showUp) && (
+        <Layer
+          onEsc={() => close()}
+          onClickOutside={() => close()}
+        >
+          {showIn ?
+            (
+              <Signin toggleLast={toggleLast} />
+            ) : (
+              <SignUp toggleLast={toggleLast} />
+            )
+          }
+        </Layer>
+      )}
+    </Box>
+    //   :   <Popup trigger={<button className={`button${userColor}`} onClick={noUserHandler}>
+    //       Send</button>} position="center">
+    //   <div>Please Sign Up</div>
+    // </Popup>
+  }
   </form>
 )}
 
