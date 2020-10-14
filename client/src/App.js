@@ -1,14 +1,17 @@
-import React from 'react';
-import { BrowserRouter, Switch, Route, NavLink } from 'react-router-dom';
+import React, {useEffect } from 'react';
+import { BrowserRouter, Switch, Route, NavLink, useHistory} from 'react-router-dom';
 import UserList from './components/Auth/UsersList';
 import AlertDismissible from "./components/Auth/AlertDismissible"
 import SignUp from './components/Auth/SignUp'
 import Navbar from "./components/Global/Navbar"
 import Signin from "./components/Auth/Signin"
-
+import { useSelector } from 'react-redux';
 
 function App() {
-
+  
+    
+    
+ 
   return (
     <BrowserRouter>
         <Switch>

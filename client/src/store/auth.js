@@ -29,10 +29,11 @@ export const signIn = (username, password) => async dispatch => {
     localStorage.setItem(SESSION_TOKEN, access_token);
     localStorage.setItem(USER_ID, id);
   
-    fetch(`${apiUrl}/users/${id}`)
+    const belt = await fetch(`${apiUrl}/users/${id}`)
     .then( res=> res.json())
-    .then(data => localStorage.setItem('BELT_COLOR', data.belt_color))
-    dispatch(setUser(access_token, id));
+    const belt_color = belt.belt_color
+    
+    dispatch(setUser(access_token, id, belt_color));
     localStorage.removeItem(UPDATE_NAV)
   }
   catch (err) {
@@ -69,6 +70,7 @@ export const signUp = (username, fullname, email, belt_color,
     const { access_token, id  } = await response.json();
     localStorage.setItem(SESSION_TOKEN, access_token);
     localStorage.setItem(USER_ID, id);
+
     dispatch(setUser(access_token, id));
   }
   catch (err) {
@@ -78,13 +80,14 @@ export const signUp = (username, fullname, email, belt_color,
 }
 
 //FETCH USER DETAILS 
-export const fetchUserDetails = (access_token, id) => async dispatch => {
+export const fetchUserDetails = (access_token, belt_color, id) => async dispatch => {
   const res = await fetch(`${apiUrl}/users/${id}`, {
     headers: {
       'Authorization': `Bearer ${localStorage.getItem('SESSION_TOKEN')}`,
     }
   })
-  dispatch(setUser(access_token, id))
+  console.log(`heyy yall this is the res ${res}`)
+  dispatch(setUser(access_token, id, belt_color))
 }
 
 //SIGN OUT
@@ -98,10 +101,11 @@ export const signOut = () => async (dispatch) => {
 
 
 //ACTION CREATOR FUNCTIONS
-export const setUser = (access_token, id) => ({
+export const setUser = (access_token, id, belt_color) => ({
   type: SET_USER,
   access_token,
-  id: Number(id)
+  id: Number(id),
+  belt_color
 });
 
 export const handleAuthErrors = (errJSON) => ({
@@ -115,7 +119,7 @@ export const removeUser = () => ({
 
 
 //REDUCER
-export default function reducer(state = { needSignIn: true}, action) {
+export default function reducer(state = { needSignIn: true, belt_color: 'white'}, action) {
   Object.freeze(state);
   const newState = Object.assign({}, state);
   switch (action.type) {
@@ -123,18 +127,21 @@ export default function reducer(state = { needSignIn: true}, action) {
       return {
         token: action.access_token,
         id: action.id,
-        needSignIn: false
+        needSignIn: false,
+        belt_color: action.belt_color
       }
     }
     case AUTH_ERROR: {
       return {
         needSignIn: true,
         authErrors: action.errJSON['errors'],
+        belt_color: 'white'
       }
     }
     case REMOVE_USER: {
       return {
         needSignIn: true,
+        belt_color: 'white'
       }
     }
     default: return newState;

@@ -14,9 +14,8 @@ import 'reactjs-popup/dist/index.css';
 const Input = ({ setMessage, sendMessage, message }) => {
   let history = useHistory()
   const alert = withAlert()
-  const userColor = localStorage.getItem('BELT_COLOR')
+  const { belt_color } = useSelector(state => state.currentUser)
   const USER_ID = localStorage.getItem('USER_ID')
-
   const [showIn, setShowIn] = useState(false)
   const [showUp, setShowUp] = useState(false)
   const { needSignIn } = useSelector(state => state.currentUser)
@@ -63,10 +62,10 @@ return (
       placeholder="Type a message..."
       value={message}
       onChange={({ target: { value } }) => setMessage(value)}
-      onKeyPress={event => event.key === 'Enter' ? sendMessage(event) : null}
+      onKeyPress={event => USER_ID? event.key === 'Enter' ? sendMessage(event) : null : null}
     />
     {USER_ID ?
-    <button className={`button${userColor}`} onClick={e =>
+    <button className={`button${belt_color}`} onClick={e =>
     sendMessage(e)}>
       Send</button>
       :
@@ -75,7 +74,7 @@ return (
      <div  onClick={noUserHandler}>
       <button
         label={'Sign In'}
-        className={`button${userColor}`} 
+        className={`button${belt_color}`} 
         onClick={() => {toggleLast() }} >Send</button>
         </div>
         

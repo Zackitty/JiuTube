@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Messages from '../Messages/Messages';
 import InfoBar from '../InfoBar/InfoBar';
 import Input from '../Input/Input';
-
+import { useHistory} from 'react-router-dom'
 import { apiUrl, imageUrl } from "../../../config"
 import './Chat.css';
 import { fetchComments } from '../../../store/chat'
@@ -14,16 +14,18 @@ let socket;
 
 const Chat = ({ location }) => {
 
-  
+  let history = useHistory()
   const [name, setName] = useState('');
   const [room, setRoom] = useState('The JiuTube')
   const [users, setUsers] = useState('');
-  const [belt_color, setBelt_Color] = useState('')
   const [avatar, setAvatar] = useState('')
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
   const [preLoadedMessages, setPreLoadedMessages] = useState([])
   const ENDPOINT = imageUrl;
+
+
+  const { belt_color } = useSelector(state => state.currentUser)
 
 
  
@@ -37,9 +39,6 @@ const Chat = ({ location }) => {
     fetch(`${apiUrl}/users/${USER_ID}`)
     .then( res=> res.json())
     .then(data => setName(data.username))
-  fetch(`${apiUrl}/users/${USER_ID}`)
-    .then( res=> res.json())
-    .then(data => setBelt_Color(data.belt_color))
     fetch(`${apiUrl}/users/${USER_ID}`)
     .then( res=> res.json())
     .then(data => setAvatar(data.avatar))
@@ -50,6 +49,11 @@ const Chat = ({ location }) => {
     socket.emit('join_room', { username: name, room: room })
   }, [ENDPOINT]);
     
+
+  const USER_ID = localStorage.getItem('USER_ID')
+  useEffect(() => {
+    return history.push('/')
+  }, [USER_ID])
 
   
   useEffect(() => {

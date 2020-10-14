@@ -13,12 +13,15 @@ const SignInButton = (props) => {
   const { label, onClickProp} = props
   const { needSignIn } = useSelector(state => state.currentUser)
   let history = useHistory()
-  const UPDATE_NAV = localStorage.getItem("UPDATE_NAV")
+  const USER_ID = localStorage.getItem('USER_ID')
+  
+
+
   useEffect(() => {
     if (!needSignIn) {
       close()
     }
-    return history.push(`/`);
+    
   }, [needSignIn])
 
   const close = () => {

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import ScrollToBottom from 'react-scroll-to-bottom';
-
+import { useSelector } from 'react-redux';
 import Message from './Message/Message';
 import { apiUrl, imageUrl } from "../../../config"
 import './Messages.css';
@@ -9,7 +9,6 @@ import './Messages.css';
 const Messages = ({ messages, name }) => {
   
   const [initialMessages, setInitialMessages] = useState([]);
-
   const ENDPOINT = imageUrl;
 
   useEffect(() => {

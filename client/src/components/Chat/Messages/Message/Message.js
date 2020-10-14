@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { apiUrl, imageUrl } from "../../../../config"
 import './Message.css';
+import { useSelector } from 'react-redux';
 
 import ReactEmoji from 'react-emoji';
 
-const Message = ({ message: { text, user, avatar, belt_color }, name }) => {
+const Message = ({ message: { text, user, avatar }, name }) => {
   let isSentByCurrentUser = false;
   // const [color, setColor] = useState('White');
   // const userColor = localStorage.getItem('BELT_COLOR')
@@ -16,7 +17,7 @@ const Message = ({ message: { text, user, avatar, belt_color }, name }) => {
   // .then(response => response.json())
   // .then(data =>  setUserAvatar(data.avatar))
   // }, [])
-  
+  const { belt_color } = useSelector(state => state.currentUser)
   const trimmedName = name
 
   if(user === trimmedName) {

@@ -1,5 +1,6 @@
-import React, { useState, useEffect, useSelector } from 'react';
+import React, { useState, useEffect } from 'react';
 import Chat from '../Chat/Chat/Chat'
+import { useSelector } from 'react-redux';
 import { useParams, useHistory, Redirect} from 'react-router-dom'
 import JiuTubePlayer from '../StreamingPlayer/JiuTubePlayer'
 import SignInButton from '../Auth/SignInButton'
@@ -8,17 +9,13 @@ import './Global.css';
 const NavBar = (props) => {
   let history = useHistory();
   const USER_ID = localStorage.getItem('USER_ID')
-  const userColor = localStorage.getItem('BELT_COLOR')
-
-
-  useEffect(() => {
+  const { belt_color } = useSelector(state => state.currentUser)
   
-    return history.push(`/`);
-  }, [USER_ID])
+
   
   return (  
   <div className='splash-nav__container'>
-    <div id={`nav${userColor}`} className='nav__container'>
+    <div id={`nav${belt_color}`} className='nav__container'>
     <div  className="logo__Container">
       <div className='JiuJitsu__Container'>
       
@@ -40,7 +37,7 @@ const NavBar = (props) => {
    <div className="signin__container">
   <div className="signin__holder" >
     {!USER_ID ?
-          <SignInButton label="Sign In"   />
+          <SignInButton label="Sign In" />
           :
           <SignOut label="Sign Out" />
         }

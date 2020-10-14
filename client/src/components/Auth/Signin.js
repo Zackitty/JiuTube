@@ -11,20 +11,26 @@ const Signin = (props) => {
   const { toggleLast } = props
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const { authErrors } = useSelector(state => state.currentUser)
+  const { authErrors, needSignIn } = useSelector(state => state.currentUser)
   const dispatch = useDispatch();
   let history = useHistory()
   const USER_ID = localStorage.getItem('USER_ID')
   const userColor = localStorage.getItem('BELT_COLOR')
-  const UPDATE_NAV = localStorage.getItem('UPDATE_NAV')
-  useEffect(() => {
   
-    return history.push("/signin" )
-  }, [USER_ID, userColor, UPDATE_NAV])
+ 
+  useEffect(() => {
+    return history.push('/')
+  }, [USER_ID])
+
+
+
+
+
   const handleOnClickUser = async (e) => {
+    e.preventDefault()
     dispatch(signIn(username, password))
-     localStorage.setItem("UPDATE_NAV", "UPDATE")
-     return <SignInButton />
+     
+    
   }
  
   // const handleGuestSubmit = async (e) => {
@@ -37,9 +43,9 @@ const Signin = (props) => {
     e.preventDefault()
     dispatch(signIn("Demo", "password"))
     localStorage.setItem("UPDATE_NAV", "UPDATE")
-    console.log(process.env.AWS_ACCESS_KEY_ID)
-    return <SignInButton />
+    return history.push('/signin');
   }
+
 
   return (
     <Box align="center" pad="large">
