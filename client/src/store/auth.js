@@ -25,16 +25,16 @@ export const signIn = (username, password) => async dispatch => {
     }
     //Place token in Local Storage, update Redux State
     const { access_token, id} = await response.json();
-  
+
     localStorage.setItem(SESSION_TOKEN, access_token);
     localStorage.setItem(USER_ID, id);
   
     const belt = await fetch(`${apiUrl}/users/${id}`)
     .then( res=> res.json())
     const belt_color = belt.belt_color
-    
+    localStorage.setItem(BELT_COLOR, belt_color);
     dispatch(setUser(access_token, id, belt_color));
-    localStorage.removeItem(UPDATE_NAV)
+  
   }
   catch (err) {
     const errJSON = await err.json()
@@ -70,8 +70,8 @@ export const signUp = (username, fullname, email, belt_color,
     const { access_token, id  } = await response.json();
     localStorage.setItem(SESSION_TOKEN, access_token);
     localStorage.setItem(USER_ID, id);
-
-    dispatch(setUser(access_token, id));
+    localStorage.setItem(BELT_COLOR, belt_color);
+    dispatch(setUser(access_token, id, belt_color));
   }
   catch (err) {
     const errJSON = await err.json()
@@ -86,7 +86,6 @@ export const fetchUserDetails = (access_token, belt_color, id) => async dispatch
       'Authorization': `Bearer ${localStorage.getItem('SESSION_TOKEN')}`,
     }
   })
-  console.log(`heyy yall this is the res ${res}`)
   dispatch(setUser(access_token, id, belt_color))
 }
 

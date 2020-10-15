@@ -12,6 +12,7 @@ const InfoBar = ({ room }) =>{
 
 
 
+
 return (
   <div className={`info${belt_color}`}>
     <div className={`leftInnerContainer${belt_color}`}>

@@ -33,6 +33,7 @@
     "react-twitch-embed": "^2.1.0",
     "react-twitch-embed-video": "^2.0.4",
     "redux": "^4.0.5",
+    "redux-persist": "^6.0.0",
     "redux-thunk": "^2.3.0",
     "semantic-ui-react": "^1.2.1",
     "socket.io-client": "^2.3.0",

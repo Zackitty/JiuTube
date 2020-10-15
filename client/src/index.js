@@ -9,17 +9,17 @@ import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import configStore from './store/configStore';
 import { theme } from './Grommet/theme'
-
-const store = configStore()
-
+import { PersistGate } from 'redux-persist/integration/react'
+const {store} = configStore()
+const {persistor} = configStore()
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-    <AlertProvider template={AlertTemplate}>
+    <PersistGate loading={null} persistor={persistor}>
       <Grommet theme={theme}>
         <App />
       </Grommet>
-      </AlertProvider>
+      </PersistGate>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')

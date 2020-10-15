@@ -19,7 +19,7 @@ const Message = ({ message: { text, user, avatar }, name }) => {
   // }, [])
   const { belt_color } = useSelector(state => state.currentUser)
   const trimmedName = name
-
+ 
   if(user === trimmedName) {
     isSentByCurrentUser = true;
   }
