@@ -15,7 +15,7 @@ const {persistor} = configStore()
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-    <PersistGate loading={null} persistor={persistor}>
+    <PersistGate persistor={persistor}>
       <Grommet theme={theme}>
         <App />
       </Grommet>
