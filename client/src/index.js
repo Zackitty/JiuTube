@@ -7,15 +7,16 @@ import AlertTemplate from 'react-alert-template-basic'
 import './index.css';
 import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import configStore from './store/configStore';
+
 import { theme } from './Grommet/theme'
 import { PersistGate } from 'redux-persist/integration/react'
-const {store} = configStore()
-const {persistor} = configStore()
+
+import {store, persistor} from './store/configStore';
+
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-    <PersistGate persistor={persistor}>
+    <PersistGate loading={null} persistor={persistor}>
       <Grommet theme={theme}>
         <App />
       </Grommet>
