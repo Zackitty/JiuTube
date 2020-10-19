@@ -16,7 +16,7 @@ import {store, persistor} from './store/configStore';
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-    <PersistGate loading={null} persistor={persistor}>
+    <PersistGate  loading={null} persistor={persistor}>
       <Grommet theme={theme}>
         <App />
       </Grommet>

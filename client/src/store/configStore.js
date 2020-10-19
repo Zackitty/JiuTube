@@ -4,21 +4,22 @@ import { persistStore, persistReducer } from 'redux-persist'
 import rootReducer from './rootreducer'
 import storage from 'redux-persist/lib/storage' 
 import AsyncStorage from '@react-native-community/async-storage';
+import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const persistConfig = { // configuration object for redux-persist
+const persistConfig = {
   key: 'root',
-  storage: AsyncStorage, // define which storage to use
-}
+  storage: storage,
+  stateReconciler: autoMergeLevel2 // see "Merge Process" section for details.
+ };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer) 
 
 
- const store =  createStore(
-    persistedReducer,
+ export const store = createStore(
+  persistedReducer,
+  {},
     composeEnhancers(applyMiddleware(thunk)),
   );
 
-const persistor = persistStore(store)
-
-export {store, persistor}
+export const persistor = persistStore(store)

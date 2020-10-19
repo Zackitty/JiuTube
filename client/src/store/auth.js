@@ -143,6 +143,6 @@ export default function reducer(state = { needSignIn: true, belt_color: 'white'}
         belt_color: 'white'
       }
     }
-    default: return newState;
+    default: return state;
   }
 }
