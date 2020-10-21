@@ -48,9 +48,9 @@ def inject_csrf_token(response):
 def react_root(path):
     return app.send_static_file('index.html')
 
-# @socketio.on('connect')
-# def on_connect():
-#     print('user connected')
+@socketio.on('connect')
+def on_connect():
+    
 
 @socketio.on('join_room')
 def on_join(data):

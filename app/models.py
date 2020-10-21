@@ -15,6 +15,7 @@ class User(db.Model):
   affiliation = db.Column(db.String(100), nullable = True)
   avatar = db.Column(db.String(255), nullable = True)
   
+  blocks = db.relationship('Block', back_populates="user")
   comments = db.relationship("Comment", back_populates="user")
   # created_posts = db.relationship("Post", back_populates="creator")
   # created_threads = db.relationship("Thread", back_populates="creator")
@@ -24,6 +25,7 @@ class User(db.Model):
     #   post.id for post in self.created_posts
     # ]
     comments = [comment.id for comment in self.comments ]
+    blocks = [block.id for block in self.blocks]
     # created_thread_ids = [thread.id for thread in self.created_threads]
     return {
       "id": self.id,
@@ -36,6 +38,7 @@ class User(db.Model):
       "avatar": self.avatar,
       # "created_posts": created_post_ids,
       "comments": comments,
+      "blocks": blocks
       # "created_threads": created_thread_ids
 
     }
@@ -63,6 +66,21 @@ class Comment(db.Model):
       
     }
 
+class Block(db.Model):
+    __tablename__ = 'blocks'
+
+    id = db.Column(db.Integer, primary_key = True)
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+    blocked_id = db.Column(db.Integer, nullable=False)
+    user = db.relationship("User",  back_populates="blocks")
+
+    def to_dict(self):
+
+      return {
+        "id": self.id,
+        "user": self.user_id,
+        "block": self.blocked_id
+    }
 # class Thread(db.Model):
 #   __tablename__ = 'threads'
 
