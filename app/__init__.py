@@ -42,7 +42,7 @@ def inject_csrf_token(response):
                         httponly=True)
     return response
 
-
+users = {}
 @app.route('/', defaults={'path': ''})
 @app.route('/<path>')
 def react_root(path):
@@ -54,17 +54,20 @@ def on_connect():
 
 @socketio.on('join_room')
 def on_join(data):
+    name = data['name']
     room = data['room']
     join_room(room)
 
 @socketio.on('send_message')
 def on_chat_sent(data):
     print(data)
+    users[name]
     name = data['user']
     message = data['text']
     room = data['room']
     avatar = data['avatar']
     belt_color = data['belt_color']
+    console.log(name)
 
     # emit('message_sent', message)
     emit('message', {'user': name, 'text': message, 'avatar': avatar, 'belt_color': belt_color}, room=room )
