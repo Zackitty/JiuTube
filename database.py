@@ -27,11 +27,14 @@ with app.app_context():
    belt_color = 'Black', affiliation ='Checkmat', avatar = 'https://64.media.tumblr.com/3e0c719e439014c6b222de0b6ba8098c/5e7104cb65b9b19f-41/s250x400/7e0acb01126538cec6adeb35272514439aac799f.jpg', encrypted_password=bcrypt.hashpw(
             "password".encode('utf-8'), bcrypt.gensalt(14)))  
 
-  block1 = Block(user_id = 1, blocked_id = 2)                  
+  block1 = Block(user_id = 1, blocked_id = 2)  
+  
+  block2 = Block(user_id = 1, blocked_id = 3)                 
   db.session.add(demo_user)
   db.session.add(mister_3)
   db.session.add(miss_monday) 
   db.session.add(Zackitty)
   db.session.add(miss_goldenweek)
   db.session.add(block1)
+  db.session.add(block2)
   db.session.commit()

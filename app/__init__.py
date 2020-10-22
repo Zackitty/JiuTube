@@ -5,8 +5,8 @@ from flask_wtf.csrf import CSRFProtect, generate_csrf
 from flask_migrate import Migrate
 from flask_jwt_extended import JWTManager
 from flask_socketio import SocketIO, send, emit, join_room
-from app.models import db, User, Comment
-from app.api.api import user_routes, comment_routes
+from app.models import db, User, Comment, Block
+from app.api.api import user_routes, comment_routes, block_routes
 from app.config import Config
 
 
@@ -18,6 +18,7 @@ app.config.from_object(Config)
 # app.register_blueprint(forum_routes, url_prefix='/api/forums')
 app.register_blueprint(user_routes, url_prefix='/api/users')
 app.register_blueprint(comment_routes, url_prefix='/api/comments')
+app.register_blueprint(block_routes, url_prefix='/api/blocks')
 db.init_app(app)
 jwt = JWTManager(app)
 Migrate(app, db, compare_type=True)
