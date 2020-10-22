@@ -52,21 +52,29 @@ def react_root(path):
 @socketio.on('join_room')
 def on_join(data):
     name = data['username']
+    user_id = data['userID']
     room = data['room']
-    users[name] = request.sid
+    users[user_id] = request.sid
     join_room(room)
     
 
 @socketio.on('send_message')
 def on_chat_sent(data):
-  
-   
     name = data['user']
     message = data['text']
     room = data['room']
     avatar = data['avatar']
     belt_color = data['belt_color']
- 
+    blocks = data['blocks']
+    for user_id in users:
+        for blocked in blocks:
+            if users[user_id] == users[blocked]:
+                print('this is a coup' +users[user_id])
+                print('this is a coup' +users[blocked])
+                return None
+            else:
+                emit('message', {'user': name, 'text': message, 'avatar': avatar, 'belt_color': belt_color}, room=room )
 
     # emit('message_sent', message)
-    emit('message', {'user': name, 'text': message, 'avatar': avatar, 'belt_color': belt_color}, room=room )
+    
+    

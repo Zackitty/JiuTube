@@ -18,7 +18,7 @@ const Input = ({ setMessage, sendMessage, message }) => {
   const USER_ID = localStorage.getItem('USER_ID')
   const [showIn, setShowIn] = useState(false)
   const [showUp, setShowUp] = useState(false)
-  const { needSignIn } = useSelector(state => state.currentUser)
+  const { needSignIn, block_list } = useSelector(state => state.currentUser)
 
   useEffect(() => {
     if (!needSignIn) {
@@ -28,7 +28,6 @@ const Input = ({ setMessage, sendMessage, message }) => {
   }, [needSignIn])
 
   const close = () => {
-    
     setShowIn(false)
     setShowUp(false)
   }

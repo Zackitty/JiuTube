@@ -25,7 +25,7 @@ const Chat = ({ location }) => {
   const ENDPOINT = imageUrl;
 
 
-  const { belt_color } = useSelector(state => state.currentUser)
+  const { belt_color, blocks } = useSelector(state => state.currentUser)
 
 
  
@@ -46,7 +46,7 @@ const Chat = ({ location }) => {
     
     socket = io(ENDPOINT);
 
-    socket.emit('join_room', { username: name, room: room })
+    socket.emit('join_room', { username: name, room: room, userID: USER_ID })
   }, [ENDPOINT]);
     
 
@@ -74,7 +74,7 @@ const Chat = ({ location }) => {
     const USER_ID = localStorage.getItem('USER_ID')
     if(message) {
    
-    const data = {text: message, user: name, room: room, belt_color: belt_color, avatar: avatar}
+    const data = {text: message, user: name, room: room, belt_color: belt_color, avatar: avatar, blocks: blocks}
     socket.emit('send_message', data, () => setMessage(''));
     const formData = new FormData();
     formData.append("message", message);

@@ -7,12 +7,12 @@ import { apiUrl, imageUrl } from "../../../config"
 import './Messages.css';
 
 const Messages = ({ messages, name }) => {
-  
+
   const [initialMessages, setInitialMessages] = useState([]);
   const ENDPOINT = imageUrl;
 
   useEffect(() => {
-    
+   
     fetch(`${apiUrl}/comments`)
       .then(response => response.json())
       .then(data => setInitialMessages(data))

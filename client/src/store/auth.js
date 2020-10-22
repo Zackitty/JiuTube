@@ -32,8 +32,10 @@ export const signIn = (username, password) => async dispatch => {
     const belt = await fetch(`${apiUrl}/users/${id}`)
     .then( res=> res.json())
     const belt_color = belt.belt_color
+    const blocks = await fetch(`${apiUrl}/blocks/${id}`)
+    .then(response => response.json())
     localStorage.setItem(BELT_COLOR, belt_color);
-    dispatch(setUser(access_token, id, belt_color));
+    dispatch(setUser(access_token, id, belt_color, blocks));
   
   }
   catch (err) {
@@ -80,13 +82,13 @@ export const signUp = (username, fullname, email, belt_color,
 }
 
 //FETCH USER DETAILS 
-export const fetchUserDetails = (access_token, belt_color, id) => async dispatch => {
+export const fetchUserDetails = (access_token, belt_color, id, blocks) => async dispatch => {
   const res = await fetch(`${apiUrl}/users/${id}`, {
     headers: {
       'Authorization': `Bearer ${localStorage.getItem('SESSION_TOKEN')}`,
     }
   })
-  dispatch(setUser(access_token, id, belt_color))
+  dispatch(setUser(access_token, id, belt_color, blocks))
 }
 
 //SIGN OUT
@@ -100,11 +102,12 @@ export const signOut = () => async (dispatch) => {
 
 
 //ACTION CREATOR FUNCTIONS
-export const setUser = (access_token, id, belt_color) => ({
+export const setUser = (access_token, id, belt_color, blocks) => ({
   type: SET_USER,
   access_token,
   id: Number(id),
-  belt_color
+  belt_color,
+  blocks
 });
 
 export const handleAuthErrors = (errJSON) => ({
@@ -118,7 +121,7 @@ export const removeUser = () => ({
 
 
 //REDUCER
-export default function reducer(state = { needSignIn: true, belt_color: 'white'}, action) {
+export default function reducer(state = { needSignIn: true, belt_color: 'white', blocks: []}, action) {
   Object.freeze(state);
   const newState = Object.assign({}, state);
   switch (action.type) {
@@ -127,20 +130,23 @@ export default function reducer(state = { needSignIn: true, belt_color: 'white'}
         token: action.access_token,
         id: action.id,
         needSignIn: false,
-        belt_color: action.belt_color
+        belt_color: action.belt_color,
+        blocks: action.blocks
       }
     }
     case AUTH_ERROR: {
       return {
         needSignIn: true,
         authErrors: action.errJSON['errors'],
-        belt_color: 'white'
+        belt_color: 'white',
+        blocks: []
       }
     }
     case REMOVE_USER: {
       return {
         needSignIn: true,
-        belt_color: 'white'
+        belt_color: 'white',
+        blocks: []
       }
     }
     default: return state;
