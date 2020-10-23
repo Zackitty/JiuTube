@@ -74,7 +74,7 @@ const Chat = ({ location }) => {
     const USER_ID = localStorage.getItem('USER_ID')
     if(message) {
    
-    const data = {text: message, user: name, room: room, belt_color: belt_color, avatar: avatar, blocks: blocks, user_id: USER_ID}
+    const data = {text: message, user: name, room: room, belt_color: belt_color, avatar: avatar, blocks: blocks}
     socket.emit('send_message', data, () => setMessage(''));
     const formData = new FormData();
     formData.append("message", message);

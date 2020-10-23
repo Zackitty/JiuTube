@@ -44,7 +44,6 @@ def inject_csrf_token(response):
     return response
 
 users = {}
-print(users)
 @app.route('/', defaults={'path': ''})
 @app.route('/<path>')
 def react_root(path):
@@ -52,34 +51,21 @@ def react_root(path):
 
 @socketio.on('join_room')
 def on_join(data):
+    name = data['username']
     user_id = data['userID']
     room = data['room']
     users[user_id] = request.sid
     join_room(room)
-    print('sucessful successfuly suceesss...................................................... ' )
-    print(users)
     
 
 @socketio.on('send_message')
 def on_chat_sent(data):
-    print(users)
     name = data['user']
     message = data['text']
     room = data['room']
     avatar = data['avatar']
     belt_color = data['belt_color']
-    blocks = data['blocks']
-    user_id = data['user_id']
-    users[user_id] = request.sid
-    for user in users:
-        for blocked in blocks:
-            if users[user] == users[blocked]:
-                print('this is a coup' +users[user])
-                print('this is a coup' +users[blocked])
-                print(users)
-            else:
-                print(users)
-                emit('message', {'user': name, 'text': message, 'avatar': avatar, 'belt_color': belt_color}, room=users[user] )
+    emit('message', {'user': name, 'text': message, 'avatar': avatar, 'belt_color': belt_color}, room=room )
 
     # emit('message_sent', message)
     
