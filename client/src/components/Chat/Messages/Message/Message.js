@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 
 import ReactEmoji from 'react-emoji';
 
-const Message = ({ message: { text, user, avatar }, name }) => {
+const Message = ({ message: { text, user, avatar, belt_color }, name }) => {
   let isSentByCurrentUser = false;
  const [isBlocked, setIsBlocked] = useState(false);
 let blockedArray = [];
@@ -20,7 +20,7 @@ let blockedArray = [];
   // .then(response => response.json())
   // .then(data =>  setUserAvatar(data.avatar))
   // }, [])
-  const { belt_color, blocks } = useSelector(state => state.currentUser)
+  const { blocks } = useSelector(state => state.currentUser)
   const trimmedName = name
   
  
