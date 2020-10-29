@@ -7,10 +7,9 @@ import { useHistory} from 'react-router-dom'
 import { Button, Alert } from 'react-bootstrap';
 import AlertDismissible from '../../Auth/AlertDismissible'
 import SignInButton from '../../Auth/SignInButton'
-import Popup from 'reactjs-popup';
 import Signin from '../../Auth/Signin';
 import SignUp from '../../Auth/SignUp';
-import 'reactjs-popup/dist/index.css';
+
 const Input = ({ setMessage, sendMessage, message }) => {
   let history = useHistory()
   const alert = withAlert()
