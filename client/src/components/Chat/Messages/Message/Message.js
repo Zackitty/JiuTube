@@ -61,10 +61,10 @@ console.log(isBlocked)
             <div className="messageBox" id={`message${belt_color}`}>
               <p className="messageText" id={`color${belt_color}`}>{ReactEmoji.emojify(text)}</p>
             </div>
-        <img className='differentUserAvatar' src={`${avatar}`} onClick={}>}/>
+        <img className='differentUserAvatar' src={`${avatar}`} />
             <p className="sentText pl-10 ">{user}</p>
           </div>
-        ) )]
+        ))]
   );
 }
 
