@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 
 import ReactEmoji from 'react-emoji';
 
-const Message = ({ message: { text, user, avatar, belt_color }, name }) => {
+const Message = ({ message: { text, user, avatar, belt_color, user_id }, name }) => {
   let isSentByCurrentUser = false;
  const [isBlocked, setIsBlocked] = useState(false);
 let blockedArray = [];
@@ -22,7 +22,7 @@ let blockedArray = [];
   // }, [])
   const { blocks } = useSelector(state => state.currentUser)
   const trimmedName = name
-  const USER_ID = localStorage.getItem('USER_ID')
+  
   const [isOpen, setIsOpen] = useState(false)
  const handleBlock = async (e) => {
    e.preventDefault()
@@ -54,7 +54,7 @@ console.log(isBlocked)
       ? (
         <div className="messageContainer justifyEnd">
           <p className="sentText pr-10">{trimmedName}</p>
-          <img className='userAvatar' id={USER_ID} src={`${avatar}`}/>
+          <img className='userAvatar'  src={`${avatar}`}/>
           <div className='messageBox' id={`message${belt_color}`}>
             <p className="messageText" id={`color${belt_color}`}>{ReactEmoji.emojify(text)}</p>
           </div>
@@ -67,7 +67,7 @@ console.log(isBlocked)
             </div>
         <img className='differentUserAvatar' onClick={handleBlock}src={`${avatar}`} />
             <p className="sentText pl-10 ">{user}</p>
-            <BlockButton open={isOpen} onClose={() => setIsOpen(false)}/>
+            <BlockButton open={isOpen} userName={user} user_id={user_id} onClose={() => setIsOpen(false)}/>
           </div>
           
         ))]

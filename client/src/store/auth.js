@@ -101,15 +101,21 @@ export const signOut = () => async (dispatch) => {
   localStorage.removeItem(BELT_COLOR);
   dispatch(removeUser())
 }
-// export const fetchBlocks = (USER_ID) => async dispatch => {
-  
-//   const response = await fetch(`${apiUrl}/${USER_ID}`)
-//   if (!response.ok) {
-//     throw response;
-//   }
-//   const data = await response.json()
-//   dispatch(getBlocks(data))
-// }
+export const fetchBlocks = () => async dispatch => {
+  const user =  localStorage.getItem(USER_ID);
+  const response = await fetch(`${apiUrl}/${user}`)
+  if (!response.ok) {
+    throw response;
+  }
+  const data = await response.json()
+  dispatch(getBlocks(data))
+}
+
+
+export const getBlocks = (data) => async dispatch => ({
+     type: GET_BLOCKS,
+    data
+  })
 
 export const addBlock = (user_id, blocked_id) => async dispatch => {
   
@@ -120,20 +126,29 @@ export const addBlock = (user_id, blocked_id) => async dispatch => {
   // if (profPic !== "") {
   //   formData.append("profPic", profPic, `${firstName}-profpic`)
   // }
-  const response = await fetch(`${apiUrl}/blocks`, {
+  const response2 = await fetch(`${apiUrl}/blocks`, {
     method: 'post',
     body: formData
   });
-  if (!response.ok) {
-    throw response
+  if (!response2.ok) {
+    throw response2
   }
-  dispatch(setBlock(blocked_id));
+
+  const user =  localStorage.getItem(USER_ID);
+  const response = await fetch(`${apiUrl}/${user}`)
+  if (!response.ok) {
+    throw response;
+  }
+  const blocks = await response.json()
+  dispatch(setBlock(blocked_id, blocks));
 
 }
 
-export const setBlock= (blocked_id) => ({
+export const setBlock= (blocked_id, blocks) => ({
   type: ADD_BLOCK,
-  blocked_id
+  blocked_id,
+  blocks
+
 })
 
 
@@ -191,7 +206,9 @@ export default function reducer(state = { needSignIn: true, belt_color: 'white',
     //  return action.data
     // }
     case ADD_BLOCK: {
-      state.blocks.push(action.blocked_id)
+      return {
+        blocks: [...action.blocks, action.block_id]
+      }
     }
     default: return state;
   }

@@ -11,7 +11,7 @@ def block_user():
     user_id = request.form.get('id')
     blocked_id = request.form.get('blocked_id')
     newBlock = Block(user_id = user_id, blocked_id = blocked_id)
-    db.session.add(newComment)
+    db.session.add(newBlock)
     db.session.commit()
     return newBlock.to_dict()
 
