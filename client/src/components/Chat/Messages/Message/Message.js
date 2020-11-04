@@ -22,8 +22,12 @@ let blockedArray = [];
   // }, [])
   const { blocks } = useSelector(state => state.currentUser)
   const trimmedName = name
-  
- 
+  const USER_ID = localStorage.getItem('USER_ID')
+  const [isOpen, setIsOpen] = useState(false)
+ const handleBlock = async (e) => {
+   e.preventDefault()
+   setIsOpen(true)
+ } 
   useEffect(() => {
   checkBlocks()
     }, [user])
@@ -50,7 +54,7 @@ console.log(isBlocked)
       ? (
         <div className="messageContainer justifyEnd">
           <p className="sentText pr-10">{trimmedName}</p>
-          <img className='userAvatar' src={`${avatar}`}/>
+          <img className='userAvatar' id={USER_ID} src={`${avatar}`}/>
           <div className='messageBox' id={`message${belt_color}`}>
             <p className="messageText" id={`color${belt_color}`}>{ReactEmoji.emojify(text)}</p>
           </div>
@@ -61,10 +65,14 @@ console.log(isBlocked)
             <div className="messageBox" id={`message${belt_color}`}>
               <p className="messageText" id={`color${belt_color}`}>{ReactEmoji.emojify(text)}</p>
             </div>
-        <img className='differentUserAvatar' src={`${avatar}`} />
+        <img className='differentUserAvatar' onClick={handleBlock}src={`${avatar}`} />
             <p className="sentText pl-10 ">{user}</p>
+            <BlockButton open={isOpen} onClose={() => setIsOpen(false)}/>
           </div>
+          
         ))]
+       
+        
   );
 }
 

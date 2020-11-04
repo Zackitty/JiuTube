@@ -1,15 +1,29 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Box, Button, Layer } from 'grommet';
 import './auth.css';
-import { useHistory} from 'react-router-dom'
 
-const BlockButton = (props) => {
 
+const BlockButton = ({ open, children, onClose }) => {
+  const dispatch = useDispatch();
+
+  const handleBlockClick= async (e) => {
+    e.preventDefault()
+    onClose()
+    localStorage.getItem("USER_ID")
+    // dispatch(addBlock(user_id, block_id))
+     
+    
+  }
   
-console.log('hello world')
+  if (!open) return null;
+
   return (
-    <div>Hello World! </div>
+      <div >
+        <button onClick={handleBlockClick}>Block User</button>
+        <button onClick={onClose}>Exit</button>
+        {children}
+      </div>
   )
 }
 

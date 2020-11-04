@@ -9,6 +9,8 @@ const SESSION_TOKEN = 'SESSION_TOKEN';
 const USER_ID = 'USER_ID';
 const UPDATE_NAV = 'UPDATE_NAV'
 const BELT_COLOR = 'BELT_COLOR'
+const GET_BLOCKS = 'JIUTUBE/blocks/GET_BLOCKS';
+const ADD_BLOCK = 'JIUTUBE/blocks/ADD_BLOCK';
 
 //SIGN IN 
 export const signIn = (username, password) => async dispatch => {
@@ -99,6 +101,42 @@ export const signOut = () => async (dispatch) => {
   localStorage.removeItem(BELT_COLOR);
   dispatch(removeUser())
 }
+// export const fetchBlocks = (USER_ID) => async dispatch => {
+  
+//   const response = await fetch(`${apiUrl}/${USER_ID}`)
+//   if (!response.ok) {
+//     throw response;
+//   }
+//   const data = await response.json()
+//   dispatch(getBlocks(data))
+// }
+
+export const addBlock = (user_id, blocked_id) => async dispatch => {
+  
+  const formData = new FormData();
+  formData.append("id", user_id)
+  formData.append("blocked_id", blocked_id)
+  
+  // if (profPic !== "") {
+  //   formData.append("profPic", profPic, `${firstName}-profpic`)
+  // }
+  const response = await fetch(`${apiUrl}/blocks`, {
+    method: 'post',
+    body: formData
+  });
+  if (!response.ok) {
+    throw response
+  }
+  dispatch(setBlock(blocked_id));
+
+}
+
+export const setBlock= (blocked_id) => ({
+  type: ADD_BLOCK,
+  blocked_id
+})
+
+
 
 
 //ACTION CREATOR FUNCTIONS
@@ -148,6 +186,12 @@ export default function reducer(state = { needSignIn: true, belt_color: 'white',
         belt_color: 'white',
         blocks: []
       }
+    }
+    // case GET_BLOCKS: {
+    //  return action.data
+    // }
+    case ADD_BLOCK: {
+      state.blocks.push(action.blocked_id)
     }
     default: return state;
   }
