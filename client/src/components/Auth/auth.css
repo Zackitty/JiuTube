@@ -75,19 +75,30 @@ background-color: white;
 }
 
 .exitButton{
-  position: relative;
-  height: 65vh;
+  position: fixed;
+  height: 20vh;
   width: 30%;
+  left: 67.5vw;
+  top: 51vh;
+ z-index: 1000;
 }
 .blockButton{
-  position: relative;
-  height: 65vh;
+  position: fixed;
+  height: 30vh;
   width: 30%;
-  z-index: 1000;
+  left: 67.5vw;
+  top: 28vh;
+ z-index: 1000;
 }
 
-.buttonsContainer {
-  position: relative;
-  height: 65vh;
-  width: 30%;
-}
+#blockWhite{}
+#block{}
+#block{}
+#block{}
+#block{}
+
+#exit{}
+#exit{}
+#exit{}
+#exit{}
+#exit{}

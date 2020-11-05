@@ -65,12 +65,17 @@ console.log(isBlocked)
         )
         : [(isBlocked ? null : (
           <div className="messageContainer justifyStart">
+            <div className="otherUserDiv">
             <div className="messageBox" id={`message${belt_color}`}>
               <p className="messageText" id={`color${belt_color}`}>{ReactEmoji.emojify(text)}</p>
             </div>
+            
         <img className='differentUserAvatar' onClick={handleBlock}src={`${avatar}`} />
             <p className="sentText pl-10 ">{user}</p>
-            <BlockButton open={isOpen} userName={user} user_id={user_id} onClose={() => setIsOpen(false)}/>
+            </div>
+            <div className="blockButtonDiv">
+            <BlockButton className="tryThisDiv" open={isOpen} userName={user} user_id={user_id} onClose={() => setIsOpen(false)}/>
+          </div>
           </div>
           
         ))]

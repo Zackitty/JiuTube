@@ -37,8 +37,8 @@ const UPDATE_NAV = localStorage.getItem("UPDATE_NAV")
 
   return (
   <ScrollToBottom className="messages">
-    {initialArray.map((message, i) => <div key={i}><Message message={message} name={name} blockedArray={blockedArray}/></div>)}
-    {messages.map((message, i) => <div key={i}><Message message={message} name={name}/></div>)}
+    {initialArray.map((message, i) => <div className="messagesClassDiv" key={i}><Message message={message} name={name} blockedArray={blockedArray}/></div>)}
+    {messages.map((message, i) => <div key={i}className="messagesClassDiv" ><Message message={message} name={name}/></div>)}
   </ScrollToBottom>
 );}
 

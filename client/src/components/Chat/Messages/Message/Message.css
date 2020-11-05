@@ -112,3 +112,10 @@
   margin-bottom: 3px;
   border: solid 1.5px;
 }
+
+.otherUserDiv{
+
+  display: flex;
+  flex-direction: row;
+}
+

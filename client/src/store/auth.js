@@ -174,7 +174,7 @@ export const removeUser = () => ({
 
 
 //REDUCER
-export default function reducer(state = { needSignIn: true, belt_color: 'white'}, action) {
+export default function reducer(state = { needSignIn: true, belt_color: 'White'}, action) {
   Object.freeze(state);
   const newState = Object.assign({}, state);
   switch (action.type) {
@@ -191,14 +191,14 @@ export default function reducer(state = { needSignIn: true, belt_color: 'white'}
       return {
         needSignIn: true,
         authErrors: action.errJSON['errors'],
-        belt_color: 'white',
+        belt_color: 'White',
         // blocks: []
       }
     }
     case REMOVE_USER: {
       return {
         needSignIn: true,
-        belt_color: 'white',
+        belt_color: 'White',
         // blocks: []
       }
     }

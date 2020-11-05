@@ -10,6 +10,8 @@ const BlockButton = ({ open, children, onClose, userName, user_id}) => {
   const dispatch = useDispatch();
   const userArray = []
   let history = useHistory()
+  
+  const { belt_color } = useSelector(state => state.currentUser)
   const handleBlockClick = async (e) => {
     e.preventDefault()
     onClose()
@@ -26,8 +28,8 @@ const BlockButton = ({ open, children, onClose, userName, user_id}) => {
 
   return (
       <div className="buttonsContainer">
-        <button className="blockButton" onClick={handleBlockClick}>Block User</button>
-        <button className="exitButton" onClick={onClose}>Exit</button>
+        <button className="blockButton" id={`block${belt_color}`} onClick={handleBlockClick}>Block User</button>
+        <button className="exitButton" id={`exit${belt_color}`} onClick={onClose}>Exit</button>
         {children}
       </div>
        
