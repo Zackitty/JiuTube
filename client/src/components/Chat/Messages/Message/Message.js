@@ -6,10 +6,10 @@ import { useSelector } from 'react-redux';
 
 import ReactEmoji from 'react-emoji';
 
-const Message = ({ message: { text, user, avatar, belt_color, user_id }, name }) => {
+const Message = ({ message: { text, user, avatar, belt_color, user_id }, name, blockedArray }) => {
   let isSentByCurrentUser = false;
  const [isBlocked, setIsBlocked] = useState(false);
-let blockedArray = [];
+console.log(blockedArray)
   // const [color, setColor] = useState('White');
   // const userColor = localStorage.getItem('BELT_COLOR')
   // setColor(userColor)
@@ -22,7 +22,7 @@ let blockedArray = [];
   // }, [])
   const { blocks } = useSelector(state => state.currentUser)
   const trimmedName = name
-  
+  const blockedNamesArray = [];
   const [isOpen, setIsOpen] = useState(false)
  const handleBlock = async (e) => {
    e.preventDefault()
@@ -33,16 +33,19 @@ let blockedArray = [];
     }, [user])
     
     const checkBlocks = async ()=> {
-      for (const blocked in blocks){
-        await fetch(`${apiUrl}/users/${blocks[blocked]}`)
+      if (blockedArray){
+      for (let i = 0; i < blockedArray.length ;i++){
+        await fetch(`${apiUrl}/users/${blockedArray[i]}`)
         .then(response => response.json())
-        .then(data => blockedArray.push(data.username))}
-        blockedArray.forEach(blockedName => {
+        .then(data => blockedNamesArray.push(data.username))}
+        blockedNamesArray.forEach(blockedName => {
+          
           if (blockedName === user){
             setIsBlocked(true)
           }
         })
     }
+  }
 
  
   if(user === trimmedName) {

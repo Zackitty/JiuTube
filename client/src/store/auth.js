@@ -101,21 +101,21 @@ export const signOut = () => async (dispatch) => {
   localStorage.removeItem(BELT_COLOR);
   dispatch(removeUser())
 }
-export const fetchBlocks = () => async dispatch => {
-  const user =  localStorage.getItem(USER_ID);
-  const response = await fetch(`${apiUrl}/${user}`)
-  if (!response.ok) {
-    throw response;
-  }
-  const data = await response.json()
-  dispatch(getBlocks(data))
-}
+// export const fetchBlocks = () => async dispatch => {
+//   const user =  localStorage.getItem(USER_ID);
+//   const response = await fetch(`${apiUrl}/${user}`)
+//   if (!response.ok) {
+//     throw response;
+//   }
+//   const data = await response.json()
+//   dispatch(getBlocks(data))
+// }
 
 
-export const getBlocks = (data) => async dispatch => ({
-     type: GET_BLOCKS,
-    data
-  })
+// export const getBlocks = (data) => async dispatch => ({
+//      type: GET_BLOCKS,
+//     data
+//   })
 
 export const addBlock = (user_id, blocked_id) => async dispatch => {
   
@@ -139,17 +139,17 @@ export const addBlock = (user_id, blocked_id) => async dispatch => {
   if (!response.ok) {
     throw response;
   }
-  const blocks = await response.json()
-  dispatch(setBlock(blocked_id, blocks));
+  // const blocks = await response.json()
+  // dispatch(setBlock(blocked_id, blocks));
 
 }
 
-export const setBlock= (blocked_id, blocks) => ({
-  type: ADD_BLOCK,
-  blocked_id,
-  blocks
+// export const setBlock= (blocked_id, blocks) => ({
+//   type: ADD_BLOCK,
+//   blocked_id,
+//   blocks
 
-})
+// })
 
 
 
@@ -160,7 +160,7 @@ export const setUser = (access_token, id, belt_color, blocks) => ({
   access_token,
   id: Number(id),
   belt_color,
-  blocks
+  // blocks
 });
 
 export const handleAuthErrors = (errJSON) => ({
@@ -174,7 +174,7 @@ export const removeUser = () => ({
 
 
 //REDUCER
-export default function reducer(state = { needSignIn: true, belt_color: 'white', blocks: []}, action) {
+export default function reducer(state = { needSignIn: true, belt_color: 'white'}, action) {
   Object.freeze(state);
   const newState = Object.assign({}, state);
   switch (action.type) {
@@ -184,7 +184,7 @@ export default function reducer(state = { needSignIn: true, belt_color: 'white',
         id: action.id,
         needSignIn: false,
         belt_color: action.belt_color,
-        blocks: action.blocks
+        // blocks: action.blocks
       }
     }
     case AUTH_ERROR: {
@@ -192,24 +192,24 @@ export default function reducer(state = { needSignIn: true, belt_color: 'white',
         needSignIn: true,
         authErrors: action.errJSON['errors'],
         belt_color: 'white',
-        blocks: []
+        // blocks: []
       }
     }
     case REMOVE_USER: {
       return {
         needSignIn: true,
         belt_color: 'white',
-        blocks: []
+        // blocks: []
       }
     }
     // case GET_BLOCKS: {
     //  return action.data
     // }
-    case ADD_BLOCK: {
-      return {
-        blocks: [...action.blocks, action.block_id]
-      }
-    }
+    // case ADD_BLOCK: {
+    //   return {
+    //     blocks: [...action.blocks, action.block_id]
+    //   }
+    // }
     default: return state;
   }
 }
