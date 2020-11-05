@@ -73,3 +73,21 @@ border: 2px solid #333E48;
 cursor: pointer;
 background-color: white;
 }
+
+.exitButton{
+  position: relative;
+  height: 65vh;
+  width: 30%;
+}
+.blockButton{
+  position: relative;
+  height: 65vh;
+  width: 30%;
+  z-index: 1000;
+}
+
+.buttonsContainer {
+  position: relative;
+  height: 65vh;
+  width: 30%;
+}

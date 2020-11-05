@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Box, Button, Layer } from 'grommet';
 import './auth.css';
+import ReactDom from 'react-dom'
 import { addBlock } from '../../store/auth'
 import { useHistory} from 'react-router-dom'
 
@@ -24,12 +25,14 @@ const BlockButton = ({ open, children, onClose, userName, user_id}) => {
   if (!open) return null;
 
   return (
-      <div >
-        <button onClick={handleBlockClick}>Block User</button>
-        <button onClick={onClose}>Exit</button>
+      <div className="buttonsContainer">
+        <button className="blockButton" onClick={handleBlockClick}>Block User</button>
+        <button className="exitButton" onClick={onClose}>Exit</button>
         {children}
       </div>
+       
   )
+
 }
 
 export default BlockButton

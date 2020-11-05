@@ -1,5 +1,6 @@
 .outerContainer {
   display: flex;
+  position: 'relative';
   justify-content: center;
   border-radius: 100px;
   align-items: center;
