@@ -91,14 +91,36 @@ background-color: white;
  z-index: 1000;
 }
 
-#blockWhite{}
-#block{}
-#block{}
-#block{}
-#block{}
+#blockWhite{
+  background-color: white;
+}
+#blockBlue{
+  background-color: #2979FF;;
+}
+#blockPurple{
+  background-color: purple ;
+}
+#blockBrown{
+  background-color: brown;
+}
+#blockBlack{
+  background-color: black;
+  color: white;
+}
 
-#exit{}
-#exit{}
-#exit{}
-#exit{}
-#exit{}
+#exitWhite{
+  background-color: white ;
+}
+#exitBlue{
+  background-color: #2979FF;;
+}
+#exitPurple{
+  background-color: purple ;
+}
+#exitBrown{
+  background-color: brown;
+}
+#exitBlack{
+  background-color: black ;
+  color: white;
+}
