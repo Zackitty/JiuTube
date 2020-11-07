@@ -9,7 +9,7 @@ import ReactEmoji from 'react-emoji';
 const Message = ({ message: { text, user, avatar, belt_color, user_id }, name, blockedArray }) => {
   let isSentByCurrentUser = false;
  const [isBlocked, setIsBlocked] = useState(false);
-console.log(blockedArray)
+
   // const [color, setColor] = useState('White');
   // const userColor = localStorage.getItem('BELT_COLOR')
   // setColor(userColor)
@@ -51,7 +51,7 @@ console.log(blockedArray)
   if(user === trimmedName) {
     isSentByCurrentUser = true;
   }
-console.log(isBlocked)
+
   return (
     isSentByCurrentUser
       ? (
