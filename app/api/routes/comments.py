@@ -11,7 +11,7 @@ def get_chat():
     response = db.session.query(
         Comment
     ).order_by(Comment.id.desc()).limit(10)
-    print(response)
+    
     return  {result.id: { "user": result.username, "text": result.content, "avatar": result.avatar, "belt_color": result.belt_color, "user_id": result.user_id } for result in response}
     
 
