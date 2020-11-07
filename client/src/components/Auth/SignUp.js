@@ -36,7 +36,7 @@ const SignUp = (props) => {
   }
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(mediaurl)
+    
     dispatch(signUp(username, fullname, email, belt_color,
   affiliation, password, mediaurl))
   localStorage.setItem("UPDATE_NAV", "UPDATE")

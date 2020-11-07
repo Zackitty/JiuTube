@@ -60,7 +60,6 @@ const Chat = ({ location }) => {
   useEffect(() => {
     socket.on('message', message => {
       setMessages(messages => [ ...messages, message ]);
-      console.log(message)
     });
     
     socket.on("roomData", ({ users }) => {
