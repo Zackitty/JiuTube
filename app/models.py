@@ -81,39 +81,3 @@ class Block(db.Model):
         "user": self.user_id,
         "block": self.blocked_id
     }
-# class Thread(db.Model):
-#   __tablename__ = 'threads'
-
-#   id = db.Column(db.Integer, primary_key = True)
-#   title = db.Column(db.String(100), nullable = False)
-#   user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
-
-#   posts = db.relationship("Post", back_populates="thread")
-#   creator = db.relationship("User", back_populates="created_threads")
-#   def to_dict(self):
-#     posts = [post.id for post in self.posts]
-
-#     return {
-#       "id": self.id,
-#       "title": self.title,
-#       "creator": self.user_id,
-#       "posts": posts,
-#     }
-
-# class Post(db.Model):
-#   __tablename__ = 'posts'
-
-#   id = db.Column(db.Integer, primary_key = True)
-#   content = db.Column(db.Text, nullable = False)
-#   mediaurl = db.Column(db.Text, nullable = True)
-#   user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
-#   thread_id = db.Column(db.Integer, db.ForeignKey("threads.id"), nullable=False)
-
-#   def to_dict(self):
-#     return {
-#       "id": self.id,
-#       "content": self.content,
-#       "mediaurl": self.mediaurl,
-#       "creator": self.user_id,
-#       "thread": self.thread_id,
-#     }
