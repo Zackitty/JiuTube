@@ -17,7 +17,7 @@ export const fetchComments = () => async dispatch => {
 }
 
 //ACTION CREATORS
-export const getComments = (data) => ({
+export const getComments = (data) =>  ({
   type: GET_CHAT,
   data
 })

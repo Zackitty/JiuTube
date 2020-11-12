@@ -1,6 +1,6 @@
 import React from 'react'
 import videojs from 'video.js'
-import awsvideoconfig from '../../aws-video-exports'
+
 import 'video.js/dist/video-js.css'
 import './JiuTubePlayer.css';
 class VideoPlayer extends React.Component {
@@ -25,13 +25,7 @@ class VideoPlayer extends React.Component {
   }
 }
 
-const videoJsOptions = {
-  autoplay: true,
-  controls: true,
-  sources: [{
-    src: awsvideoconfig.awsOutputLiveLL,
-  }]
-}
+
 
 const  JiuTubePlayer  = () => {
   return (
