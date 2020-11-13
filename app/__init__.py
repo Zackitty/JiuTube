@@ -65,13 +65,10 @@ def on_chat_sent(data):
     room = data['room']
     avatar = data['avatar']
     belt_color = data['belt_color']
-    blocks = data['blocks']
+
     user_id = data['user_id']
-    for user in users:
-        for blocked in blocks:
-            if int(user) == int(blocks[blocked]):
-                return None
-        emit('message', {'user': name, 'text': message, 'avatar': avatar, 'belt_color': belt_color, user_id: 'user_id'}, room=users[user] )
+   
+    emit('message', {'user': name, 'text': message, 'avatar': avatar, 'belt_color': belt_color, user_id: 'user_id'}, room=room )
     # emit('message_sent', message)
     
     

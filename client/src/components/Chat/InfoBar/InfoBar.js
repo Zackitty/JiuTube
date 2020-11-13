@@ -21,7 +21,6 @@ return (
     </div>
     
     <div className="rightInnerContainer">
-      <a href="/"><img src={closeIcon} alt="close icon" /></a>
     </div>
   </div>
 )}
