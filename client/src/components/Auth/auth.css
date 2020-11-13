@@ -55,10 +55,13 @@ background-color: white;
   font-weight: 500;
 border: 2px solid #333E48;
   width: 8vw;
+  height: 10vh
 }
 
 .signOutButton__Container{
   color: #333E48;
+  display: flex;
+  align-items: center;
   padding: 10px 16px;
 border-radius: 2px;
 line-height: 2px;
@@ -73,14 +76,16 @@ border-style: solid;
 border: 2px solid #333E48;
 cursor: pointer;
 background-color: white;
-width: 8vw;
+width: 20vw;
+height: 20vh;
 }
 
 .exitButton{
   position: fixed;
-  height: 20vh;
+  height: 24vh;
   width: 30%;
   left: 67.5vw;
+  color: white;
   top: 51vh;
  z-index: 1000;
 }
@@ -90,6 +95,7 @@ width: 8vw;
   width: 30%;
   left: 67.5vw;
   top: 28vh;
+  color: white;
  z-index: 1000;
 }
 
