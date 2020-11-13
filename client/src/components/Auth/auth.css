@@ -9,6 +9,9 @@
 border: 2px solid #333E48;
   width: 70px;
 }
+.signin__holder {
+  width: 8vw
+}
 .signInButton {
   display: flex;
   justify-content: center;
@@ -51,19 +54,17 @@ background-color: white;
   font-size: 13px;
   font-weight: 500;
 border: 2px solid #333E48;
-  width: 70px;
+  width: 8vw;
 }
 
 .signOutButton__Container{
-  width: 20px;
-
   color: #333E48;
   padding: 10px 16px;
 border-radius: 2px;
 line-height: 2px;
 text-decoration: none;
 font-family: National2,"Helvetica Neue",Helvetica,Arial,sans-serif;
-font-size: 13px;
+font-size: 1vw;
 font-weight: 500;
 background-color: transparent;
 justify-content: center;
@@ -72,6 +73,7 @@ border-style: solid;
 border: 2px solid #333E48;
 cursor: pointer;
 background-color: white;
+width: 8vw;
 }
 
 .exitButton{
@@ -102,6 +104,7 @@ background-color: white;
 }
 #blockBrown{
   background-color: brown;
+  color: white;
 }
 #blockBlack{
   background-color: black;

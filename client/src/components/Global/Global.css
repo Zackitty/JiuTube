@@ -77,17 +77,19 @@ color: white;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 10vw;
 
 }
 .signin__container{
   width: 25vw;
   background-color: black;
+  display: flex;
+  justify-content: center;
 }
 
 .signOutButton__Container {
-  width: 60%;
-  height: 10%
+  width: 6.5vw;
+  height: 4.5vh;
 }
 
 
