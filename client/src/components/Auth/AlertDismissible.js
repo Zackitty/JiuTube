@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 
 const  AlertDismissible = () => {
   const [show, setShow] = useState(true);
-
+  console.log('')
   return (
     <>
       <Alert show={show} variant="success">
