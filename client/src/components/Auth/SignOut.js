@@ -6,6 +6,7 @@ import { useHistory} from 'react-router-dom'
 const SignOut = (props) => {
 const dispatch = useDispatch();
 let history = useHistory()
+console.log('')
 const UPDATE_NAV = localStorage.getItem("UPDATE_NAV")
 const handleLogOut = async(e) => {
   e.preventDefault()
