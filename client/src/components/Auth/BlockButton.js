@@ -10,7 +10,7 @@ const BlockButton = ({ open, children, onClose, userName, user_id}) => {
   const dispatch = useDispatch();
   const userArray = []
   let history = useHistory()
-  
+  console.log('')
   const { belt_color } = useSelector(state => state.currentUser)
   const handleBlockClick = async (e) => {
     e.preventDefault()
