@@ -14,7 +14,7 @@ const SignInButton = (props) => {
   const { needSignIn } = useSelector(state => state.currentUser)
   let history = useHistory()
   const USER_ID = localStorage.getItem('USER_ID')
-  
+  console.log('')
 
 
   useEffect(() => {
