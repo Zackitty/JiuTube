@@ -1,10 +1,13 @@
 .messageBox {
   background: #F3F3F3;
   border-radius: 20px;
-  padding: 5px 20px;
+  padding: 10px 20px 0px 20px;
   color: white;
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   max-width: 80%;
+  
 }
 
 .messageText {
@@ -13,6 +16,7 @@
   float: left;
   font-size: 1.1em;
   word-wrap: break-word;
+  align-items: center;
 }
 
 .messageText img {
@@ -24,6 +28,7 @@
   justify-content: flex-end;
   padding: 0 5%;
   margin-top: 3px;
+  align-items: center;
   margin-bottom: 3px;
 }
 
