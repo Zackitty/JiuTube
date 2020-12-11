@@ -62,6 +62,7 @@ const Signin = (props) => {
             primary
             color="#ED2D23"
             onClick={handleOnClickGuest}
+            
            >
             sign in as guest</Button>
         </Form>
