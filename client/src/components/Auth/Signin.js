@@ -50,7 +50,7 @@ const Signin = (props) => {
   return (
     <Box align="center" pad="large">
       <div>
-        don't have an account? <SignInButton label="sign up!" onClickProp={toggleLast}  />
+        don't have an account? <SignInButton id="actualSignIn" label="sign up!" onClickProp={toggleLast}  />
       </div>
       {/* if authErrors, show Error Box */}
       {authErrors && <ErrorBox />}
@@ -62,7 +62,7 @@ const Signin = (props) => {
             primary
             color="#ED2D23"
             onClick={handleOnClickGuest}
-            
+            id="guestButton"
            >
             sign in as guest</Button>
         </Form>
@@ -86,6 +86,7 @@ const Signin = (props) => {
           primary
           color="#ED2D23"
           onClick={handleOnClickUser}
+          id="actualSignInButton"
           >
           sign in</Button>
       </Form>
