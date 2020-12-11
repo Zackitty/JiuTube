@@ -48,7 +48,7 @@ const Signin = (props) => {
 
 
   return (
-    <Box align="center" pad="large">
+    <Box id="signInBox" align="center" pad="large">
       <div>
         don't have an account? <SignInButton id="actualSignIn" label="sign up!" onClickProp={toggleLast}  />
       </div>
@@ -67,7 +67,7 @@ const Signin = (props) => {
             sign in as guest</Button>
         </Form>
       </Box>
-      <Form>
+      <Form id="bottomForm">
         <FormField
           name="username"
           label="User Name"

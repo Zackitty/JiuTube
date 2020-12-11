@@ -136,6 +136,31 @@ height: 20vh;
   color: white;
 }
 
-#actualSignInButton{}
-#guestButton{}
-#actualSignIn{}
+#signInBox {
+  display: flex;
+ align-items: center;
+ justify-content: center;
+}
+
+#actualSignInButton{
+  background-color: black 
+}
+#guestButton{
+  background-color: black 
+}
+#actualSignIn{
+  background-color: black 
+}
+
+.StyledBox-sc-13pk1d4-0.gAsOLC {
+  display: flex;
+  align-items: center;
+
+}
+
+#bottomForm{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
