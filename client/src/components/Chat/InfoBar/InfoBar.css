@@ -3,12 +3,13 @@
   align-items: center;
   justify-content: space-between;
   height: 12vh;
-  width: 30vw;
+  width: 30.25vw;
   font-size: 25px;
   border-radius: 10px 10px 0px 0px;
   position: absolute;  
   left: 67.5vw;
-  top: 31.98vh;
+  top: 32.5vh;
+  right:10vw;
  z-index: 1000;
  box-shadow: 0px 5px 5px 0px black;
 }
