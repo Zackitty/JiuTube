@@ -23,9 +23,9 @@ input:focus, textarea:focus, select:focus{
  display: flex;
  position: absolute;
   text-transform: uppercase;
-  padding: 20px;
+  padding: 17px;
   right: 2.5vw;
-  top: 88.3vh;
+  top: 89vh;
   justify-content: center;
   border: none;
   width: 5.6vw;
