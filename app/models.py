@@ -63,7 +63,7 @@ class Comment(db.Model):
       "avatar": self.avatar,
       "belt_color": self.belt_color,
       "user": self.user_id
-      h
+      
     }
 
 class Block(db.Model):
