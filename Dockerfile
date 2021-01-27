@@ -26,4 +26,4 @@ ENV SECRET_KEY=lkasjdf09ajsdkfljalsiorj12n3490re9485309irefvn,u90818734902139489
 EXPOSE 8000
 
 # Run flask environment
-CMD gunicorn --worker-class eventlet -w 1 app:app 
+CMD gunicorn --worker-class eventlet -w 1 app:app
