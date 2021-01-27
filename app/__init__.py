@@ -27,7 +27,7 @@ app.config['FLASKS3_BUCKET_NAME'] = 'jiutube'
 
 # Application Security
 
-CORS(app)
+CORS(app, resources={r"/*":{"origins":"*"}})
 app.config['CORS_HEADERS'] = 'Content-Type'
 socketio = SocketIO(app, cors_allowed_origins="*" )
 if __name__ == '__main__':
