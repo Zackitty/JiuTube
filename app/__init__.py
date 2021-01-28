@@ -34,13 +34,13 @@ if __name__ == '__main__':
      socketio.run(app, debug=True)
 
 @app.after_request
-def inject_csrf_token(response):
+def inject_csrf_token(response):n.get(
+                            'FLASK_ENV') else None,
+                        httponly=True)
     response.set_cookie('csrf_token',
                         generate_csrf(),
                         secure=True if os.environ.get('FLASK_ENV') else False,
-                        samesite='Strict' if os.environ.get(
-                            'FLASK_ENV') else None,
-                        httponly=True)
+                        samesite='Strict' if os.enviro
     return response
 
 users = {}

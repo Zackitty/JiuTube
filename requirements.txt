@@ -25,5 +25,5 @@ flask-s3==0.3.3
 flask-socketio==5.0.1
 sanic==20.6.3
 sanic-cors==0.10.0.post3
-eventlet==0.28.0
+eventlet==0.30.0
 flask-sockets==0.2.1
