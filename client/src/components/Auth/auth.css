@@ -103,12 +103,15 @@ height: 20vh;
 
 #blockWhite{
   background-color: white;
+  color: black;
 }
 #blockBlue{
   background-color: #2979FF;;
+  color: white
 }
 #blockPurple{
   background-color: purple ;
+  color: white
 }
 #blockBrown{
   background-color: brown;
@@ -121,15 +124,19 @@ height: 20vh;
 
 #exitWhite{
   background-color: white ;
+  color: black;
 }
 #exitBlue{
   background-color: #2979FF;;
 }
 #exitPurple{
-  background-color: purple ;
+  background-color: purple;
+  color: white;
+
 }
 #exitBrown{
   background-color: brown;
+  color: white;
 }
 #exitBlack{
   background-color: black ;
