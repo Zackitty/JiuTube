@@ -45,10 +45,12 @@ input:focus, textarea:focus, select:focus{
 }
 .buttonBlue{ 
   background: #2979FF;
+  color: white;
 }
 
 .buttonPurple{ 
   background: purple;
+  color: white;
 }
 .buttonBrown{ 
   background: brown;

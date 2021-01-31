@@ -31,7 +31,7 @@ CORS(app, resources={r"/*":{"origins":"*"}})
 app.config['CORS_HEADERS'] = 'Content-Type'
 socketio = SocketIO(app, cors_allowed_origins="*" )
 if __name__ == '__main__':
-     socketio.run(app, debug=True)
+     socketio.run(app)
 
 @app.after_request
 def inject_csrf_token(response):
