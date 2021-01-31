@@ -55,11 +55,13 @@ def on_join(data):
     user_id = data['userID']
     room = data['room']
     users[user_id] = request.sid
+
     join_room(room)
     
 
 @socketio.on('send_message')
 def on_chat_sent(data):
+    
     name = data['user']
     message = data['text']
     room = data['room']
@@ -69,6 +71,7 @@ def on_chat_sent(data):
     user_id = data['user_id']
    
     emit('message', {'user': name, 'text': message, 'avatar': avatar, 'belt_color': belt_color, user_id: 'user_id'}, room=room )
+    
     # emit('message_sent', message)
     
     
