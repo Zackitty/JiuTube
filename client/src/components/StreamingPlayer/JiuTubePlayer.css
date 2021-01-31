@@ -12,7 +12,7 @@ height: 500;
   position: fixed;
   top: 27.5vh;
   left: 4vw;
-  border: 2mm ridge grey; 
+  border: 2mm solid grey; 
   border-radius: 15px;
   box-shadow: 2px 2px 4px 1px black;
   background-color: black
