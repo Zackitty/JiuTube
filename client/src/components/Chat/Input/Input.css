@@ -21,11 +21,11 @@ input:focus, textarea:focus, select:focus{
 
 .buttonnull, .buttonWhite, .buttonBlue, .buttonPurple, .buttonBrown, .buttonBlack {
  display: flex;
- position: absolute;
+ position: fixed;
   text-transform: uppercase;
-  padding: 17px;
-  right: 2.5vw;
-  top: 89vh;
+  padding: 20px;
+  left: 91.8vw;
+  top: 83vh;
   justify-content: center;
   border: none;
   width: 5.6vw;

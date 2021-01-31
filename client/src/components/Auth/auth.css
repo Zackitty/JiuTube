@@ -88,15 +88,15 @@ height: 20vh;
   width: 30%;
   left: 67.5vw;
   color: white;
-  top: 51vh;
+  top: 58.7vh;
  z-index: 1000;
 }
 .blockButton{
-  position: fixed;
+position: fixed;
   height: 30vh;
   width: 30%;
   left: 67.5vw;
-  top: 28vh;
+  top: 29vh;
   color: white;
  z-index: 1000;
 }
@@ -170,4 +170,12 @@ height: 20vh;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.buttonsContainer {
+  position: fixed;
+}
+
+.blockButtonDiv {
+  position: fixed;
 }

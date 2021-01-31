@@ -1,14 +1,15 @@
 .infonull, .infoWhite, .infoBlue, .infoPurple, .infoBrown, .infoBlack{
   display: flex;
   align-items: center;
+
   justify-content: space-between;
   height: 12vh;
   width: 30.25vw;
   font-size: 25px;
   border-radius: 10px 10px 0px 0px;
-  position: absolute;  
+  position: fixed;  
   left: 67.5vw;
-  top: 32.5vh;
+  top: 26.6vh;
   right:10vw;
  z-index: 1000;
  box-shadow: 0px 5px 5px 0px black;

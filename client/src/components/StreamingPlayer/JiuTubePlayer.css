@@ -9,6 +9,9 @@ height: 500;
 .VideoPlayer{
   height: 65vh;
   width: 60vw;
+  position: fixed;
+  top: 27.5vh;
+  left: 4vw;
   border: 2mm ridge grey; 
   border-radius: 15px;
   box-shadow: 2px 2px 4px 1px black;

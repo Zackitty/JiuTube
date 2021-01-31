@@ -1,5 +1,8 @@
 .outerContainer {
   display: flex;
+  position: fixed;
+  left: 67.5vw;
+  top:  26.5vh;
   justify-content: center;
   border-radius: 100px;
   align-items: center;
@@ -12,6 +15,7 @@
 .container {
   display: flex;
   flex-direction: column;
+  
   justify-content: space-between;
   background: #FFFFFF;
   border-radius: 10px;
