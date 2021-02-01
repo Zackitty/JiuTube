@@ -31,7 +31,7 @@ CORS(app, resources={r"/*":{"origins":"*"}})
 app.config['CORS_HEADERS'] = 'Content-Type'
 socketio = SocketIO(app, cors_allowed_origins="*" )
 if __name__ == '__main__':
-     socketio.run(app)
+     socketio.run(app, debug=True)
 
 @app.after_request
 def inject_csrf_token(response):
@@ -51,26 +51,23 @@ def react_root(path):
 
 @socketio.on('join_room')
 def on_join(data):
+    print('............................im king of the world............')
     name = data['username']
     user_id = data['userID']
     room = data['room']
     users[user_id] = request.sid
-
     join_room(room)
     
 
 @socketio.on('send_message')
 def on_chat_sent(data):
-    
     name = data['user']
     message = data['text']
     room = data['room']
     avatar = data['avatar']
     belt_color = data['belt_color']
-
     user_id = data['user_id']
-   
-    emit('message', {'user': name, 'text': message, 'avatar': avatar, 'belt_color': belt_color, user_id: 'user_id'}, room=room )
+    send('message', {'user': name, 'text': message, 'avatar': avatar, 'belt_color': belt_color, user_id: 'user_id'}, room=room)
     
     # emit('message_sent', message)
     

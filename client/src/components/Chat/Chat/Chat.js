@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import queryString from 'query-string';
-import io from "socket.io-client";
+import { io } from "socket.io-client"
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import Messages from '../Messages/Messages';
@@ -59,8 +59,8 @@ const Chat = ({ location }) => {
   
   useEffect(() => {
     socket.on('message', message => {
-      console.log('........................message receieved...............................')
       setMessages(messages => [ ...messages, message ]);
+      console.log('........................message receieved...............................')
     });
     
     socket.on("roomData", ({ users }) => {
@@ -76,6 +76,7 @@ const Chat = ({ location }) => {
     if(message) {
    
     const data = {text: message, user: name, room: room, belt_color: belt_color, avatar: avatar, blocks: blocks, user_id: USER_ID}
+    console.log(data)
     socket.emit('send_message', data, () => setMessage(''));
     const formData = new FormData();
     formData.append("message", message);
