@@ -51,10 +51,7 @@ def react_root(path):
     return app.send_static_file('index.html')
 
 
-@socketio.on('connect')
-def test_connect():
-    print('someone connected to websocket')
-    emit('responseMessage', {'data': 'Connected! ayy'})
+
 
 @socketio.on('join_room')
 def on_join(data):
@@ -74,7 +71,8 @@ def on_chat_sent(data):
     avatar = data['avatar']
     belt_color = data['belt_color']
     user_id = data['user_id']
-    send('message', {'user': name, 'text': message, 'avatar': avatar, 'belt_color': belt_color, user_id: 'user_id'}, room=room)
+
+    emit('message', {'user': name, 'text': message, 'avatar': avatar, 'belt_color': belt_color, user_id: 'user_id'}, room=room)
     
     # emit('message_sent', message)
     

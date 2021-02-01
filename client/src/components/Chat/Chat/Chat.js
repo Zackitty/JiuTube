@@ -10,9 +10,7 @@ import { useHistory} from 'react-router-dom'
 import { apiUrl, imageUrl } from "../../../config"
 import './Chat.css';
 import { fetchComments } from '../../../store/chat'
-
-const ENDPOINT = imageUrl;
-let socket = io.connect(ENDPOINT);
+let socket;
 
 const Chat = ({ location }) => {
 
@@ -25,7 +23,7 @@ const Chat = ({ location }) => {
   const [messages, setMessages] = useState([]);
   const [isOpen, setIsOpen] = useState(false)
   const [preLoadedMessages, setPreLoadedMessages] = useState([])
- 
+  const ENDPOINT = imageUrl;
 
 
   const { belt_color, blocks } = useSelector(state => state.currentUser)
@@ -47,9 +45,8 @@ const Chat = ({ location }) => {
     .then(data => setAvatar(data.avatar))
   }
     
-   
-   
-
+    socket = io(ENDPOINT);
+   console.log('mayor for mayor for mayor')
     socket.emit('join_room', { username: name, room: room, userID: USER_ID })
   }, [ENDPOINT]);
     
