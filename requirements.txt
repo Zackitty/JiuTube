@@ -22,7 +22,7 @@ pylint==2.6.0
 psycopg2-binary==2.8.5
 boto3==1.14.56
 flask-s3==0.3.3
-flask-socketio==4.0.0
+flask-socketio==5.0.1
 sanic==20.6.3
 sanic-cors==0.10.0.post3
 eventlet==0.30.0

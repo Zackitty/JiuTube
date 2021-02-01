@@ -29,6 +29,7 @@ app.config['FLASKS3_BUCKET_NAME'] = 'jiutube'
 
 CORS(app, resources={r"/*":{"origins":"*"}})
 app.config['CORS_HEADERS'] = 'Content-Type'
+
 socketio = SocketIO(app, cors_allowed_origins="*" )
 if __name__ == '__main__':
      socketio.run(app, debug=True)
@@ -48,6 +49,12 @@ users = {}
 @app.route('/<path>')
 def react_root(path):
     return app.send_static_file('index.html')
+
+
+@socketio.on('connect')
+def test_connect():
+    print('someone connected to websocket')
+    emit('responseMessage', {'data': 'Connected! ayy'})
 
 @socketio.on('join_room')
 def on_join(data):
