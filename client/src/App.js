@@ -32,7 +32,8 @@ function App() {
         </Switch>
     </BrowserRouter>
   );
-}
+}\
+
 
 
 
