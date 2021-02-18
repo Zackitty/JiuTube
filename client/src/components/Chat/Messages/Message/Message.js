@@ -7,24 +7,15 @@ import { useSelector } from 'react-redux';
 import ReactEmoji from 'react-emoji';
 
 const Message = ({ message: { text, user, avatar, belt_color, user_id }, name, blockedArray }) => {
+  
   let isSentByCurrentUser = false;
- const [isBlocked, setIsBlocked] = useState(false);
-
-  // const [color, setColor] = useState('White');
-  // const userColor = localStorage.getItem('BELT_COLOR')
-  // setColor(userColor)
-  // const [userAvatar, setUserAvatar] = useState('')
-  // const USER_ID = localStorage.getItem('USER_ID')
-  // useEffect(() => {
-  // fetch(`${apiUrl}/users/${USER_ID}`)
-  // .then(response => response.json())
-  // .then(data =>  setUserAvatar(data.avatar))
-  // }, [])
+  const [isBlocked, setIsBlocked] = useState(false);
   const { blocks } = useSelector(state => state.currentUser)
   const trimmedName = name
   const blockedNamesArray = [];
   const [isOpen, setIsOpen] = useState(false)
- const handleBlock = async (e) => {
+  
+  const handleBlock = async (e) => {
    e.preventDefault()
    setIsOpen(true)
  } 
