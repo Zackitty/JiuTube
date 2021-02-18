@@ -110,7 +110,7 @@ I used OBS to stream videos to Twitch that I then hosted in the VideoJS player.
 <OBS Image> 
   
 #### Socket.Io-Client
-I used client side sockets for each user to join the chat room and type messages to send to the backend sockets that are then transferred back to the front end sockets to display through react components.
+I used client side sockets for each user to join the chat room and emit messages to to the backend socket server that are then transferred back to the front end sockets to travel through react components til they're displayed as a message.
  
 #### Amazon Web Services
 I used the AWS Cloud to host photos that users want to use as their avatar in chat messages.
