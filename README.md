@@ -15,15 +15,13 @@ The chat box integrates [Flask-Socketio](https://flask-socketio.readthedocs.io/e
 
 ![Image of Redux Block Working](https://media4.giphy.com/media/EDaalK5jmRLDUenEH6/giphy.gif)
   
-References in the Redux store and in the SQL-Alchemy database also change the state of the UI's CSS switching colors based on the User's belt color.
+References in the Redux store and in the SQL-Alchemy database also change the state of the UI's CSS switching colors based on the User's belt color without effecting other components of that don't need access to that information or reloading the website.
 
 ![Image of Redux WOrking](https://media4.giphy.com/media/XcJpE33iLgxU0qZRGF/giphy.gif)
 
 ## Architecture & Technologies
 
 The Full Stack application stores users and messages in a SQL-Alchemy database. It takes those to create chat history as you start up the page, and uses SocketIO technology to create a live Chat. The main feature is the video player using OBS to stream to Twitch. It also uses AWS to allow users to have a personal avatar in their chat messages.
-
-<Graph>
   
 ## The FrontEnd
 
