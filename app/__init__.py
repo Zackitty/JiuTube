@@ -55,7 +55,6 @@ def react_root(path):
 
 @socketio.on('join_room')
 def on_join(data):
-    print('............................im king of the world............')
     name = data['username']
     user_id = data['userID']
     room = data['room']
