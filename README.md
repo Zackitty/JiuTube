@@ -11,17 +11,17 @@
 ## The User Interface
 The JiuTube is a React.js Full Stack Application with a Flask Backend server that allows users to watch a live streaming Jiujitsu video player while chatting about the matches.
   
-The chat box integrates [Flask-Socketio](https://flask-socketio.readthedocs.io/en/latest/) and [Socket.IO-Client](https://socket.io/docs/v3/client-api/index.html) to send and receieve messages. It uses references store in the [Redux Store](https://redux.js.org/api/store) and the [SQL-Alchemy](https://www.sqlalchemy.org/) database to allow users to see previous messages and block message from harmful users.
+The chat box integrates [Flask-Socketio](https://flask-socketio.readthedocs.io/en/latest/) and [Socket.IO-Client](https://socket.io/docs/v3/client-api/index.html) to send and receieve messages. It uses references store in the [Redux Store](https://redux.js.org/api/store) and in the database via [SQL-Alchemy](https://www.sqlalchemy.org/) to allow users to see previous messages and block message from harmful users.
 
 ![Image of Redux Block Working](https://media4.giphy.com/media/EDaalK5jmRLDUenEH6/giphy.gif)
   
-References in the Redux store and in the SQL-Alchemy database also change the state of the UI's CSS switching colors based on the User's belt color without effecting other components of that don't need access to that information or reloading the website.
+References in the Redux store and in the SQL database also change the state of the UI's CSS switching colors based on the User's belt color without effecting other components of that don't need access to that information or reloading the website.
 
 ![Image of Redux WOrking](https://media4.giphy.com/media/XcJpE33iLgxU0qZRGF/giphy.gif)
 
 ## Architecture & Technologies
 
-The Full Stack application stores users and messages in a backend SQL-Alchemy database. The Flask-Server takes a RESTFul API call from the React Front-End to make a GET request to the SQL Database to create chat history as you start up the page, and uses SocketIO technology to create a live Chat. The main feature is the video player using OBS to stream to Twitch. It also uses AWS to allow users to have a personal avatar in their chat messages.
+The Full Stack application stores users and messages in a backend SQL database. The Flask-Server takes a RESTFul API call from the React Front-End to make a GET request to use SQL alchemhy to create a query in the database that will create a chat history as you start up the page, and uses SocketIO technology to create a live Chat. The main feature is the video player using OBS to stream to Twitch. It also uses AWS to allow users to have a personal avatar in their chat messages.
   
 ## The FrontEnd
 
