@@ -6,7 +6,7 @@
 - [Architecture & Technologies](https://github.com/Zackitty/JiuTube#architecture-&-technologies)
 - [The FrontEnd](https://github.com/Zackitty/JiuTube#the-frontend)
 - [The Backend](https://github.com/Zackitty/JiuTube#the-backend)
-- [Challenges & The Future](https://github.com/Zackitty/JiuTube/challenges-and-the-future)
+- [Challenges & The Future](https://github.com/Zackitty/JiuTube#challenges-and-the-future)
 
 ## The User Interface
 The JiuTube is a React.js Full Stack Application with a Flask Backend server that allows users to watch a live streaming Jiujitsu video player while chatting about the matches.
