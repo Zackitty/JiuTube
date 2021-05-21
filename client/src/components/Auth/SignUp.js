@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useDispatch} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Select, Box, Form, Button, FormField } from 'grommet';
 import S3FileUpload from 'react-s3';
@@ -23,7 +23,7 @@ const SignUp = (props) => {
 
  
     const config = {
-        bucketName: 'jiutube',
+        bucketName: 'jiutubeawsbucket',
         region: 'us-east-2',
         accessKeyId: process.env.AWS_ACCESS_KEY_ID,
         secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
