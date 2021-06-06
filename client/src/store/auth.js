@@ -30,7 +30,7 @@ export const signIn = (username, password) => async dispatch => {
 
     localStorage.setItem(SESSION_TOKEN, access_token);
     localStorage.setItem(USER_ID, id);
-  f
+  
     const belt = await fetch(`${apiUrl}/users/${id}`)
     .then( res=> res.json())
     const belt_color = belt.belt_color
