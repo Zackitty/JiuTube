@@ -25,7 +25,7 @@ const NavBar = (props) => {
       
       
     <div className='logo'>The Jiu-Tube</div>
-    b
+    
    
     <img id='JiuJitsuPic2'
       src="https://64.media.tumblr.com/24a4a8141d4486449f8cad18e8be7145/4ca9555b24f30f8a-14/s1280x1920/7bf32fcc0710c2e82c382dc88b53080770d99db5.jpg">
