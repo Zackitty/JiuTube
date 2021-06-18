@@ -6,7 +6,7 @@
   color: white;
   font-size: 13px;
   font-weight: 500;
-border: 2px solid #333E48;
+  border: 2px solid #333E48;
   width: 70px;
 }
 .signin__holder {
@@ -21,7 +21,7 @@ border: 2px solid #333E48;
   color: black;
   font-size: 13px;
   font-weight: 500;
-border: 2px solid #333E48;
+  border: 2px solid #333E48;
   width: 70px;
   height: 40px;
 }
@@ -32,19 +32,19 @@ border: 2px solid #333E48;
   align-items: center;
   color: #333E48;
   padding: 10px 16px;
-border-radius: 2px;
-line-height: 2px;
-text-decoration: none;
-font-family: National2,"Helvetica Neue",Helvetica,Arial,sans-serif;
-font-size: 13px;
-font-weight: 500;
-background-color: transparent;
-justify-content: center;
-border-width: 2px;
-border-style: solid;
-border: 2px solid #333E48;
-cursor: pointer;
-background-color: white;
+  border-radius: 2px;
+  line-height: 2px;
+  text-decoration: none;
+  font-family: National2,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  background-color: transparent;
+  justify-content: center;
+  border-width: 2px;
+  border-style: solid;
+  border: 2px solid #333E48;
+  cursor: pointer;
+  background-color: white;
 }
 
 .signOutButton{
@@ -55,8 +55,7 @@ background-color: white;
   color: white;
   font-size: 13px;
   font-weight: 500;
-border: 2px solid #333E48;
- 
+  border: 2px solid #333E48;
   height: 10vh
 }
 
@@ -65,21 +64,21 @@ border: 2px solid #333E48;
   display: flex;
   align-items: center;
   justify-content: center;
-border-radius: 2px;
-line-height: 2px;
-text-decoration: none;
-font-family: National2,"Helvetica Neue",Helvetica,Arial,sans-serif;
-font-size: 1vw;
-font-weight: 500;
-background-color: transparent;
-justify-content: center;
-border-width: 2px;
-border-style: solid;
-border: 2px solid #333E48;
-cursor: pointer;
-background-color: white;
-width: 20vw;
-height: 20vh;
+  border-radius: 2px;
+  line-height: 2px;
+  text-decoration: none;
+  font-family: National2,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 1vw;
+  font-weight: 500;
+  background-color: transparent;
+  justify-content: center;
+  border-width: 2px;
+  border-style: solid;
+  border: 2px solid #333E48;
+  cursor: pointer;
+  background-color: white;
+  width: 20vw;
+  height: 20vh;
 }
 
 .exitButton{
@@ -89,16 +88,16 @@ height: 20vh;
   left: 67.5vw;
   color: white;
   top: 58.7vh;
- z-index: 1000;
+  z-index: 1000;
 }
 .blockButton{
-position: fixed;
+  position: fixed;
   height: 30vh;
   width: 30%;
   left: 67.5vw;
   top: 29vh;
   color: white;
- z-index: 1000;
+  z-index: 1000;
 }
 
 #blockWhite{
@@ -145,8 +144,8 @@ position: fixed;
 
 #signInBox {
   display: flex;
- align-items: center;
- justify-content: center;
+  align-items: center;
+  justify-content: center;
 }
 
 #actualSignInButton{
