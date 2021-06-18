@@ -18,27 +18,28 @@ const Signin = (props) => {
   const userColor = localStorage.getItem('BELT_COLOR')
   
  
+  // if you  sign in the store will place your user_id into local 
+  // which will get caught as a change to the variable USER_ID in 
+  // use effect's dependency array which reload parts of the page
+  // with the css changed to reflect the belt color of the User
   useEffect(() => {
     return history.push('/')
   }, [USER_ID])
 
-
-
-
+  // Handles the user clicking sign in by catching their name and
+  // password from the state. If there's a problem with their login
+  // the Errorbox component will be revealed showing the user what 
+  // details they left out
 
   const handleOnClickUser = async (e) => {
     e.preventDefault()
-    dispatch(signIn(username, password))
-     
-    
+    dispatch(signIn(username, password))   
   }
- 
-  // const handleGuestSubmit = async (e) => {
-  //   e.preventDefault()
-  //   dispatch(signIn("Demo", "password"))
-  //   localStorage.setItem("UPDATE_NAV", "UPDATE")
 
-  // }
+  // Will work the same as the handle user clicker but will put in
+  // premade credentials allowing someone to see how the site behaves
+  // with an authorized user
+  
   const handleOnClickGuest = async (e) => {
     e.preventDefault()
     dispatch(signIn("Demo", "password"))
@@ -90,7 +91,6 @@ const Signin = (props) => {
           >
           sign in</Button>
       </Form>
-
     </Box>
   );
 }
