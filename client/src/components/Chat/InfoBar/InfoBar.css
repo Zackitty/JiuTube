@@ -11,8 +11,8 @@
   left: 67.5vw;
   top: 26.5vh;
   right:10vw;
- z-index: 1000;
- box-shadow: 0px 5px 5px 0px black;
+  z-index: 1000;
+  box-shadow: 0px 5px 5px 0px black;
 }
 
 
@@ -53,16 +53,16 @@ background-color: black
 .leftInnerContainerWhite{
   color: black
 }
- .leftInnerContainerBlue{
+.leftInnerContainerBlue{
    color: white;
  }
 .leftInnerContainerPurple{
   color: white
 }
- .leftInnerContainerBrown{
+.leftInnerContainerBrown{
    color: white;
  }
-  .leftInnerContainerBlack{
+.leftInnerContainerBlack{
     color: white;
   }
 

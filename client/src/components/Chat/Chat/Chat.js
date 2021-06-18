@@ -30,7 +30,9 @@ const Chat = ({ location }) => {
 
 
  
-
+// Anytime the url changes the user's id is taken out of local storage
+// and their information is saved to the state as well as the sockets
+// start up and emit to the server the user's information
   useEffect(() => {
     const USER_ID = localStorage.getItem('USER_ID')
     if(USER_ID !== null){
@@ -38,25 +40,29 @@ const Chat = ({ location }) => {
       .then( res=> res.json())
       .then(data => setName(data.username))
     fetch(`${apiUrl}/users/${USER_ID}`)
-    .then( res=> res.json())
-    .then(data => setName(data.username))
+      .then( res=> res.json())
+      .then(data => setName(data.username))
     fetch(`${apiUrl}/users/${USER_ID}`)
-    .then( res=> res.json())
-    .then(data => setAvatar(data.avatar))
+      .then( res=> res.json())
+      .then(data => setAvatar(data.avatar))
   }
     
     socket = io(ENDPOINT);
-   console.log('mayor for mayor for mayor')
     socket.emit('join_room', { username: name, room: room, userID: USER_ID })
   }, [ENDPOINT]);
     
 
   const USER_ID = localStorage.getItem('USER_ID')
+
+  // Upon signing in parts of the chat will need to reload to reflect
+  // the state changes to the css selectors
   useEffect(() => {
     return history.push('/')
   }, [USER_ID])
 
-  
+  // As soon as a message is recieved from the serverside sockets
+  // set the state to have that message place all previous messages
+  // Also set users that are in the room
   useEffect(() => {
     socket.on('message', message => {
       setMessages(messages => [ ...messages, message ]);
@@ -70,13 +76,18 @@ const Chat = ({ location }) => {
    
 }, []);
 
+// If there's a message in the state, emit the message to the backend
+// via sockets but also send a server request to the API route to
+// save the message and its user to the SQL database so it can be
+// used to create a persistant chat with the ability to see previous
+// messages in case the user logs out or reloads
   const sendMessage = async (event) => {
     event.preventDefault();
     const USER_ID = localStorage.getItem('USER_ID')
     if(message) {
    
     const data = {text: message, user: name, room: room, belt_color: belt_color, avatar: avatar, blocks: blocks, user_id: USER_ID}
-    console.log(data)
+
     socket.emit('send_message', data, () => setMessage(''));
     const formData = new FormData();
     formData.append("message", message);
@@ -89,11 +100,11 @@ const Chat = ({ location }) => {
       body: formData,
     })
     .then(response => response.json())
-.then(result => {
-  console.log('Success:', result);
-})
-.catch(error => {
-  console.error('Error:', error);
+    .then(result => {
+    console.log('Success:', result);
+    })
+    .catch(error => {
+    console.error('Error:', error);
 });
   }
 }

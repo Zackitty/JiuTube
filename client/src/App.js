@@ -9,7 +9,7 @@ import { useSelector } from 'react-redux';
 function App() {
   
     
- 
+//  creates routes for front end components
   return (
     <BrowserRouter>
         <Switch>

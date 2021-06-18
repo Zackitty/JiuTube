@@ -7,8 +7,9 @@ import './InfoBar.css';
 
 const InfoBar = ({ room }) =>{
 
-  
-  const { belt_color } = useSelector(state => state.currentUser)
+// Take room name from the props and use the belt color from the 
+// store to change the color of the info bar
+const { belt_color } = useSelector(state => state.currentUser)
 
 
 

@@ -10,8 +10,6 @@
   border-radius: 10px;
   padding: 5%;
   width: 22.9vw;
-  
-
   font-size: 1.2em;
 }
 
@@ -20,8 +18,8 @@ input:focus, textarea:focus, select:focus{
 }
 
 .buttonnull, .buttonWhite, .buttonBlue, .buttonPurple, .buttonBrown, .buttonBlack {
- display: flex;
- position: fixed;
+  display: flex;
+  position: fixed;
   text-transform: uppercase;
   padding: 20px;
   left: 91.8vw;

@@ -91,10 +91,6 @@ return (
         </Layer>
       )}
     </Box>
-    //   :   <Popup trigger={<button className={`button${userColor}`} onClick={noUserHandler}>
-    //       Send</button>} position="center">
-    //   <div>Please Sign Up</div>
-    // </Popup>
   }
   </form>
 )}

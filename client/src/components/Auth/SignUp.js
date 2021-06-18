@@ -41,7 +41,7 @@ const SignUp = (props) => {
     localStorage.setItem("UPDATE_NAV", "UPDATE")
     return history.push(`/`);
   }
-
+// Destructured from props
   const { toggleLast } = props
   return (
 
