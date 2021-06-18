@@ -6,8 +6,10 @@ import { useHistory} from 'react-router-dom'
 const SignOut = (props) => {
 const dispatch = useDispatch();
 let history = useHistory()
-console.log('')
 const UPDATE_NAV = localStorage.getItem("UPDATE_NAV")
+
+// Will dispatch the signout function from the store and then reload
+// elements that will change based on authentication 
 const handleLogOut = async(e) => {
   e.preventDefault()
   localStorage.removeItem(UPDATE_NAV);

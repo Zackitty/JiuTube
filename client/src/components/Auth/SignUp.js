@@ -20,29 +20,28 @@ const SignUp = (props) => {
   const dispatch = useDispatch();
   let history = useHistory()
   const handleFileUpload = async (e) => {
-
- 
+    // Configures AWS Cloud Technology to allow users to store pictures
     const config = {
         bucketName: 'jiutubeawsbucket',
         region: 'us-east-2',
         accessKeyId: process.env.AWS_ACCESS_KEY_ID,
         secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
     }
+
     const file = e.target.files[0]
-  
     S3FileUpload.uploadFile(file, config)
     .then(data => setMediaUrl(data.location))
     .catch(err => console.error(err))
   }
+  // Dispatches Signup function from the Redux Store 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
     dispatch(signUp(username, fullname, email, belt_color,
-  affiliation, password, mediaurl))
-  localStorage.setItem("UPDATE_NAV", "UPDATE")
-  return history.push(`/`);
- 
+    affiliation, password, mediaurl))
+    localStorage.setItem("UPDATE_NAV", "UPDATE")
+    return history.push(`/`);
   }
+
   const { toggleLast } = props
   return (
 

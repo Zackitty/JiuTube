@@ -1,6 +1,5 @@
 import React, {useEffect } from 'react';
 import { BrowserRouter, Switch, Route, NavLink, useHistory} from 'react-router-dom';
-import UserList from './components/Auth/UsersList';
 import AlertDismissible from "./components/Auth/AlertDismissible"
 import SignUp from './components/Auth/SignUp'
 import Navbar from "./components/Global/Navbar"

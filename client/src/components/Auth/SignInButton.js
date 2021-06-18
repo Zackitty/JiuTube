@@ -17,19 +17,23 @@ const SignInButton = (props) => {
   
 
 
-
+// If user is authenticated and no longer has the the key in their redux
+// store  saying they need to sign in set to true, this component will 
+// automatically close due to the variable in the dependency array
   useEffect(() => {
     if (!needSignIn) {
       close()
     }
   }, [needSignIn])
 
+
   const close = () => {
     setShowIn(false)
     setShowUp(false)
   }
 
-  
+  // Will toggle whether the button will show that they can press login
+  // or sign in
   const toggleLast = () => {
     if (!showIn && !showUp) {
       setShowUp(false)
