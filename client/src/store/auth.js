@@ -58,9 +58,7 @@ export const signUp = (username, fullname, email, belt_color,
     formData.append("affiliation", affiliation)
     formData.append("password", password)
     formData.append("mediaurl", mediaurl)
-    // if (profPic !== "") {
-    //   formData.append("profPic", profPic, `${firstName}-profpic`)
-    // }
+ 
 
     const response = await fetch(`${apiUrl}/users/signup`, {
       method: 'post',
@@ -101,21 +99,6 @@ export const signOut = () => async (dispatch) => {
   localStorage.removeItem(BELT_COLOR);
   dispatch(removeUser())
 }
-// export const fetchBlocks = () => async dispatch => {
-//   const user =  localStorage.getItem(USER_ID);
-//   const response = await fetch(`${apiUrl}/${user}`)
-//   if (!response.ok) {
-//     throw response;
-//   }
-//   const data = await response.json()
-//   dispatch(getBlocks(data))
-// }
-
-
-// export const getBlocks = (data) => async dispatch => ({
-//      type: GET_BLOCKS,
-//     data
-//   })
 
 export const addBlock = (user_id, blocked_id) => async dispatch => {
   
@@ -123,9 +106,6 @@ export const addBlock = (user_id, blocked_id) => async dispatch => {
   formData.append("id", user_id)
   formData.append("blocked_id", blocked_id)
   
-  // if (profPic !== "") {
-  //   formData.append("profPic", profPic, `${firstName}-profpic`)
-  // }
   const response2 = await fetch(`${apiUrl}/blocks`, {
     method: 'post',
     body: formData
@@ -139,20 +119,7 @@ export const addBlock = (user_id, blocked_id) => async dispatch => {
   if (!response.ok) {
     throw response;
   }
-  // const blocks = await response.json()
-  // dispatch(setBlock(blocked_id, blocks));
-
 }
-
-// export const setBlock= (blocked_id, blocks) => ({
-//   type: ADD_BLOCK,
-//   blocked_id,
-//   blocks
-
-// })
-
-
-
 
 //ACTION CREATOR FUNCTIONS
 export const setUser = (access_token, id, belt_color, blocks) => ({
@@ -160,7 +127,6 @@ export const setUser = (access_token, id, belt_color, blocks) => ({
   access_token,
   id: Number(id),
   belt_color,
-  // blocks
 });
 
 export const handleAuthErrors = (errJSON) => ({
@@ -184,7 +150,6 @@ export default function reducer(state = { needSignIn: true, belt_color: 'White'}
         id: action.id,
         needSignIn: false,
         belt_color: action.belt_color,
-        // blocks: action.blocks
       }
     }
     case AUTH_ERROR: {
@@ -192,24 +157,15 @@ export default function reducer(state = { needSignIn: true, belt_color: 'White'}
         needSignIn: true,
         authErrors: action.errJSON['errors'],
         belt_color: 'White',
-        // blocks: []
       }
     }
     case REMOVE_USER: {
       return {
         needSignIn: true,
         belt_color: 'White',
-        // blocks: []
       }
     }
-    // case GET_BLOCKS: {
-    //  return action.data
-    // }
-    // case ADD_BLOCK: {
-    //   return {
-    //     blocks: [...action.blocks, action.block_id]
-    //   }
-    // }
+
     default: return state;
   }
 }
