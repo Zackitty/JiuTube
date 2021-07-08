@@ -51,12 +51,16 @@ const Signin = (props) => {
   return (
     <Box id="signInBox" align="center" pad="large">
       <div>
+        {/* if you click this will this will toggle the sign in each time to say sign up 
+        sign in everytime it is toggled*/}
         don't have an account? <SignInButton id="actualSignIn" label="sign up!" onClickProp={toggleLast}  />
       </div>
       {/* if authErrors, show Error Box */}
       {authErrors && <ErrorBox />}
       <Box margin="small">
         <Form >
+          {/*if you're just looking to test out the app this will login
+          with seeder data*/}
           <Button
             type="submit"
             plain={false}
@@ -68,6 +72,8 @@ const Signin = (props) => {
             sign in as guest</Button>
         </Form>
       </Box>
+      {/* Take values from the User input event and set them  
+       to the state */}
       <Form id="bottomForm">
         <FormField
           name="username"
@@ -81,6 +87,11 @@ const Signin = (props) => {
           type="password"
           value={password}
           onChange={e => setPassword(e.target.value)} />
+          {/* On the event of a user click take the values from the state
+          and make an API call to server to check if the user exists and if so
+          create a JWT Token and set the user's information to the store
+          and local storage to give them access to the chat and display
+          their belt color in the CSS selectors*/}
         <Button
           type="submit"
           plain={false}

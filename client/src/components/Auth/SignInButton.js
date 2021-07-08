@@ -63,8 +63,9 @@ const SignInButton = (props) => {
           onEsc={() => close()}
           onClickOutside={() => close()}
         >
+          {/* toggle whether the sign in or sign up modal is shown */}
           {showIn ?
-            (
+                    (
               <Signin toggleLast={toggleLast} />
             ) : (
               <SignUp toggleLast={toggleLast} />

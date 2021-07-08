@@ -9,7 +9,8 @@ let history = useHistory()
 const UPDATE_NAV = localStorage.getItem("UPDATE_NAV")
 
 // Will dispatch the signout function from the store and then reload
-// elements that will change based on authentication 
+// elements that will change based on authentication and remove JWT and
+// user information from the store and localstorage
 const handleLogOut = async(e) => {
   e.preventDefault()
   localStorage.removeItem(UPDATE_NAV);

@@ -27,7 +27,10 @@ const SignUp = (props) => {
         accessKeyId: process.env.AWS_ACCESS_KEY_ID,
         secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
     }
-
+    //  take the file  from the event of a user uploading a file and
+    // uploads it to the AWS cloud bucket and sets the URL to the state
+    // so that it can be sent to the server and stored in the sql database
+    // to be displayed when the user chats
     const file = e.target.files[0]
     S3FileUpload.uploadFile(file, config)
     .then(data => setMediaUrl(data.location))
