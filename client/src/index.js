@@ -20,7 +20,7 @@ ReactDOM.render(
       <Grommet theme={theme}>
         <App />
       </Grommet>
-      </PersistGate>d
+      </PersistGate>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')
