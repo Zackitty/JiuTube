@@ -43,7 +43,7 @@
     "twitch-player": "^2.0.2",
     "video.js": "^7.8.4"
   },
-  "scripts": {
+  "scripts": {g
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
