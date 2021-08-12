@@ -50,7 +50,7 @@ const Chat = ({ location }) => {
     socket = io(ENDPOINT);
     socket.emit('join_room', { username: name, room: room, userID: USER_ID })
   }, [ENDPOINT]);
-    d
+    
 
   const USER_ID = localStorage.getItem('USER_ID')
 
