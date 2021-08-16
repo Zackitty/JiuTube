@@ -24,6 +24,6 @@ ENV SQLALCHEMY_ECHO=True
 ENV SECRET_KEY=lkasjdf09ajsdkfljalsiorj12n3490re9485309irefvn,u90818734902139489230
 
 EXPOSE 8000
-ad
+
 # Run flask environment
 CMD gunicorn --worker-class eventlet -w 1 app:app
