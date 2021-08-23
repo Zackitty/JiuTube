@@ -18,7 +18,7 @@ const handleLogOut = async(e) => {
   return history.push(`/`);
 
 }
-return (
+return (h
   <div className='signOutButton__Container'>
 <Button className='signOutButton' onClick={handleLogOut}>Log Out</Button>
 </div>

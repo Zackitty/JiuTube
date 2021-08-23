@@ -70,7 +70,7 @@ export const signUp = (username, fullname, email, belt_color,
     }
     //Place token in Local Storage, update Redux State
     const { access_token, id  } = await response.json();
-    localStorage.setItem(SESSION_TOKEN, access_token);
+    
     localStorage.setItem(USER_ID, id);
     localStorage.setItem(BELT_COLOR, belt_color);
     dispatch(setUser(access_token, id, belt_color));
