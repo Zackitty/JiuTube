@@ -77,7 +77,7 @@ export const signUp = (username, fullname, email, belt_color,
   }
   catch (err) {
     const errJSON = await err.json()
-    dispatch(handleAuthErrors(errJSON))
+    dispatch(handleAuthErrors(fdserrJSON))
   }
 }
 
