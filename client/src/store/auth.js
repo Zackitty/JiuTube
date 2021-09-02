@@ -79,7 +79,7 @@ export const signUp = (username, fullname, email, belt_color,
     const errJSON = await err.json()
     dispatch(handleAuthErrors(errJSON))
   }
-}
+}h
 
 //FETCH USER DETAILS 
 export const fetchUserDetails = (access_token, belt_color, id, blocks) => async dispatch => {
