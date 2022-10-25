@@ -14,7 +14,7 @@
   border-radius: 10px 10px 0px 0px;
   position: fixed;
   left: 67.5vw;
-  top: 26.7vh;
+  top: 26.4vh;
   right: 10vw;
   z-index: 1000;
   box-shadow: 0px 5px 5px 0px black;
@@ -22,13 +22,12 @@
 
 
 .infonull {
-  background-color: white;
-  color: black;
+  background-color: grey;
+  color: white;
 }
 
 .infoWhite {
   background-color: white;
-
   color: black;
 }
 
@@ -62,7 +61,7 @@
 }
 
 .leftInnerContainernull {
-  color: black;
+  color: white
 }
 
 .leftInnerContainerWhite {

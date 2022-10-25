@@ -21,8 +21,8 @@ select:focus {
 
 
 .buttonnull {
-  background: white;
-  color: black;
+  background: gray;
+  color: white;
 }
 
 .buttonWhite {
@@ -184,7 +184,7 @@ select:focus {
     text-align: center;
     text-justify: center;
     justify-content: center;
-    line-height: 40px;
+    line-height: 48px;
     height: 51px;
     width: 6.2%;
   }
