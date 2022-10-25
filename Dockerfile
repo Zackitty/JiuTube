@@ -1,4 +1,4 @@
-FROM nikolaik/python-nodejs:python3.8-nodejs14 as base
+FROM nikolaik/python-nodejs:3.10.8-nodejs14 as base
 
 WORKDIR /var/www
 COPY . .
