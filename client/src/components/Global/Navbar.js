@@ -23,7 +23,7 @@ const NavBar = (props) => {
             </img>
 
 
-            <div className='logo'>The Jiu-Tube</div>
+            <div className='logo'><p>The Jiu-Tube</p></div>
 
 
             <img id='JiuJitsuPic2'

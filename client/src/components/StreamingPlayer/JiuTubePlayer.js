@@ -32,7 +32,7 @@ const JiuTubePlayer = () => {
     <div className="VideoPlayer__Container">
       <div>
         <iframe className="VideoPlayer"
-          src="https://player.twitch.tv/?channel=zacherydevelopergi&parent=thejiutube.herokuapp.com"
+          src="https://player.twitch.tv/?channel=zacherydeveloper&parent=thejiutube.herokuapp.com"
           height="<height>"
           width="<width>"
           frameborder="<frameborder>"

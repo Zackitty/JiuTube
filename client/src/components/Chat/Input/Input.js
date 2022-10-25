@@ -53,7 +53,7 @@ const Input = ({ setMessage, sendMessage, message }) => {
 
   return (
 
-    <form className="form">
+    <form className="form" id="input-form">
       {/* Onchange whatever the user types will be set to the state and
       on a keypress sevent if the user has their id in local storage 
       the message will go through the SendMessage Function prop but
@@ -69,9 +69,11 @@ const Input = ({ setMessage, sendMessage, message }) => {
 
 
       {USER_ID ?
-        <button className={`button${belt_color}`} onClick={e =>
+      <div id="input-button-wrapper">
+        <button id="input-button" className={`button${belt_color}`} onClick={e =>
           sendMessage(e)}>
           Send</button>
+          </div>
         :
 
         <Box>
@@ -79,9 +81,10 @@ const Input = ({ setMessage, sendMessage, message }) => {
       the message through the sendMessage function prop it will toggle
       the signup/sign in modal so that the user can sign in or sign up
       and start participating in the chat*/}
-          <div onClick={noUserHandler}>
+          <div id="input-button-wrapper"onClick={noUserHandler}>
             <button
               label={'Sign In'}
+              id="input-button"
               className={`button${belt_color}`}
               onClick={() => { toggleLast() }} >Send</button>
           </div>

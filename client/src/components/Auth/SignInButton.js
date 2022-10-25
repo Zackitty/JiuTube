@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Box, Layer } from 'grommet';
 import './auth.css';
 import Signin from './Signin';
 import SignUp from './SignUp';
+import Button from '@mui/material/Button';
 
 const SignInButton = (props) => {
 
@@ -20,7 +21,7 @@ const SignInButton = (props) => {
     if (!needSignIn) {
       close()
     }
-  }, [needSignIn])
+  }, [needSignIn, showIn])
 
 
   const close = () => {
@@ -48,12 +49,19 @@ const SignInButton = (props) => {
 
   return (
     <Box>
-
-      <button
-        label={'Sign In'}
+  <Button
+        sx={{
+          color: 'white',
+          backgroundColor: 'black',
+          border: 3,
+          borderColor: 'red',
+          borderRadius: '20px',
+            '&:hover': { backgroundColor: 'red', color: 'black'}
+          }}
+        variant="contained"
         className={'signInButton'}
-        onClick={() => { onClickProp ? onClickProp() : toggleLast() }} >Sign In!</button>
-
+        onClick={() => { onClickProp ? onClickProp() : toggleLast() }} ><p className="sign-in-text">{props.buttonLabel ? props.buttonLabel : 'SIGN IN'}</p></Button>
+        
       {(showIn || showUp) && (
         <Layer
           onEsc={() => close()}

@@ -1,10 +1,12 @@
-import React, { useState, useDispatch, useSelector } from 'react';
-import { Select, Box, Form, Button, FormField } from 'grommet';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Select, Box, Form, FormField } from 'grommet';
 import S3FileUpload from 'react-s3';
 import SignInButton from './SignInButton'
 import ErrorBox from '../../Grommet/ErrorBox'
 import { signUp } from '../../store/auth'
 import { useHistory } from 'react-router-dom'
+import Button from '@mui/material/Button';
 
 const SignUp = (props) => {
   const [username, setUserName] = useState('')
@@ -47,12 +49,13 @@ const SignUp = (props) => {
   return (
 
     <Box align="center" pad="large">
-      <div>
-        Already have an account? <SignInButton label="sign in here!" onClickProp={toggleLast} />
+      <div id="already-account">
+        <p>
+          Already have an account? </p><SignInButton label="sign in here!" buttonLabel={'SIGN IN!'} onClickProp={toggleLast} />
       </div>
       {/* if authErrors, show Error Box */}
       {authErrors && <ErrorBox />}
-      <Form
+      <Form id="signup-form"
         onSubmit={handleSubmit}>
         <FormField
           name="user_name"
@@ -96,10 +99,18 @@ const SignUp = (props) => {
           type="file"
           onChange={handleFileUpload} />
         <Button
-          type="submit"
-          plain={false}
-          primary
-          color="#ED2D23">
+          sx={{
+            color: 'white',
+            backgroundColor: 'black',
+            border: 3,
+            borderColor: 'red',
+            borderRadius: '20px',
+            justifySelf: 'center',
+            alignSelf: 'center',
+            '&:hover': { backgroundColor: 'red', color: 'black' }
+          }}
+          variant="contained"
+          className={'signInButton'}>
           sign up</Button>
       </Form>
     </Box>

@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Box, Form, Button, FormField } from 'grommet';
+import { Box, Form, FormField } from 'grommet';
 import { useHistory } from 'react-router-dom'
 import SignInButton from './SignInButton'
 import { signIn } from '../../store/auth'
 import ErrorBox from '../../Grommet/ErrorBox'
+import Button from '@mui/material/Button';
 
 
 const Signin = (props) => {
@@ -52,7 +53,7 @@ const Signin = (props) => {
       <div>
         {/* if you click this will this will toggle the sign in each time to say sign up 
         sign in everytime it is toggled*/}
-        don't have an account? <SignInButton id="actualSignIn" label="sign up!" onClickProp={toggleLast} />
+        don't have an account? <SignInButton id="actualSignIn" label="sign up!" buttonLabel={'SIGN UP!'} onClickProp={toggleLast} />
       </div>
       {/* if authErrors, show Error Box */}
       {authErrors && <ErrorBox />}
@@ -61,14 +62,23 @@ const Signin = (props) => {
           {/*if you're just looking to test out the app this will login
           with seeder data*/}
           <Button
-            type="submit"
-            plain={false}
-            primary
-            color="#ED2D23"
+        sx={{
+          color: 'white',
+          backgroundColor: 'black',
+          border: 3,
+          borderColor: 'red',
+          borderRadius: '20px',
+          width: '170px',
+          height: '50px',
+          whiteSpace: 'nowrap',
+            '&:hover': { backgroundColor: 'red', color: 'black'}
+          }}
+        variant="contained"
+        className={'signInButton'}
             onClick={handleOnClickGuest}
             id="guestButton"
           >
-            sign in as guest</Button>
+            <p className="sign-in-text">sign in as guest</p></Button>
         </Form>
       </Box>
       {/* Take values from the User input event and set them  
@@ -92,14 +102,20 @@ const Signin = (props) => {
           and local storage to give them access to the chat and display
           their belt color in the CSS selectors*/}
         <Button
-          type="submit"
-          plain={false}
-          primary
-          color="#ED2D23"
+        sx={{
+          color: 'white',
+          backgroundColor: 'black',
+          border: 3,
+          borderColor: 'red',
+          borderRadius: '20px',
+            '&:hover': { backgroundColor: 'red', color: 'black'}
+          }}
+        variant="contained"
+        className={'signInButton'}
           onClick={handleOnClickUser}
-          id="actualSignInButton"
+
         >
-          sign in</Button>
+          <p className="sign-in-text">SIGN IN</p></Button>
       </Form>
     </Box>
   );

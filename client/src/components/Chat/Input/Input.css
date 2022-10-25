@@ -7,7 +7,7 @@
 .input {
   border: none;
   border-radius: 10px;
-  padding: 5%;
+  height: 50px;
   width: 22.9vw;
   font-size: 1.2em;
 }
@@ -18,25 +18,6 @@ select:focus {
   outline: none;
 }
 
-.buttonnull,
-.buttonWhite,
-.buttonBlue,
-.buttonPurple,
-.buttonBrown,
-.buttonBlack {
-  display: flex;
-  position: fixed;
-  text-transform: uppercase;
-  padding: 20px;
-  left: 91.8vw;
-  top: 83vh;
-  justify-content: center;
-  border: none;
-  width: 5.6vw;
-  overflow: auto;
-  border-radius: 0px 0px 10px 0px;
-  box-shadow: 1px 1px 1px 1px black;
-}
 
 
 .buttonnull {
@@ -46,7 +27,7 @@ select:focus {
 
 .buttonWhite {
   background: white;
-  color: black
+  color: black;
 }
 
 .buttonBlue {
@@ -67,4 +48,166 @@ select:focus {
 .buttonBlack {
   background: black;
   color: white;
+}
+
+@media screen and (min-width: 1501px) {
+  #input-button-wrapper {
+    display: flex;
+    margin-right: 80%;
+  }
+
+  #input-button {
+    display: flex;
+    align-items: flex;
+    text-align: center;
+    text-justify: center;
+    justify-content: center;
+    height: 5%;
+    line-height: 50px;
+  }
+
+  #input-form>div {
+    height: 100%;
+    width: 20%;
+  }
+
+  .buttonnull,
+.buttonWhite,
+.buttonBlue,
+.buttonPurple,
+.buttonBrown,
+.buttonBlack {
+  display: flex;
+  position: fixed;
+  text-transform: uppercase;
+
+  justify-content: center;
+  border: none;
+  width: 5.6vw;
+  overflow: auto;
+  border-radius: 0px 0px 10px 0px;
+  box-shadow: 1px 1px 1px 1px black;
+}
+}
+
+@media screen and (min-width: 1101px) and (max-width: 1500px) {
+
+  #input-button-wrapper {
+    display: flex;
+    margin-right: 80%;
+  }
+
+  #input-button {
+    display: flex;
+    align-items: flex;
+    text-align: center;
+    text-justify: center;
+    justify-content: center;
+    line-height: 10px;
+    height: 5%;
+  }
+
+  #input-form>div {
+    height: 100%;
+    width: 20%;
+  }
+  .buttonnull,
+  .buttonWhite,
+  .buttonBlue,
+  .buttonPurple,
+  .buttonBrown,
+  .buttonBlack {
+    display: flex;
+    position: fixed;
+    text-transform: uppercase;
+    padding: 20px;
+    justify-content: center;
+    border: none;
+    width: 5.6vw;
+    overflow: auto;
+    border-radius: 0px 0px 10px 0px;
+    box-shadow: 1px 1px 1px 1px black;
+  }
+}
+
+
+@media screen and (max-width: 1100px) {
+  #input-button-wrapper {
+    display: flex;
+    margin-right: 80%;
+  }
+
+  #input-button {
+    display: flex;
+    align-items: flex;
+    text-align: center;
+    text-justify: center;
+    justify-content: center;
+    line-height: 40px;
+    height: 5%;
+    width: 5.5%;
+  }
+
+  #input-form>div {
+    height: 25px;
+    width: 3px;
+  }
+  .buttonnull,
+.buttonWhite,
+.buttonBlue,
+.buttonPurple,
+.buttonBrown,
+.buttonBlack {
+  display: flex;
+  position: fixed;
+  text-transform: uppercase;
+  padding: 0px;
+  justify-content: center;
+  border: none;
+
+  overflow: auto;
+  border-radius: 0px 0px 10px 0px;
+  box-shadow: 1px 1px 1px 1px black;
+}
+}
+
+@media screen and (max-height: 1100px) {
+
+  #input-button-wrapper {
+    display: flex;
+    margin-right: 80%;
+  }
+
+  #input-button {
+    display: flex;
+    align-items: flex;
+    text-align: center;
+    text-justify: center;
+    justify-content: center;
+    line-height: 40px;
+    height: 51px;
+    width: 6.2%;
+  }
+
+  #input-form>div {
+    height: 25px;
+    width: 3px;
+  }
+  .buttonnull,
+.buttonWhite,
+.buttonBlue,
+.buttonPurple,
+.buttonBrown,
+.buttonBlack {
+  display: flex;
+  position: fixed;
+  text-transform: uppercase;
+  padding: 0px;
+  justify-content: center;
+  border: none;
+
+  overflow: auto;
+  border-radius: 0px 0px 10px 0px;
+  box-shadow: 1px 1px 1px 1px black;
+}
 }
