@@ -91,9 +91,9 @@ def user_page(id):
         username = json.get('username')
 
         #validate user submitted data
-        errors = validations_user_details(last_name, first_name)
-        if len(errors) > 0:
-            return {'errors': errors}
+        # errors = validations_user_details(last_name, first_name)
+        # if len(errors) > 0:
+        #     return {'errors': errors}
 
         #get id from json web token
         current_user_id = get_jwt_identity()
