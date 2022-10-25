@@ -18,7 +18,7 @@ class VideoPlayer extends React.Component {
     return (
       <div>
         <div data-vjs-player id="VideoPlayer__Div" >
-          <video  ref={(node) => { this.videoNode = node; }} id="VideoPlayer" className="video-js" />
+          <video ref={(node) => { this.videoNode = node; }} id="VideoPlayer" className="video-js" />
         </div>
       </div>
     );
@@ -27,18 +27,18 @@ class VideoPlayer extends React.Component {
 
 
 
-const  JiuTubePlayer  = () => {
+const JiuTubePlayer = () => {
   return (
     <div className="VideoPlayer__Container">
       <div>
-      <iframe className="VideoPlayer"
-    src="https://player.twitch.tv/?channel=zackittyjiujitsu&parent=thejiutube.herokuapp.com"
-    height="<height>"
-    width="<width>"
-    frameborder="<frameborder>"
-    scrolling="<scrolling>"
-    allowfullscreen="<allowfullscreen>">
-</iframe>  
+        <iframe className="VideoPlayer"
+          src="https://player.twitch.tv/?channel=zacherydeveloper&parent=thejiutube.herokuapp.com"
+          height="<height>"
+          width="<width>"
+          frameborder="<frameborder>"
+          scrolling="<scrolling>"
+          allowfullscreen="<allowfullscreen>">
+        </iframe>
       </div>
     </div>
   );

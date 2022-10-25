@@ -3,16 +3,11 @@ import { withAlert } from 'react-alert'
 import { useSelector } from 'react-redux';
 import './Input.css';
 import { Box, Layer } from 'grommet';
-import { useHistory} from 'react-router-dom'
-import { Button, Alert } from 'react-bootstrap';
-import AlertDismissible from '../../Auth/AlertDismissible'
-import SignInButton from '../../Auth/SignInButton'
+import { useHistory } from 'react-router-dom'
 import Signin from '../../Auth/Signin';
 import SignUp from '../../Auth/SignUp';
 
 const Input = ({ setMessage, sendMessage, message }) => {
-  let history = useHistory()
-  const alert = withAlert()
   const { belt_color } = useSelector(state => state.currentUser)
   const USER_ID = localStorage.getItem('USER_ID')
   const [showIn, setShowIn] = useState(false)
@@ -27,7 +22,7 @@ const Input = ({ setMessage, sendMessage, message }) => {
     if (!needSignIn) {
       close()
     }
-   
+
   }, [needSignIn])
 
   const close = () => {
@@ -35,79 +30,80 @@ const Input = ({ setMessage, sendMessage, message }) => {
     setShowUp(false)
   }
 
-  
+
   const toggleLast = () => {
     if (!showIn && !showUp) {
       setShowUp(false)
       setShowIn(true)
-  
+
     } else if (!showIn && showUp) {
       setShowUp(false)
       setShowIn(true)
-  
+
     } else if (showIn && !showUp) {
       setShowIn(false)
       setShowUp(true)
-  
+
     }
   }
-const noUserHandler = async (e) => {
-  e.preventDefault()
- 
-}
+  const noUserHandler = async (e) => {
+    e.preventDefault()
 
-return (
+  }
 
-  <form className="form">
-  {/* Onchange whatever the user types will be set to the state and
+  return (
+
+    <form className="form">
+      {/* Onchange whatever the user types will be set to the state and
       on a keypress sevent if the user has their id in local storage 
       the message will go through the SendMessage Function prop but
       if their id is not in the storage it will show null  */}
-    <input
-      className="input"
-      type="text"
-      placeholder="Type a message..."
-      value={message}
-      onChange={({ target: { value } }) => setMessage(value)}
-      onKeyPress={event => USER_ID? event.key === 'Enter' ? sendMessage(event) : null : null}
-    />
+      <input
+        className="input"
+        type="text"
+        placeholder="Type a message..."
+        value={message}
+        onChange={({ target: { value } }) => setMessage(value)}
+        onKeyPress={event => USER_ID ? event.key === 'Enter' ? sendMessage(event) : null : null}
+      />
 
-    
-    {USER_ID ?
-    <button className={`button${belt_color}`} onClick={e =>
-    sendMessage(e)}>
-      Send</button>
-      :
-      
-      <Box>
-      {/* if no user_id upon clicking the send utton rather than sending 
+
+      {USER_ID ?
+        <button className={`button${belt_color}`} onClick={e =>
+          sendMessage(e)}>
+          Send</button>
+        :
+
+        <Box>
+          {/* if no user_id upon clicking the send utton rather than sending 
       the message through the sendMessage function prop it will toggle
       the signup/sign in modal so that the user can sign in or sign up
       and start participating in the chat*/}
-     <div  onClick={noUserHandler}>
-      <button
-        label={'Sign In'}
-        className={`button${belt_color}`} 
-        onClick={() => {toggleLast() }} >Send</button>
-        </div>
-        
-      {(showIn || showUp) && (
-        <Layer
-          onEsc={() => close()}
-          onClickOutside={() => close()}
-        >
-          {showIn ?
-            (
-              <Signin toggleLast={toggleLast} />
-            ) : (
-              <SignUp toggleLast={toggleLast} />
-            )
-          }
-        </Layer>
-      )}
-    </Box>
-  }
-  </form>
-)}
+          <div onClick={noUserHandler}>
+            <button
+              label={'Sign In'}
+              className={`button${belt_color}`}
+              onClick={() => { toggleLast() }} >Send</button>
+          </div>
+
+          {(showIn || showUp) && (
+            <Layer
+              onEsc={() => close()}
+              onClickOutside={() => close()}
+            >
+              {showIn ?
+                (
+                  <Signin toggleLast={toggleLast} />
+                ) : (
+                  <SignUp toggleLast={toggleLast} />
+                )
+              }
+            </Layer>
+          )}
+        </Box>
+      }
+    </form>
+  )
+}
 
 export default Input;

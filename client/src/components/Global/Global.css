@@ -1,36 +1,37 @@
-#VC__Container{
-  display:flex; 
+#VC__Container {
+  display: flex;
   align-items: center;
   justify-content: space-around;
   height: 100vh;
   background-color: black;
-  
+
 }
 
-#splash-nav__container{
-width: 100%;
-height: 100%;
-box-shadow:2px 2px 2px 10px grey; 
+#splash-nav__container {
+  width: 100%;
+  height: 100%;
+  box-shadow: 2px 2px 2px 10px grey;
 }
 
-.VC__Container{
+.VC__Container {
   width: 100%;
   height: 100%;
 
 }
 
 .logo__Container {
-display: flex;
-width: 100%;
-justify-content: space-between;
-box-shadow:1px 1px 1px 1px grey; 
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  box-shadow: 1px 1px 1px 1px grey;
 
 }
-.signin__container{
+
+.signin__container {
   display: flex;
   height: 15vh;
   justify-content: flex-end;
-width: 50%;
+  width: 50%;
 }
 
 .nav__container {
@@ -41,20 +42,19 @@ width: 50%;
   align-items: center;
   width: 100%;
   color: white;
-  box-shadow:  2px 2px 10px  #888888;
+  box-shadow: 2px 2px 10px #888888;
 }
 
 #navnull {
   background-color: white;
   color: black;
   box-shadow: 5px 5px 5px 5px gray
-
 }
 
 #navWhite {
   background-color: white;
   color: black;
-  box-shadow:  25px inset #888888;
+  box-shadow: 25px inset #888888;
 }
 
 #navBlue {
@@ -62,9 +62,9 @@ width: 50%;
   color: white;
 }
 
-#navPurple{
-background-color: purple;
-color: white;
+#navPurple {
+  background-color: purple;
+  color: white;
 }
 
 #navBrown {
@@ -81,11 +81,12 @@ color: white;
   display: flex;
   justify-content: center;
   align-items: center;
-  height:8vh;
+  height: 8vh;
   width: 10vw;
 
 }
-.signin__container{
+
+.signin__container {
   width: 25vw;
   background-color: black;
   display: flex;
@@ -100,7 +101,7 @@ color: white;
 
 
 
-#JiuJitsuPic1{
+#JiuJitsuPic1 {
   display: flex;
   width: 100px;
   height: 12.2vh;
@@ -114,27 +115,25 @@ color: white;
 
 
 
-#JiuJitsuPic2{
+#JiuJitsuPic2 {
   display: flex;
   width: 100px;
   height: 12.2vh;
   margin: .5em;
-  border:  black;
+  border: black;
   border-radius: 15px;
   box-shadow: 2px 2px 4px 1px black;
 }
 
-.JiuJitsu__Container{
-  display:flex;
- justify-content: space-around;
- width: 70vw
- 
-
+.JiuJitsu__Container {
+  display: flex;
+  justify-content: space-around;
+  width: 70vw
 }
 
-.logo{
+.logo {
   font-weight: 500;
   font-variant: small-caps slashed-zero;
   line-height: 5;
-  
+
 }

@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { Box, Button, Layer } from 'grommet';
+import { Box, Layer } from 'grommet';
 import './auth.css';
-import { useHistory} from 'react-router-dom'
 import Signin from './Signin';
 import SignUp from './SignUp';
 
@@ -10,16 +9,13 @@ const SignInButton = (props) => {
 
   const [showIn, setShowIn] = useState(false)
   const [showUp, setShowUp] = useState(false)
-  const { label, onClickProp} = props
+  const { onClickProp } = props
   const { needSignIn } = useSelector(state => state.currentUser)
-  let history = useHistory()
-  const USER_ID = localStorage.getItem('USER_ID')
-  
 
 
-// If user is authenticated and no longer has the the key in their redux
-// store  saying they need to sign in set to true, this component will 
-// automatically close due to the variable in the dependency array
+  // If user is authenticated and no longer has the the key in their redux
+  // store  saying they need to sign in set to true, this component will 
+  // automatically close due to the variable in the dependency array
   useEffect(() => {
     if (!needSignIn) {
       close()
@@ -38,26 +34,26 @@ const SignInButton = (props) => {
     if (!showIn && !showUp) {
       setShowUp(false)
       setShowIn(true)
-  
+
     } else if (!showIn && showUp) {
       setShowUp(false)
       setShowIn(true)
-  
+
     } else if (showIn && !showUp) {
       setShowIn(false)
       setShowUp(true)
-  
+
     }
   }
 
   return (
     <Box>
-     
+
       <button
         label={'Sign In'}
         className={'signInButton'}
         onClick={() => { onClickProp ? onClickProp() : toggleLast() }} >Sign In!</button>
-        
+
       {(showIn || showUp) && (
         <Layer
           onEsc={() => close()}
@@ -65,7 +61,7 @@ const SignInButton = (props) => {
         >
           {/* toggle whether the sign in or sign up modal is shown */}
           {showIn ?
-                    (
+            (
               <Signin toggleLast={toggleLast} />
             ) : (
               <SignUp toggleLast={toggleLast} />

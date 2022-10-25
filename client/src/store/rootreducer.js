@@ -1,4 +1,4 @@
-import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
+import { combineReducers } from 'redux';
 import currentUser from './auth'
 import users from './users'
 import chat from './chat'
@@ -10,7 +10,7 @@ import chat from './chat'
 
 const rootReducer = combineReducers({
   currentUser,
-  users, 
+  users,
   chat
   //ADD ADDITIONAL SLICES OF STATE HERE 
 });

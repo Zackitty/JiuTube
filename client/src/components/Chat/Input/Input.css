@@ -2,7 +2,6 @@
   display: flex;
   border-top: 2px solid #D3D3D3;
   width: 28.8vw
-
 }
 
 .input {
@@ -13,11 +12,18 @@
   font-size: 1.2em;
 }
 
-input:focus, textarea:focus, select:focus{
+input:focus,
+textarea:focus,
+select:focus {
   outline: none;
 }
 
-.buttonnull, .buttonWhite, .buttonBlue, .buttonPurple, .buttonBrown, .buttonBlack {
+.buttonnull,
+.buttonWhite,
+.buttonBlue,
+.buttonPurple,
+.buttonBrown,
+.buttonBlack {
   display: flex;
   position: fixed;
   text-transform: uppercase;
@@ -33,28 +39,32 @@ input:focus, textarea:focus, select:focus{
 }
 
 
-.buttonnull{
+.buttonnull {
   background: white;
   color: black;
 }
-.buttonWhite{
-  background:white; 
+
+.buttonWhite {
+  background: white;
   color: black
 }
-.buttonBlue{ 
+
+.buttonBlue {
   background: #2979FF;
   color: white;
 }
 
-.buttonPurple{ 
+.buttonPurple {
   background: purple;
   color: white;
 }
-.buttonBrown{ 
+
+.buttonBrown {
   background: brown;
   color: white;
 }
-.buttonBlack{ 
+
+.buttonBlack {
   background: black;
   color: white;
 }

@@ -7,7 +7,7 @@
   justify-content: center;
   align-items: center;
   max-width: 80%;
-  
+
 }
 
 .messageText {
@@ -62,7 +62,10 @@
 
 
 
-#colorBlack, #colorBlue, #colorPurple, #colorBrown {
+#colorBlack,
+#colorBlue,
+#colorPurple,
+#colorBrown {
   color: white
 }
 
@@ -72,22 +75,22 @@
 
 }
 
-#messageBlue{
+#messageBlue {
   background: #2979FF;
   box-shadow: 1px 1px 1px 1px black;
 }
 
-#messagePurple{
+#messagePurple {
   background: purple;
   box-shadow: 1px 1px 1px 1px black;
 }
 
-#messageBrown{
+#messageBrown {
   background: brown;
   box-shadow: 1px 1px 1px 1px black;
 }
 
-#messageBlack{
+#messageBlack {
   background: black;
   box-shadow: 1px 1px 1px 1px black;
 }
@@ -118,9 +121,8 @@
   border: solid 1.5px;
 }
 
-.otherUserDiv{
+.otherUserDiv {
 
   display: flex;
   flex-direction: row;
 }
-

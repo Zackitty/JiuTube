@@ -1,10 +1,4 @@
-/* TODO Add site wide styles */
-
-/* body {
-  background-color: black;
-} */
-
-#root { 
+#root {
   position: 'relative';
   z-index: 2,
 }

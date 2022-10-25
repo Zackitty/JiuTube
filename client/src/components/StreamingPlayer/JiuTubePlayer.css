@@ -1,23 +1,19 @@
 #VideoPlayer__Div {
-height: 500;
+  height: 500;
   width: 500px;
   box-shadow: 40px 40px;
   margin: 40px;
   border: 20px;
 }
 
-.VideoPlayer{
+.VideoPlayer {
   height: 65vh;
   width: 60vw;
   position: fixed;
   top: 27.5vh;
   left: 4vw;
-  border: 2mm solid grey; 
+  border: 2mm solid grey;
   border-radius: 15px;
   box-shadow: 2px 2px 4px 1px black;
   background-color: black
-}
-
-.VideoPlayer__Container {
- 
 }

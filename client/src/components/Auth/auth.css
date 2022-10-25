@@ -9,9 +9,11 @@
   border: 2px solid #333E48;
   width: 70px;
 }
+
 .signin__holder {
   width: 8vw
 }
+
 .signInButton {
   display: flex;
   justify-content: center;
@@ -25,6 +27,7 @@
   width: 70px;
   height: 40px;
 }
+
 .signin__container {
   width: 100px;
   display: flex;
@@ -35,7 +38,7 @@
   border-radius: 2px;
   line-height: 2px;
   text-decoration: none;
-  font-family: National2,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-family: National2, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 13px;
   font-weight: 500;
   background-color: transparent;
@@ -47,7 +50,7 @@
   background-color: white;
 }
 
-.signOutButton{
+.signOutButton {
   display: flex;
   justify-content: center;
   cursor: pointer;
@@ -59,7 +62,7 @@
   height: 10vh
 }
 
-.signOutButton__Container{
+.signOutButton__Container {
   color: #333E48;
   display: flex;
   align-items: center;
@@ -67,7 +70,7 @@
   border-radius: 2px;
   line-height: 2px;
   text-decoration: none;
-  font-family: National2,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-family: National2, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 1vw;
   font-weight: 500;
   background-color: transparent;
@@ -81,7 +84,7 @@
   height: 20vh;
 }
 
-.exitButton{
+.exitButton {
   position: fixed;
   height: 24vh;
   width: 30%;
@@ -90,7 +93,8 @@
   top: 58.7vh;
   z-index: 1000;
 }
-.blockButton{
+
+.blockButton {
   position: fixed;
   height: 30vh;
   width: 30%;
@@ -100,45 +104,55 @@
   z-index: 1000;
 }
 
-#blockWhite{
+#blockWhite {
   background-color: white;
   color: black;
 }
-#blockBlue{
-  background-color: #2979FF;;
+
+#blockBlue {
+  background-color: #2979FF;
+  ;
   color: white
 }
-#blockPurple{
-  background-color: purple ;
+
+#blockPurple {
+  background-color: purple;
   color: white
 }
-#blockBrown{
+
+#blockBrown {
   background-color: brown;
   color: white;
 }
-#blockBlack{
+
+#blockBlack {
   background-color: black;
   color: white;
 }
 
-#exitWhite{
-  background-color: white ;
+#exitWhite {
+  background-color: white;
   color: black;
 }
-#exitBlue{
-  background-color: #2979FF;;
+
+#exitBlue {
+  background-color: #2979FF;
+  ;
 }
-#exitPurple{
+
+#exitPurple {
   background-color: purple;
   color: white;
 
 }
-#exitBrown{
+
+#exitBrown {
   background-color: brown;
   color: white;
 }
-#exitBlack{
-  background-color: black ;
+
+#exitBlack {
+  background-color: black;
   color: white;
 }
 
@@ -148,14 +162,16 @@
   justify-content: center;
 }
 
-#actualSignInButton{
-  background-color: black 
+#actualSignInButton {
+  background-color: black
 }
-#guestButton{
-  background-color: black 
+
+#guestButton {
+  background-color: black
 }
-#actualSignIn{
-  background-color: black 
+
+#actualSignIn {
+  background-color: black
 }
 
 .StyledBox-sc-13pk1d4-0.gAsOLC {
@@ -164,7 +180,7 @@
 
 }
 
-#bottomForm{
+#bottomForm {
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -1,12 +1,10 @@
-import React, { useState, useDispatch} from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState, useDispatch, useSelector } from 'react';
 import { Select, Box, Form, Button, FormField } from 'grommet';
 import S3FileUpload from 'react-s3';
 import SignInButton from './SignInButton'
 import ErrorBox from '../../Grommet/ErrorBox'
 import { signUp } from '../../store/auth'
-import { uploadFile } from 'react-s3';
-import { useHistory} from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
 const SignUp = (props) => {
   const [username, setUserName] = useState('')
@@ -22,10 +20,10 @@ const SignUp = (props) => {
   const handleFileUpload = async (e) => {
     // Configures AWS Cloud Technology to allow users to store pictures
     const config = {
-        bucketName: 'jiutubeawsbucket',
-        region: 'us-east-2',
-        accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-        secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+      bucketName: 'jiutubeawsbucket',
+      region: 'us-east-2',
+      accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+      secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
     }
     //  take the file  from the event of a user uploading a file and
     // uploads it to the AWS cloud bucket and sets the URL to the state
@@ -33,18 +31,18 @@ const SignUp = (props) => {
     // to be displayed when the user chats
     const file = e.target.files[0]
     S3FileUpload.uploadFile(file, config)
-    .then(data => setMediaUrl(data.location))
-    .catch(err => console.error(err))
+      .then(data => setMediaUrl(data.location))
+      .catch(err => console.error(err))
   }
   // Dispatches Signup function from the Redux Store 
   const handleSubmit = async (e) => {
     e.preventDefault();
     dispatch(signUp(username, fullname, email, belt_color,
-    affiliation, password, mediaurl))
+      affiliation, password, mediaurl))
     localStorage.setItem("UPDATE_NAV", "UPDATE")
     return history.push(`/`);
   }
-// Destructured from props
+  // Destructured from props
   const { toggleLast } = props
   return (
 

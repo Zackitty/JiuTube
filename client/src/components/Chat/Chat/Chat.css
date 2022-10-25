@@ -2,14 +2,14 @@
   display: flex;
   position: fixed;
   left: 67.5vw;
-  top:  26.5vh;
+  top: 26.5vh;
   justify-content: center;
   border-radius: 100px;
   align-items: center;
   height: 65vh;
   width: 30%;
   background-color: #1A1A1D;
-  box-shadow:2px 2px 2px 2px grey;  
+  box-shadow: 2px 2px 2px 2px grey;
 }
 
 .container {
@@ -20,12 +20,12 @@
   border-radius: 10px;
   height: 100%;
   width: 100%;
-  box-shadow:2px 2px 2px 10px grey;  
- 
+  box-shadow: 2px 2px 2px 10px grey;
+
 
 }
 
-.messages{
+.messages {
   padding: 1% 0;
- 
+
 }
