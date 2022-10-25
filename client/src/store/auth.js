@@ -77,12 +77,6 @@ export const signUp = (username, fullname, email, belt_color,
       const errJSON = await err.json()
       dispatch(handleAuthErrors(errJSON))
     }
-    //Place token in Local Storage, update Redux State
-    const { access_token, id  } = await response.json();
-    
-    localStorage.setItem(USER_ID, id);
-    localStorage.setItem(BELT_COLOR, belt_color);
-    dispatch(setUser(access_token, id, belt_color));
   }
 
 //FETCH USER DETAILS 
