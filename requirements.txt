@@ -27,3 +27,4 @@ sanic==20.6.3
 sanic-cors==0.10.0.post3
 eventlet==0.30.0
 
+
