@@ -7,6 +7,7 @@ import ErrorBox from '../../Grommet/ErrorBox'
 import { signUp } from '../../store/auth'
 import { useHistory } from 'react-router-dom'
 import Button from '@mui/material/Button';
+import S3 from 'react-aws-s3';
 
 const SignUp = (props) => {
   const [username, setUserName] = useState('')
@@ -22,17 +23,19 @@ const SignUp = (props) => {
   const handleFileUpload = async (e) => {
     // Configures AWS Cloud Technology to allow users to store pictures
     const config = {
-      bucketName: 'jiutjitsutube',
-      region: 'us-east-2',
+      bucketName: process.env.REACT_APP_BUCKET_NAME,
+      region: process.env.REACT_APP_REGION,
       accessKeyId: process.env.REACT_APP_AWS_ACCESS_KEY_ID,
       secretAccessKey: process.env.REACT_APP_AWS_SECRET_ACCESS_KEY,
     }
+    console.log(config)
     //  take the file  from the event of a user uploading a file and
     // uploads it to the AWS cloud bucket and sets the URL to the state
     // so that it can be sent to the server and stored in the sql database
     // to be displayed when the user chats
     const file = e.target.files[0]
-    S3FileUpload.uploadFile(file, config)
+    const ReactS3Client = new S3(config);
+    ReactS3Client.uploadFile(file, file.name)
       .then(data => setMediaUrl(data.location))
       .catch(err => console.error(err))
   }
@@ -42,7 +45,7 @@ const SignUp = (props) => {
     dispatch(signUp(username, fullname, email, belt_color,
       affiliation, password, mediaurl))
     localStorage.setItem("UPDATE_NAV", "UPDATE")
-    return history.push(`/`);
+    return window.location.reload();
   }
   // Destructured from props
   const { toggleLast } = props
