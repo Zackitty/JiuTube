@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Select, Box, Form, FormField } from 'grommet';
-import S3FileUpload from 'react-s3';
 import SignInButton from './SignInButton'
 import ErrorBox from '../../Grommet/ErrorBox'
 import { signUp } from '../../store/auth'
@@ -28,7 +27,6 @@ const SignUp = (props) => {
       accessKeyId: process.env.REACT_APP_AWS_ACCESS_KEY_ID,
       secretAccessKey: process.env.REACT_APP_AWS_SECRET_ACCESS_KEY,
     }
-    console.log(config)
     //  take the file  from the event of a user uploading a file and
     // uploads it to the AWS cloud bucket and sets the URL to the state
     // so that it can be sent to the server and stored in the sql database
@@ -42,10 +40,10 @@ const SignUp = (props) => {
   // Dispatches Signup function from the Redux Store 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch(signUp(username, fullname, email, belt_color,
+    await dispatch(signUp(username, fullname, email, belt_color,
       affiliation, password, mediaurl))
-    localStorage.setItem("UPDATE_NAV", "UPDATE")
-    return window.location.reload();
+    await localStorage.setItem("UPDATE_NAV", "UPDATE")
+    await window.location.reload();
   }
   // Destructured from props
   const { toggleLast } = props
@@ -102,6 +100,7 @@ const SignUp = (props) => {
           type="file"
           onChange={handleFileUpload} />
         <Button
+          type="submit"
           sx={{
             color: 'white',
             backgroundColor: 'black',

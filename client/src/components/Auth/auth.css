@@ -13,11 +13,11 @@
   color: white;
   font-size: 18px;
   margin-top: 10px;
-    font-family: -apple-system, system-ui, system-ui, "Segoe UI", Roboto, "Helvetica Neue", "Fira Sans", Ubuntu, Oxygen, "Oxygen Sans", Cantarell, "Droid Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Lucida Grande", Helvetica, Arial, sans-serif;
-    font-size: 16px;
-    font-weight: bold;
-    text-align: center;
-  
+  font-family: -apple-system, system-ui, system-ui, "Segoe UI", Roboto, "Helvetica Neue", "Fira Sans", Ubuntu, Oxygen, "Oxygen Sans", Cantarell, "Droid Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+
 }
 
 .signInButton {
@@ -59,15 +59,7 @@
 }
 
 .signOutButton {
-  display: flex;
-  justify-content: center;
-  cursor: pointer;
-  text-decoration: none;
-  color: white;
-  font-size: 13px;
-  font-weight: 500;
-  border: 2px solid #333E48;
-  height: 10vh
+  width: 50px;
 }
 
 .signOutButton__Container {
@@ -83,13 +75,18 @@
   font-weight: 500;
   background-color: transparent;
   justify-content: center;
-  border-width: 2px;
-  border-style: solid;
-  border: 2px solid #333E48;
+
   cursor: pointer;
-  background-color: white;
   width: 20vw;
   height: 20vh;
+}
+
+.signOutButton__Container > button {
+  width: 170px;
+  font-size: 18px;
+  margin-top: 10px;
+  font-weight: bold;
+  font-family: -apple-system, system-ui, system-ui, "Segoe UI", Roboto, "Helvetica Neue", "Fira Sans", Ubuntu, Oxygen, "Oxygen Sans", Cantarell, "Droid Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 .exitButton {
@@ -170,16 +167,16 @@
   justify-content: center;
 }
 
-#signInBox > div {
+#signInBox>div {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-#signInBox > div > div {
-    margin-top: 20px;
- }
+#signInBox>div>div {
+  margin-top: 20px;
+}
 
 #actualSignInButton {
   background-color: black
@@ -211,7 +208,7 @@
   position: fixed;
 }
 
-#already-account > p {
+#already-account>p {
   margin-bottom: 20px;
 }
 

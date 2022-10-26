@@ -69,11 +69,13 @@ const Input = ({ setMessage, sendMessage, message }) => {
 
 
       {USER_ID ?
-      <div id="input-button-wrapper">
-        <button id="input-button" className={`button${belt_color}`} onClick={e =>
-          sendMessage(e)}>
-          Send</button>
+        <Box>
+          <div id="input-button-wrapper">
+            <button id="input-button" className={`button${belt_color}`} onClick={e =>
+              sendMessage(e)}>
+              Send</button>
           </div>
+        </Box>
         :
 
         <Box>
@@ -81,7 +83,7 @@ const Input = ({ setMessage, sendMessage, message }) => {
       the message through the sendMessage function prop it will toggle
       the signup/sign in modal so that the user can sign in or sign up
       and start participating in the chat*/}
-          <div id="input-button-wrapper"onClick={noUserHandler}>
+          <div id="input-button-wrapper" onClick={noUserHandler}>
             <button
               label={'Sign In'}
               id="input-button"

@@ -72,22 +72,22 @@ select:focus {
   }
 
   .buttonnull,
-.buttonWhite,
-.buttonBlue,
-.buttonPurple,
-.buttonBrown,
-.buttonBlack {
-  display: flex;
-  position: fixed;
-  text-transform: uppercase;
+  .buttonWhite,
+  .buttonBlue,
+  .buttonPurple,
+  .buttonBrown,
+  .buttonBlack {
+    display: flex;
+    position: fixed;
+    text-transform: uppercase;
 
-  justify-content: center;
-  border: none;
-  width: 5.6vw;
-  overflow: auto;
-  border-radius: 0px 0px 10px 0px;
-  box-shadow: 1px 1px 1px 1px black;
-}
+    justify-content: center;
+    border: none;
+    width: 5.6vw;
+    overflow: auto;
+    border-radius: 0px 0px 10px 0px;
+    box-shadow: 1px 1px 1px 1px black;
+  }
 }
 
 @media screen and (min-width: 1101px) and (max-width: 1500px) {
@@ -111,6 +111,7 @@ select:focus {
     height: 100%;
     width: 20%;
   }
+
   .buttonnull,
   .buttonWhite,
   .buttonBlue,
@@ -152,23 +153,24 @@ select:focus {
     height: 25px;
     width: 3px;
   }
-  .buttonnull,
-.buttonWhite,
-.buttonBlue,
-.buttonPurple,
-.buttonBrown,
-.buttonBlack {
-  display: flex;
-  position: fixed;
-  text-transform: uppercase;
-  padding: 0px;
-  justify-content: center;
-  border: none;
 
-  overflow: auto;
-  border-radius: 0px 0px 10px 0px;
-  box-shadow: 1px 1px 1px 1px black;
-}
+  .buttonnull,
+  .buttonWhite,
+  .buttonBlue,
+  .buttonPurple,
+  .buttonBrown,
+  .buttonBlack {
+    display: flex;
+    position: fixed;
+    text-transform: uppercase;
+    padding: 0px;
+    justify-content: center;
+    border: none;
+
+    overflow: auto;
+    border-radius: 0px 0px 10px 0px;
+    box-shadow: 1px 1px 1px 1px black;
+  }
 }
 
 @media screen and (max-height: 1100px) {
@@ -193,21 +195,22 @@ select:focus {
     height: 25px;
     width: 3px;
   }
-  .buttonnull,
-.buttonWhite,
-.buttonBlue,
-.buttonPurple,
-.buttonBrown,
-.buttonBlack {
-  display: flex;
-  position: fixed;
-  text-transform: uppercase;
-  padding: 0px;
-  justify-content: center;
-  border: none;
 
-  overflow: auto;
-  border-radius: 0px 0px 10px 0px;
-  box-shadow: 1px 1px 1px 1px black;
-}
+  .buttonnull,
+  .buttonWhite,
+  .buttonBlue,
+  .buttonPurple,
+  .buttonBrown,
+  .buttonBlack {
+    display: flex;
+    position: fixed;
+    text-transform: uppercase;
+    padding: 0px;
+    justify-content: center;
+    border: none;
+
+    overflow: auto;
+    border-radius: 0px 0px 10px 0px;
+    box-shadow: 1px 1px 1px 1px black;
+  }
 }

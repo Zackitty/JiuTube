@@ -48,6 +48,7 @@ export const signIn = (username, password) => async dispatch => {
 export const signUp = (username, fullname, email, belt_color,
   affiliation, password, mediaurl) => async dispatch => {
     try {
+      
       const formData = new FormData();
       formData.append("username", username)
       formData.append("full_name", fullname)
@@ -56,8 +57,7 @@ export const signUp = (username, fullname, email, belt_color,
       formData.append("affiliation", affiliation)
       formData.append("password", password)
       formData.append("mediaurl", mediaurl)
-
-
+    
       const response = await fetch(`${apiUrl}/users/signup`, {
         method: 'post',
         body: formData

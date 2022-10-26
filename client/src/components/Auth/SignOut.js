@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Button } from 'grommet';
+import Button from '@mui/material/Button';
 import { signOut } from '../../store/auth'
 import { useHistory } from 'react-router-dom'
 const SignOut = () => {
@@ -20,7 +20,16 @@ const SignOut = () => {
   }
   return (
     <div className='signOutButton__Container'>
-      <Button className='signOutButton' onClick={handleLogOut}>Log Out</Button>
+      <Button
+        sx={{
+          color: 'white',
+          backgroundColor: 'black',
+          border: 3,
+          borderColor: 'red',
+          borderRadius: '20px',
+          '&:hover': { backgroundColor: 'red', color: 'black' }
+        }}
+        className='signOutButton' onClick={handleLogOut}>Log Out</Button>
     </div>
   )
 }
