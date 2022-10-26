@@ -32,8 +32,9 @@ const Signin = (props) => {
   // details they left out
 
   const handleOnClickUser = async (e) => {
-    e.preventDefault()
-    dispatch(signIn(username, password))
+    await e.preventDefault()
+    await dispatch(signIn(username, password))
+    await window.location.reload();
   }
 
   // Will work the same as the handle user clicker but will put in
@@ -41,10 +42,10 @@ const Signin = (props) => {
   // with an authorized user
 
   const handleOnClickGuest = async (e) => {
-    e.preventDefault()
-    dispatch(signIn("Demo", "password"))
-    localStorage.setItem("UPDATE_NAV", "UPDATE")
-    return history.push('/signin');
+    e.preventDefault();
+    await dispatch(signIn("Demo", "password"))
+    await localStorage.setItem("UPDATE_NAV", "UPDATE")
+    await window.location.reload();
   }
 
 

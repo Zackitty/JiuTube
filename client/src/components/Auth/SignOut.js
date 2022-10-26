@@ -12,10 +12,10 @@ const SignOut = () => {
   // elements that will change based on authentication and remove JWT and
   // user information from the store and localstorage
   const handleLogOut = async (e) => {
-    e.preventDefault()
-    localStorage.removeItem(UPDATE_NAV);
-    dispatch(signOut())
-    return history.push(`/`);
+    await e.preventDefault()
+    await localStorage.removeItem(UPDATE_NAV);
+    await dispatch(signOut())
+    await window.location.reload();
 
   }
   return (
