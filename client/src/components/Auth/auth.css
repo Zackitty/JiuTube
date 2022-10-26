@@ -91,7 +91,7 @@
 
 .exitButton {
   position: fixed;
-  height: 24vh;
+  height: 27vh;
   width: 30%;
   left: 67.5vw;
   color: white;
@@ -101,13 +101,14 @@
 
 .blockButton {
   position: fixed;
-  height: 30vh;
+  height: 22vh;
   width: 30%;
   left: 67.5vw;
-  top: 29vh;
+  top: 37vh;
   color: white;
   z-index: 1000;
 }
+
 
 #blockWhite {
   background-color: white;
