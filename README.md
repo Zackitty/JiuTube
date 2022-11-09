@@ -11,7 +11,7 @@
 ## The User Interface
 The JiuTube is a React.js Full Stack Application with a Flask Backend server that allows users to watch a live streaming Jiujitsu video player while chatting about the matches.
   
-The chat box integrates [Flask-Socketio](https://flask-socketio.readthedocs.io/en/latest/) and [Socket.IO-Client](https://socket.io/docs/v3/client-api/index.html) to send and receieve messages. It uses references store in the [Redux Store](https://redux.js.org/api/store) and in the database via [SQL-Alchemy](https://www.sqlalchemy.org/) to allow users to see previous messages and block message from harmful users.
+The chat box integrates [Flask-Socketio](https://flask-socketio.readthedocs.io/en/latest/) and [Socket.IO-Client](https://socket.io/docs/v3/client-api/index.html) to send and receieve messages. It uses references and stored information in the PostgreSQL database that is queried and dispatched into each slice of state in the [Redux Store](https://redux.js.org/api/store) to allow users to see previous messages and block message from harmful users.
 
 ![Image of Redux Block Working](https://media4.giphy.com/media/EDaalK5jmRLDUenEH6/giphy.gif)
   
@@ -21,7 +21,7 @@ References in the Redux store and in the SQL database also change the state of t
 
 ## Architecture & Technologies
 
-The Full Stack application stores users and messages in a backend SQL database. The Flask-Server takes a RESTFul API call from the React Front-End to make a GET request to use SQL alchemhy to create a query in the database that will create a chat history as you start up the page, and uses SocketIO technology to create a live Chat. The main feature is the video player using OBS to stream to Twitch. It also uses AWS to allow users to have a personal avatar in their chat messages.
+The Full Stack application stores users and messages in a backend SQL database. The Flask-Server takes a RESTFul API call from the React Front-End to make a GET request to the server that uses SQL Alchemy to create a query in the database that will create a chat history as you start up the page, and uses SocketIO technology to create a live Chat. The main feature is the video player using OBS to stream to Twitch. It also uses AWS to allow users to have a personal avatar in their chat messages.
   
 ## The FrontEnd
 
@@ -30,7 +30,7 @@ The application is mainly visual with users viewing the video player and chat al
 ### Frontend Technologies:
 
 #### React & Redux
-I mainly used react functional components to create every part of this applications and have them interact with each other. This made the blocking system very easy to incorporate because I was able to tell certain components to change their logic if information is passed to them saying the user doesn't want to that component to fire. The Redux Store took references from the backend when users signed up for the website to change the state of the CSS selectors creating a entirely different UI for each different user based on their belt color. I used the same technology in how incorporated the blocking system below.
+I mainly used react functional components to create every part of this applications and have them interact with each other. This made the blocking system very easy to incorporate because I was able to tell certain components to change their logic if information is passed to them saying the user doesn't want that component to fire. The Redux Store took references from the backend when users signed up for the website to change the state of the CSS selectors creating a entirely different UI for each different user based on their belt color. I used the same technology in how incorporated the blocking system below.
 ```
 const Message = ({ message: { text, user, avatar, belt_color, user_id }, name, blockedArray }) => {
   
