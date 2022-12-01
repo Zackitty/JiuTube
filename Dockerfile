@@ -9,7 +9,7 @@ RUN ["pip", "install", "-r", "requirements.txt"]
 
 # Build our React App
 RUN ["npm", "install", "--prefix", "client"]
-ENV REACT_APP_BASE_URL=ENV REACT_APP_BASE_URL=https://jiutube..ondigitalocean.app
+ENV REACT_APP_BASE_URL=ENV REACT_APP_BASE_URL=https://jiutube.ondigitalocean.app
 RUN ["npm", "run", "build", "--prefix", "client"]
 
 # Move our react build for Flask to serve
