@@ -1,5 +1,5 @@
 # JiuTube
-*by Zachery Haley* | [Live Site](https://thejiutube.herokuapp.com/)
+*by Zachery Haley* | [Live Site](https://jiutube.onrender.com/)
 
 ### Table of Contents
 - [The User Interface](https://github.com/Zackitty/JiuTube#the-user-interface)
