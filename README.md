@@ -15,7 +15,7 @@ The chat box integrates [Flask-Socketio](https://flask-socketio.readthedocs.io/e
 
 ![Image of Redux Block Working](https://media4.giphy.com/media/EDaalK5jmRLDUenEH6/giphy.gif)
   
-References in the Redux store and in the SQL database also change the state of the UI's CSS switching colors based on the User's belt color without effecting other components of that don't need access to that information or reloading the website.
+References in the Redux store and in the SQL database also change the state of the UI's CSS by switching colors based on the User's belt color without effecting other components of that don't need access to that information or reloading the website.
 
 ![Image of Redux WOrking](https://media4.giphy.com/media/XcJpE33iLgxU0qZRGF/giphy.gif)
 
